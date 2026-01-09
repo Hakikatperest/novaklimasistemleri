@@ -68,6 +68,22 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
+        .btn-search {
+            background-color: #28a745;
+        }
+        
+        .btn-search:hover {
+            background-color: #218838;
+        }
+        
+        .btn-call {
+            background-color: #dc3545;
+        }
+        
+        .btn-call:hover {
+            background-color: #c82333;
+        }
+        
         .section-title {
             text-align: center;
             margin-bottom: 60px;
@@ -100,39 +116,6 @@
             transform: translateX(-50%);
         }
         
-        /* Üst Bilgi Çubuğu */
-        .top-bar {
-            background-color: #f8f9fa;
-            padding: 12px 0;
-            font-size: 14px;
-        }
-        
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .contact-info {
-            display: flex;
-            gap: 25px;
-        }
-        
-        .contact-info i {
-            color: #0066b3;
-            margin-right: 8px;
-        }
-        
-        .social-links a {
-            margin-left: 15px;
-            color: #555;
-            font-size: 18px;
-        }
-        
-        .social-links a:hover {
-            color: #0066b3;
-        }
-        
         /* Header */
         header {
             background-color: white;
@@ -140,26 +123,27 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 15px 0;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
         
         /* Logo Alanı */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            margin-left: -10px; /* Logoyu sola kaydırma */
         }
         
         .logo-item {
             display: flex;
             align-items: center;
-            height: 50px;
+            height: 45px;
         }
         
         .logo-item img {
@@ -170,70 +154,8 @@
         
         .logo-divider {
             width: 1px;
-            height: 40px;
+            height: 35px;
             background-color: #ddd;
-        }
-        
-        /* Sağ Üst Açılır Menü */
-        .user-menu-container {
-            position: relative;
-        }
-        
-        .user-menu-btn {
-            display: flex;
-            align-items: center;
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            color: #333;
-            padding: 8px 12px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        
-        .user-menu-btn:hover {
-            background-color: #f5f5f5;
-        }
-        
-        .user-menu-btn i {
-            margin-left: 8px;
-            font-size: 14px;
-        }
-        
-        .user-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            border-radius: 4px;
-            padding: 10px 0;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
-        }
-        
-        .user-menu-container.active .user-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .user-dropdown a {
-            display: block;
-            padding: 12px 20px;
-            color: #333;
-            transition: all 0.2s ease;
-        }
-        
-        .user-dropdown a:hover {
-            background-color: #f8f9fa;
-            color: #0066b3;
-            padding-left: 25px;
         }
         
         /* Ana Navigasyon */
@@ -308,6 +230,7 @@
             font-size: 24px;
             cursor: pointer;
             color: #333;
+            order: 2; /* Mobil menü butonunu sağa taşıma */
         }
         
         /* Hero Bölümü - Slider */
@@ -384,7 +307,7 @@
             opacity: 0.9;
         }
         
-        /* Slider Kontrolleri */
+        /* Slider Kontrolleri - Sadece noktalar */
         .slider-controls {
             position: absolute;
             bottom: 40px;
@@ -393,8 +316,6 @@
             z-index: 10;
             display: flex;
             justify-content: center;
-            align-items: center;
-            gap: 30px;
         }
         
         .slider-dots {
@@ -416,28 +337,36 @@
             transform: scale(1.2);
         }
         
-        .slider-arrows {
+        /* Arama Formu */
+        .search-form {
             display: flex;
-            gap: 20px;
+            max-width: 500px;
+            margin: 20px auto 0;
+            width: 100%;
         }
         
-        .slider-arrow {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 20px;
-            cursor: pointer;
-            transition: all 0.3s ease;
+        .search-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .search-btn {
+            padding: 14px 25px;
+            border: none;
+            background-color: #28a745;
             color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
         }
         
-        .slider-arrow:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            transform: scale(1.1);
+        .search-btn:hover {
+            background-color: #218838;
         }
         
         /* Hizmetler Bölümü */
@@ -566,6 +495,32 @@
             margin-right: 10px;
             margin-top: 5px;
             font-size: 18px;
+        }
+        
+        /* Harita Konteyneri */
+        .map-container {
+            height: 300px;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .map-placeholder {
+            height: 100%;
+            background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .map-placeholder i {
+            font-size: 60px;
+            margin-bottom: 15px;
         }
         
         /* Keşif Ekibi Bölümü */
@@ -734,17 +689,7 @@
         }
         
         @media (max-width: 768px) {
-            .top-bar .container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            
+            /* Mobil menü düzeni */
             .mobile-menu-btn {
                 display: block;
             }
@@ -774,11 +719,13 @@
             
             .main-nav li {
                 border-bottom: 1px solid #f1f1f1;
+                width: 100%;
             }
             
             .main-nav a {
                 display: block;
                 padding: 15px 0;
+                width: 100%;
             }
             
             .dropdown-content {
@@ -790,6 +737,7 @@
                 border-top: none;
                 padding-left: 20px;
                 display: none;
+                width: 100%;
             }
             
             .dropdown.active .dropdown-content {
@@ -823,6 +771,7 @@
             
             .logo-container {
                 gap: 10px;
+                margin-left: 0;
             }
             
             .logo-item {
@@ -833,31 +782,46 @@
                 height: 30px;
             }
             
-            .user-menu-container {
-                position: static;
+            .slider-controls {
+                bottom: 20px;
             }
             
-            .user-dropdown {
-                left: 0;
-                right: auto;
+            .search-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .search-input, .search-btn {
+                width: 100%;
+                border-radius: 4px;
+            }
+            
+            /* Mobilde genel padding ayarları */
+            .container {
+                padding: 0 20px;
+                overflow-x: hidden;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            /* Genel mobil uyumluluk */
+            body {
+                overflow-x: hidden;
                 width: 100%;
             }
             
-            .slider-controls {
-                bottom: 20px;
-                gap: 15px;
-            }
-            
-            .slider-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 16px;
+            img {
+                max-width: 100%;
+                height: auto;
             }
         }
         
         @media (max-width: 576px) {
             .footer-content {
                 grid-template-columns: 1fr;
+                gap: 30px;
             }
             
             .hero h1 {
@@ -869,7 +833,7 @@
             }
             
             section {
-                padding: 60px 0;
+                padding: 50px 0;
             }
             
             .logo-container {
@@ -881,25 +845,50 @@
             .logo-divider {
                 display: none;
             }
+            
+            .about-badge {
+                width: 100px;
+                height: 100px;
+                bottom: -15px;
+                right: -15px;
+            }
+            
+            .about-badge span:first-child {
+                font-size: 24px;
+            }
+            
+            .about-badge span:last-child {
+                font-size: 14px;
+            }
+            
+            .map-container {
+                height: 250px;
+            }
+        }
+        
+        /* Mobil menü açıkken body scroll'unu engelleme */
+        body.menu-open {
+            overflow: hidden;
+        }
+        
+        /* Mobil menü overlay */
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .menu-overlay.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Üst Bilgi Çubuğu -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="contact-info">
-                <div><i class="fas fa-envelope"></i> mustafa_ozdes33@hotmail.com</div>
-                <div><i class="fas fa-phone"></i> 0324 999 10 74</div>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </div>
-    
     <!-- Header -->
     <header>
         <div class="container">
@@ -939,23 +928,11 @@
                         <li><a href="iletisim.html">İletişim</a></li>
                     </ul>
                 </nav>
-                
-                <!-- Sağ Üst Açılır Menü -->
-                <div class="user-menu-container" id="userMenuContainer">
-                    <button class="user-menu-btn" id="userMenuBtn">
-                        <i class="fas fa-user-circle"></i> Hesabım <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="user-dropdown">
-                        <a href="#"><i class="fas fa-user"></i> Profilim</a>
-                        <a href="#"><i class="fas fa-shopping-cart"></i> Sepetim</a>
-                        <a href="#"><i class="fas fa-heart"></i> Favorilerim</a>
-                        <a href="#"><i class="fas fa-history"></i> Sipariş Geçmişi</a>
-                        <a href="#"><i class="fas fa-cog"></i> Ayarlar</a>
-                        <a href="#"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
-                    </div>
-                </div>
             </div>
         </div>
+        
+        <!-- Mobil Menü Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
     </header>
     
     <!-- Hero Bölümü (Slider) -->
@@ -980,20 +957,19 @@
                 <h1>NOVA KLİMA SİSTEMLERİ</h1>
                 <h2>Isıtma, soğutma, havalandırma ve kontrol çözümleri</h2>
                 <p>Konut, ofis ve endüstriyel kullanım için geliştirilmiş ticari ve bireysel tip klima cihazlarımız ile her türlü iklim koşulu için çözümler üretiyoruz</p>
-                <a href="iletisim.html" class="btn">Hemen Teklif Al</a>
+                
+                <!-- Arama Formu -->
+                <div class="search-form">
+                    <input type="text" class="search-input" placeholder="Ürün veya hizmet ara...">
+                    <button class="search-btn">
+                        <i class="fas fa-search"></i> Ara
+                    </button>
+                </div>
             </div>
         </div>
         
-        <!-- Slider Kontrolleri -->
+        <!-- Slider Kontrolleri - Sadece noktalar -->
         <div class="slider-controls">
-            <div class="slider-arrows">
-                <div class="slider-arrow" id="prevSlide">
-                    <i class="fas fa-chevron-left"></i>
-                </div>
-                <div class="slider-arrow" id="nextSlide">
-                    <i class="fas fa-chevron-right"></i>
-                </div>
-            </div>
             <div class="slider-dots">
                 <div class="slider-dot active" data-slide="0"></div>
                 <div class="slider-dot" data-slide="1"></div>
@@ -1075,7 +1051,7 @@
                 
                 <div class="about-content">
                     <h3>NOVA Klima Sistemleri ile yaşam alanlarınızı en uygun iklim koşullarına kavuşturun!</h3>
-                    <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri <strong>Mitsubishi Electric</strong>'in yetkili bayisi olarak, müşterilerine üstün kalite ve güvenilirlik sunmaktadır. <strong>25 yıllık deneyimiyle</strong> sektörde fark yaratan <strong>NOVA Klima</strong>, bireysel ve ticari alanlarda ihtiyaca özel klima sistemleri ile yaşam alanlarınıza konfor ve enerji verimliliği getirmeyi amaçlar.</p>
+                    <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri <strong>Mitsubishi Electric</strong>'in yetkili bayisi olarak, müşterilerine üstün kalite ve güvenilirlik sunmaktadır. <strong>25 yıllık deneyimiyle</strong> sektörde fark yaratan <strong>NOVA Klima</strong>, bireysel ve ticeri alanlarda ihtiyaca özel klima sistemleri ile yaşam alanlarınıza konfor ve enerji verimliliği getirmeyi amaçlar.</p>
                     
                     <ul class="features-list">
                         <li><i class="fas fa-check"></i> Yetkili Bayi Güvencesi</li>
@@ -1115,6 +1091,15 @@
                     <h3>Bize Ulaşın</h3>
                     <p>NOVA Klima Sistemleri olarak, müşterilerimizin her türlü soru, görüş ve önerilerini değerlendirmekten memnuniyet duyarız. Size en iyi hizmeti sunabilmemiz için lütfen bizimle iletişime geçin.</p>
                     
+                    <!-- Google Harita -->
+                    <div class="map-container">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <h4>Google Harita Konumu</h4>
+                            <p>İşletmemiz bu konumda bulunmaktadır</p>
+                        </div>
+                    </div>
+                    
                     <ul class="features-list">
                         <li><i class="fas fa-map-marker-alt"></i> Viranşehir, Cengiz Topel Cd. HİLAL YAPI KOOP HİLAL SİTESİ A BLOK 29/A, 33340 Mezitli/Mersin</li>
                         <li><i class="fas fa-phone"></i> 0324 999 10 74</li>
@@ -1122,7 +1107,9 @@
                         <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 08:30 - 19:00</li>
                     </ul>
                     
-                    <a href="iletisim.html" class="btn" style="margin-top: 20px;">İletişim Sayfası</a>
+                    <a href="tel:03249991074" class="btn btn-call" style="margin-top: 20px;">
+                        <i class="fas fa-phone"></i> Hemen Ara
+                    </a>
                 </div>
                 
                 <div class="about-img">
@@ -1222,10 +1209,6 @@
             showSlide(currentSlide + 1);
         }
         
-        function prevSlide() {
-            showSlide(currentSlide - 1);
-        }
-        
         // Otomatik slider
         function startSlider() {
             slideInterval = setInterval(nextSlide, 3000); // 3 saniyede bir değişsin
@@ -1234,19 +1217,6 @@
         function stopSlider() {
             clearInterval(slideInterval);
         }
-        
-        // Slider olaylarını başlat
-        document.getElementById('nextSlide').addEventListener('click', () => {
-            stopSlider();
-            nextSlide();
-            startSlider();
-        });
-        
-        document.getElementById('prevSlide').addEventListener('click', () => {
-            stopSlider();
-            prevSlide();
-            startSlider();
-        });
         
         // Dot'lara tıklama
         dots.forEach((dot, index) => {
@@ -1284,7 +1254,7 @@
             
             if (touchEndX > touchStartX + swipeThreshold) {
                 // Sağa kaydırma - önceki slide
-                prevSlide();
+                showSlide(currentSlide - 1);
             }
         }
         
@@ -1292,22 +1262,40 @@
         startSlider();
         
         // Mobil Menü Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mainNav').classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-bars');
-            this.querySelector('i').classList.toggle('fa-times');
-        });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const menuOverlay = document.getElementById('menuOverlay');
         
-        // Sağ üst açılır menü
-        document.getElementById('userMenuBtn').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.getElementById('userMenuContainer').classList.toggle('active');
-        });
+        function toggleMobileMenu() {
+            const isActive = mainNav.classList.contains('active');
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            
+            if (isActive) {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            } else {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.add('fa-times');
+            }
+        }
         
-        // Sayfa tıklanınca açılır menüyü kapat
-        document.addEventListener('click', function() {
-            document.getElementById('userMenuContainer').classList.remove('active');
-        });
+        function closeMobileMenu() {
+            mainNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            
+            // Dropdown'ları kapat
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        menuOverlay.addEventListener('click', closeMobileMenu);
         
         // Dropdown Menü için Mobil Uyumluluk
         const servicesDropdown = document.getElementById('servicesDropdown');
@@ -1315,6 +1303,7 @@
         servicesDropdown.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
+                e.stopPropagation();
                 this.classList.toggle('active');
             }
         });
@@ -1323,16 +1312,37 @@
         document.querySelectorAll('.main-nav a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
-                    document.getElementById('mainNav').classList.remove('active');
-                    document.getElementById('mobileMenuBtn').querySelector('i').classList.remove('fa-times');
-                    document.getElementById('mobileMenuBtn').querySelector('i').classList.add('fa-bars');
-                    
-                    // Dropdown'ları kapat
-                    document.querySelectorAll('.dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
+                    // Dropdown linkleri hariç menüyü kapat
+                    if (!this.parentElement.classList.contains('dropdown') || 
+                        this.nextElementSibling === null) {
+                        closeMobileMenu();
+                    }
                 }
             });
+        });
+        
+        // Arama formu işlemi
+        const searchForm = document.querySelector('.search-form');
+        const searchBtn = document.querySelector('.search-btn');
+        
+        searchBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput.value.trim() !== '') {
+                alert('Arama yapılıyor: ' + searchInput.value);
+                // Gerçek uygulamada burada arama işlemi yapılır
+                // window.location.href = 'arama.html?q=' + encodeURIComponent(searchInput.value);
+            }
+        });
+        
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const searchInput = document.querySelector('.search-input');
+            if (searchInput.value.trim() !== '') {
+                alert('Arama yapılıyor: ' + searchInput.value);
+                // Gerçek uygulamada burada arama işlemi yapılır
+                // window.location.href = 'arama.html?q=' + encodeURIComponent(searchInput.value);
+            }
         });
         
         // Scroll ile Header'a Shadow Ekleme
@@ -1358,6 +1368,11 @@
                     const targetElement = document.querySelector(targetId);
                     
                     if(targetElement) {
+                        // Mobilde menüyü kapat
+                        if (window.innerWidth <= 768) {
+                            closeMobileMenu();
+                        }
+                        
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
@@ -1365,6 +1380,13 @@
                     }
                 }
             });
+        });
+        
+        // Pencere boyutu değiştiğinde mobil menüyü kapat
+        window.addEventListener('resize', function() {
+            if (window.innerWidth > 768) {
+                closeMobileMenu();
+            }
         });
     </script>
 </body>
