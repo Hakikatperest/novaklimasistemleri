@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Hakkımızda - NOVA Klima Sistemleri - Mersin Mitsubishi Electric Yetkili Bayi</title>
-    <meta name="description" content="NOVA Klima Sistemleri hakkında detaylı bilgi. 25+ yıllık deneyim, Mitsubishi Electric yetkili bayisi ve Mersin'de lider klima çözümleri.">
+    <title>Hakkımızda - NOVA Klima Sistemleri</title>
+    <meta name="description" content="NOVA Klima Sistemleri hakkında bilgiler. Mitsubishi Electric'in Mersin'deki yetkili bayisi olarak 25+ yıllık deneyim.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* TEMEL STİLLER */
+        /* Tüm stiller ana sayfadan aynen alındı */
         * {
             margin: 0;
             padding: 0;
@@ -254,284 +254,223 @@
             order: 2;
         }
         
-        /* HAKKIMIZDA ÖZEL BÖLÜMLER */
+        /* HAKKIMIZDA ÖZEL STİLLER */
         .about-hero {
-            background-color: #f8f9fa;
-            padding: 100px 0 60px;
-            width: 100%;
-        }
-        
-        .about-hero-content {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/nova1.webp');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0 80px;
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+            width: 100%;
         }
         
         .about-hero h1 {
-            font-size: 42px;
+            font-size: 48px;
             margin-bottom: 20px;
-            color: #222;
+            font-weight: 700;
         }
         
         .about-hero p {
-            font-size: 18px;
-            color: #555;
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
         
-        .mission-values {
-            background-color: white;
+        /* Misyon Vizyon Bölümü */
+        .mission-vision {
+            background-color: #f8f9fa;
             width: 100%;
         }
         
-        .mission-container {
+        .mission-vision-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 50px;
-            align-items: center;
-            width: 100%;
+            gap: 40px;
+            margin-top: 40px;
         }
         
-        .mission-img {
-            position: relative;
-            width: 100%;
-            height: 500px;
-            overflow: hidden;
+        .mission-box, .vision-box {
+            background-color: white;
+            padding: 40px;
             border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
         }
         
-        .mission-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
+        .mission-box:hover, .vision-box:hover {
+            transform: translateY(-10px);
         }
         
-        .mission-content h3 {
-            font-size: 32px;
-            margin-bottom: 25px;
+        .mission-box i, .vision-box i {
+            font-size: 50px;
+            color: #0066b3;
+            margin-bottom: 20px;
+        }
+        
+        .mission-box h3, .vision-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
             color: #222;
         }
         
-        .mission-content p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #555;
+        /* Değerler Bölümü */
+        .values-section {
+            width: 100%;
         }
         
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             margin-top: 40px;
         }
         
-        .value-item {
-            background-color: #f8f9fa;
+        .value-box {
+            text-align: center;
             padding: 30px;
-            border-radius: 8px;
-            border-left: 4px solid #0066b3;
-        }
-        
-        .value-item h4 {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: #222;
-            display: flex;
-            align-items: center;
-        }
-        
-        .value-item i {
-            color: #0066b3;
-            margin-right: 10px;
-            font-size: 20px;
-        }
-        
-        .history-timeline {
-            background-color: #f8f9fa;
-            width: 100%;
-        }
-        
-        .timeline-container {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-        }
-        
-        .timeline-container:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background-color: #0066b3;
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item {
-            margin-bottom: 50px;
-            position: relative;
-            width: 50%;
-            padding-right: 40px;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(even) {
-            margin-left: 50%;
-            padding-left: 40px;
-            padding-right: 0;
-        }
-        
-        .timeline-content {
             background-color: white;
-            padding: 30px;
             border-radius: 8px;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            position: relative;
+            transition: all 0.3s ease;
         }
         
-        .timeline-content:after {
-            content: '';
-            position: absolute;
-            top: 30px;
-            right: -10px;
-            width: 0;
-            height: 0;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-            border-left: 10px solid white;
+        .value-box:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
-        .timeline-item:nth-child(even) .timeline-content:after {
-            right: auto;
-            left: -10px;
-            border-left: none;
-            border-right: 10px solid white;
+        .value-box i {
+            font-size: 40px;
+            color: #0066b3;
+            margin-bottom: 20px;
         }
         
-        .timeline-year {
-            display: inline-block;
-            background-color: #0066b3;
-            color: white;
-            padding: 8px 20px;
-            border-radius: 20px;
-            font-weight: 600;
-            margin-bottom: 15px;
-        }
-        
-        .timeline-content h4 {
+        .value-box h4 {
             font-size: 22px;
             margin-bottom: 15px;
             color: #222;
         }
         
-        .timeline-content p {
-            color: #555;
+        /* Tarihçe Bölümü */
+        .history-section {
+            background-color: #f8f9fa;
+            width: 100%;
         }
         
-        .timeline-dot {
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+        
+        .timeline:before {
+            content: '';
             position: absolute;
-            top: 30px;
-            right: -15px;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
+            width: 2px;
             background-color: #0066b3;
-            border: 4px solid #f8f9fa;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            margin-bottom: 40px;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .timeline-year {
+            font-weight: 700;
+            font-size: 20px;
+            color: #0066b3;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-item:nth-child(odd):before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: white;
+            border: 4px solid #0066b3;
+            border-radius: 50%;
             z-index: 1;
         }
         
-        .timeline-item:nth-child(even) .timeline-dot {
-            right: auto;
-            left: -15px;
+        .timeline-item:nth-child(even):before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            left: -10px;
+            background-color: white;
+            border: 4px solid #0066b3;
+            border-radius: 50%;
+            z-index: 1;
         }
         
-        .quick-quote {
-            background-color: white;
+        /* Ekibimiz Bölümü */
+        .team-section {
             width: 100%;
         }
         
-        .quote-card {
-            background-color: #f8f9fa;
-            border-radius: 12px;
-            padding: 50px;
-            max-width: 600px;
-            margin: 0 auto;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 40px;
         }
         
-        .quote-card h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid #f1f1f1;
+        }
+        
+        .team-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-member h4 {
+            font-size: 20px;
+            margin-bottom: 5px;
             color: #222;
         }
         
-        .quote-card p {
-            margin-bottom: 30px;
-            color: #555;
-            font-size: 16px;
-        }
-        
-        .quote-btn {
-            background-color: #dc3545;
-            color: white;
-            border: none;
-            padding: 16px 40px;
-            font-size: 18px;
-            font-weight: 600;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .quote-btn:hover {
-            background-color: #c82333;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(220, 53, 69, 0.3);
-        }
-        
-        .quote-btn i {
-            margin-right: 10px;
-        }
-        
-        .popular-searches {
-            background-color: #f8f9fa;
-            width: 100%;
-        }
-        
-        .searches-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .search-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            justify-content: center;
-            margin-top: 30px;
-        }
-        
-        .search-tag {
-            background-color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
+        .team-member p {
+            color: #0066b3;
             font-weight: 500;
-            color: #333;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            border: 1px solid #e9ecef;
-        }
-        
-        .search-tag:hover {
-            background-color: #0066b3;
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 102, 179, 0.2);
+            margin-bottom: 15px;
         }
         
         /* FOOTER */
@@ -643,17 +582,23 @@
         }
         
         /* MOBİL UYUMLULUK */
-        @media (max-width: 992px) {
-            .mission-container {
-                grid-template-columns: 1fr;
+        @media (max-width: 1200px) {
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
             }
-            
-            .mission-img {
-                height: 400px;
+        }
+        
+        @media (max-width: 992px) {
+            .mission-vision-grid {
+                grid-template-columns: 1fr;
             }
             
             .values-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
             
             .footer-content {
@@ -664,40 +609,8 @@
                 display: none;
             }
             
-            .timeline-container:before {
-                left: 30px;
-            }
-            
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 0;
-            }
-            
-            .timeline-item:nth-child(even) {
-                margin-left: 0;
-                padding-left: 70px;
-            }
-            
-            .timeline-dot {
-                left: 21px;
-                right: auto;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-dot {
-                left: 21px;
-            }
-            
-            .timeline-content:after {
-                left: -10px;
-                right: auto;
-                border-left: none;
-                border-right: 10px solid white;
-            }
-            
-            .timeline-item:nth-child(even) .timeline-content:after {
-                left: -10px;
-                border-right: 10px solid white;
+            .about-hero h1 {
+                font-size: 38px;
             }
         }
         
@@ -758,33 +671,31 @@
                 display: block;
             }
             
-            .section-title h2 {
-                font-size: 30px;
+            .timeline:before {
+                left: 31px;
             }
             
-            .about-hero h1 {
-                font-size: 32px;
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
             
-            .mission-img {
-                height: 350px;
+            .timeline-item:nth-child(even) {
+                left: 0;
             }
             
-            .mission-content h3 {
-                font-size: 28px;
+            .timeline-item:nth-child(odd):before, 
+            .timeline-item:nth-child(even):before {
+                left: 21px;
             }
             
-            .quote-card {
-                padding: 30px;
+            .values-grid {
+                grid-template-columns: 1fr;
             }
             
-            .quote-card h3 {
-                font-size: 24px;
-            }
-            
-            .quote-btn {
-                padding: 14px 30px;
-                font-size: 16px;
+            .team-grid {
+                grid-template-columns: 1fr;
             }
             
             .fixed-buttons {
@@ -813,6 +724,18 @@
             section {
                 padding: 60px 0;
             }
+            
+            .about-hero {
+                padding: 100px 0 60px;
+            }
+            
+            .about-hero h1 {
+                font-size: 36px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -825,26 +748,37 @@
                 font-size: 28px;
             }
             
+            .about-hero p {
+                font-size: 16px;
+            }
+            
+            section {
+                padding: 50px 0;
+            }
+            
+            .logo-container {
+                gap: 5px;
+            }
+            
+            .logo-item {
+                height: 40px;
+            }
+            
             .section-title h2 {
                 font-size: 24px;
-            }
-            
-            .mission-content h3 {
-                font-size: 24px;
-            }
-            
-            .value-item {
-                padding: 20px;
-            }
-            
-            .search-tag {
-                padding: 10px 20px;
-                font-size: 14px;
             }
             
             .fixed-buttons {
                 bottom: 60px;
                 right: 15px;
+            }
+            
+            .mission-box, .vision-box {
+                padding: 30px 20px;
+            }
+            
+            .value-box {
+                padding: 25px 20px;
             }
         }
         
@@ -863,43 +797,28 @@
             display: block;
         }
         
-        .content-links {
-            margin: 30px 0;
-            padding: 20px;
-            background-color: #f8f9fa;
+        .about-content-text {
+            max-width: 900px;
+            margin: 0 auto 50px;
+            text-align: center;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .highlight-box {
+            background-color: #0066b3;
+            color: white;
+            padding: 30px;
             border-radius: 8px;
+            margin: 40px 0;
+            text-align: center;
         }
         
-        .content-links h4 {
+        .highlight-box h3 {
+            color: white;
+            font-size: 28px;
             margin-bottom: 15px;
-            color: #222;
-            font-size: 20px;
-        }
-        
-        .content-links ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .content-links li {
-            margin-bottom: 0;
-        }
-        
-        .content-links a {
-            color: #0066b3;
-            font-weight: 500;
-        }
-        
-        .content-links a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .content-links ul {
-                flex-direction: column;
-                gap: 10px;
-            }
         }
     </style>
 </head>
@@ -910,16 +829,16 @@
             <div class="header-container">
                 <!-- Logo Alanı -->
                 <div class="logo-container">
-                    <div class="logo-item">
-                        <a href="index.html">
+                    <a href="index.html">
+                        <div class="logo-item">
                             <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri" id="novaLogo">
-                        </a>
-                    </div>
-                    <div class="logo-item">
-                        <a href="index.html">
+                        </div>
+                    </a>
+                    <a href="index.html">
+                        <div class="logo-item">
                             <img src="images/mitsu-logo.jpeg" alt="Mitsubishi Electric" id="mitsuLogo">
-                        </a>
-                    </div>
+                        </div>
+                    </a>
                 </div>
                 
                 <!-- Menü barında telefon butonu -->
@@ -957,166 +876,194 @@
         <div class="menu-overlay" id="menuOverlay"></div>
     </header>
     
-    <!-- Hakkımızda Hero -->
+    <!-- Hakkımızda Hero Bölümü -->
     <section class="about-hero">
         <div class="container">
-            <div class="about-hero-content">
-                <h1 class="blue-title">NOVA Klima Sistemleri Hakkında</h1>
-                <p>25+ yıllık deneyim, Mitsubishi Electric yetkili bayiliği ve Mersin'de lider klima çözümleri ile yanınızdayız.</p>
-            </div>
+            <h1>Hakkımızda</h1>
+            <p>25+ yıllık deneyimimizle Mitsubishi Electric'in Mersin'deki yetkili bayisi olarak, iklimlendirme sektöründe güvenilir çözümler sunmaktan gurur duyuyoruz.</p>
         </div>
     </section>
     
-    <!-- Vizyon ve Misyon -->
-    <section class="mission-values">
+    <!-- Hakkımızda Detay Bölümü -->
+    <section class="about" id="about-detail">
         <div class="container">
-            <div class="mission-container">
-                <div class="mission-img">
-                    <img src="images/novafabrika.webp" alt="NOVA Klima Fabrika">
+            <div class="section-title">
+                <h2 class="blue-title">NOVA Klima Sistemleri</h2>
+            </div>
+            
+            <div class="about-content-text">
+                <p>NOVA Klima Sistemleri olarak, 25 yılı aşkın süredir iklimlendirme sektöründe faaliyet gösteriyoruz. Mitsubishi Electric'in Mersin'deki yetkili bayisi olarak, hem bireysel hem de kurumsal müşterilerimize en kaliteli klima sistemlerini sunmak için çalışıyoruz.</p>
+                
+                <p>Firmamız, klima sistemleri konusunda uzmanlaşmış bir ekip tarafından yönetilmektedir. Müşteri memnuniyetini her zaman ön planda tutarak, satış sonrası destek hizmetlerimizle de sektörde fark yaratıyoruz. Profesyonel montaj ekibimiz, her türlü mekana uygun klima sistemlerini titizlikle kurmakta ve müşterilerimize uzun yıllar sorunsuz kullanım imkanı sağlamaktadır.</p>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Neden NOVA Klima Sistemleri?</h3>
+                <p>25+ yıllık deneyim, uzman teknik kadro, orijinal yedek parça garantisi ve 7/24 teknik destek hizmetimizle her zaman yanınızdayız.</p>
+            </div>
+            
+            <div class="mission-vision-grid">
+                <div class="mission-box">
+                    <i class="fas fa-bullseye"></i>
+                    <h3>Misyonumuz</h3>
+                    <p>Müşterilerimize en yüksek kalitede iklimlendirme çözümleri sunarak, yaşam ve çalışma alanlarında maksimum konfor ve enerji verimliliği sağlamak. Sektördeki yenilikleri takip ederek, daima en güncel teknolojileri müşterilerimizle buluşturmak.</p>
                 </div>
                 
-                <div class="mission-content">
-                    <h3 class="red-title">Vizyonumuz ve Misyonumuz</h3>
-                    <p><strong>NOVA Klima Sistemleri</strong>, iklimlendirme sektöründe 25 yılı aşkın deneyimiyle, müşterilerine en kaliteli ve en verimli çözümleri sunmayı hedefleyen bir firmadır.</p>
-                    <p>Mitsubishi Electric'in yetkili bayisi olarak, sadece ürün satışı değil, aynı zamanda profesyonel montaj, teknik servis ve danışmanlık hizmetleri sunmaktayız.</p>
-                    <p>Misyonumuz, her müşterimizin ihtiyacına özel çözümler üreterek, enerji verimliliği yüksek, çevre dostu ve uzun ömürlü klima sistemleri ile yaşam ve çalışma alanlarını konforlu hale getirmektir.</p>
-                    
-                    <div class="values-grid">
-                        <div class="value-item">
-                            <h4><i class="fas fa-star"></i> Kalite</h4>
-                            <p>En yüksek kalite standartlarında ürün ve hizmet sunuyoruz.</p>
-                        </div>
-                        <div class="value-item">
-                            <h4><i class="fas fa-shield-alt"></i> Güvenilirlik</h4>
-                            <p>Müşterilerimizin güveni bizim için en değerli varlıktır.</p>
-                        </div>
-                        <div class="value-item">
-                            <h4><i class="fas fa-leaf"></i> Sürdürülebilirlik</h4>
-                            <p>Çevre dostu ve enerji verimli çözümler sunuyoruz.</p>
-                        </div>
-                        <div class="value-item">
-                            <h4><i class="fas fa-headset"></i> Müşteri Memnuniyeti</h4>
-                            <p>Satış sonrası destek ile tam memnuniyet sağlıyoruz.</p>
-                        </div>
-                    </div>
-                    
-                    <!-- İç Sayfa Linkleri -->
-                    <div class="content-links">
-                        <h4>Hizmetlerimizi Keşfedin:</h4>
-                        <ul>
-                            <li><a href="urunlerimiz.html">Tüm Ürünlerimiz</a></li>
-                            <li><a href="hizmetlerimiz.html">Hizmetlerimiz</a></li>
-                            <li><a href="klima-montaji.html">Klima Montajı</a></li>
-                            <li><a href="teknik-servis.html">Teknik Servis</a></li>
-                            <li><a href="iletisim.html">İletişim</a></li>
-                        </ul>
-                    </div>
+                <div class="vision-box">
+                    <i class="fas fa-eye"></i>
+                    <h3>Vizyonumuz</h3>
+                    <p>İklimlendirme sektöründe Mersin ve çevresindeki illerde öncü ve güvenilir marka olmak. Müşteri memnuniyetini en üst düzeyde tutarak, sektördeki büyümemizi sürdürülebilir kılmak ve çevreye duyarlı çözümlerle topluma katkı sağlamak.</p>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Tarihçe -->
-    <section class="history-timeline">
+    <!-- Değerlerimiz Bölümü -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="red-title">Değerlerimiz</h2>
+            </div>
+            
+            <div class="values-grid">
+                <div class="value-box">
+                    <i class="fas fa-handshake"></i>
+                    <h4>Güvenilirlik</h4>
+                    <p>25 yıllık sektör deneyimimizle müşterilerimize her zaman güvenilir hizmet sunuyoruz. Mitsubishi Electric yetkili bayisi olarak orijinal ürün garantisi veriyoruz.</p>
+                </div>
+                
+                <div class="value-box">
+                    <i class="fas fa-users"></i>
+                    <h4>Müşteri Memnuniyeti</h4>
+                    <p>Müşterilerimizin ihtiyaçlarını anlamak ve en uygun çözümleri sunmak için çalışıyoruz. Satış sonrası destek hizmetlerimizle yanınızdayız.</p>
+                </div>
+                
+                <div class="value-box">
+                    <i class="fas fa-leaf"></i>
+                    <h4>Çevre Bilinci</h4>
+                    <p>Enerji verimli ve çevre dostu klima sistemlerini tercih ederek, sürdürülebilir bir gelecek için katkı sağlıyoruz.</p>
+                </div>
+                
+                <div class="value-box">
+                    <i class="fas fa-cogs"></i>
+                    <h4>Kalite</h4>
+                    <p>Ürün seçiminden montaja, bakımdan onarıma kadar tüm süreçlerde en yüksek kalite standartlarını benimsiyoruz.</p>
+                </div>
+                
+                <div class="value-box">
+                    <i class="fas fa-lightbulb"></i>
+                    <h4>Yenilikçilik</h4>
+                    <p>Sektördeki teknolojik gelişmeleri yakından takip ediyor, müşterilerimize en son teknoloji ürünleri sunuyoruz.</p>
+                </div>
+                
+                <div class="value-box">
+                    <i class="fas fa-headset"></i>
+                    <h4>Teknik Destek</h4>
+                    <p>Uzman teknik ekibimizle 7/24 destek sağlıyor, acil durumlarda hızlı müdahale ediyoruz.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Tarihçe Bölümü -->
+    <section class="history-section">
         <div class="container">
             <div class="section-title">
                 <h2 class="blue-title">Tarihçemiz</h2>
-                <p>NOVA Klima Sistemleri'nin yolculuğu</p>
             </div>
             
-            <div class="timeline-container">
+            <div class="timeline">
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">1999</div>
-                        <h4>Kuruluş</h4>
-                        <p>NOVA Klima Sistemleri, Mersin'de iklimlendirme sektöründe hizmet vermek üzere kuruldu.</p>
+                        <p>NOVA Klima Sistemleri, Mersin'de küçük bir klima servisi olarak faaliyete başladı.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
                         <div class="timeline-year">2005</div>
-                        <h4>Mitsubishi Electric İşbirliği</h4>
-                        <p>Dünya devi Mitsubishi Electric ile işbirliği anlaşması imzalayarak yetkili bayi olduk.</p>
+                        <p>Mitsubishi Electric ile distribütörlük anlaşması imzalandı ve yetkili bayi statüsü kazanıldı.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-year">2012</div>
-                        <h4>Fabrika ve Showroom</h4>
-                        <p>Viranşehir'deki modern fabrika ve showroomumuzu hizmete açtık. Görselde gördüğünüz <strong>novafabrika.webp</strong> fotoğrafı bu tesisimizi göstermektedir.</p>
+                        <div class="timeline-year">2010</div>
+                        <p>Firma büyüyerek yeni showroom ve depo alanına taşındı. Teknik personel sayısı artırıldı.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-year">2018</div>
-                        <h4>Teknolojik Altyapı</h4>
-                        <p>Son teknoloji klima sistemleri için gerekli altyapı ve ekipman yatırımlarını tamamladık.</p>
+                        <div class="timeline-year">2015</div>
+                        <p>VRF sistemleri ve endüstriyel klima çözümleri alanında uzmanlaşıldı. Büyük ölçekli projelerde yer alınmaya başlandı.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
-                    <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <div class="timeline-year">2023</div>
-                        <h4>25. Yıl</h4>
-                        <p>25. yılımızı kutladık ve binlerce mutlu müşteriye ulaşmanın gururunu yaşadık.</p>
+                        <div class="timeline-year">2020</div>
+                        <p>Online satış kanalları oluşturuldu ve dijital pazarlama stratejileri geliştirildi. Müşteri portföyü genişletildi.</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2024</div>
+                        <p>25. yılını kutlayan NOVA Klima Sistemleri, Mersin'in en güvenilir klima firması olarak hizmet vermeye devam ediyor.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Popüler Aramalar -->
-    <section class="popular-searches">
+    <!-- Ekibimiz Bölümü -->
+    <section class="team-section">
         <div class="container">
             <div class="section-title">
-                <h2 class="red-title">Popüler Aramalar</h2>
-                <p>Müşterilerimizin en çok sorduğu konular</p>
+                <h2 class="red-title">Uzman Ekibimiz</h2>
             </div>
             
-            <div class="searches-container">
-                <p>Mersin'de <strong>klima montajı</strong>, <strong>VRF sistemleri</strong>, <strong>inverter klima</strong> ve <strong>Mitsubishi Electric bayisi</strong> arayanlar için doğru adrestesiniz. Müşterilerimiz genellikle <strong>enerji verimliliği yüksek klima</strong>, <strong>ticari klima çözümleri</strong> ve <strong>merkezi iklimlendirme sistemleri</strong> hakkında bilgi almak için bize ulaşıyor.</p>
-                <p>Özellikle <strong>Mersin klima servisi</strong>, <strong>klima bakımı</strong> ve <strong>periyodik kontrol</strong> hizmetlerimiz yoğun ilgi görüyor. <strong>Havalandırma sistemleri</strong>, <strong>ısı pompası</strong> ve <strong>endüstriyel soğutma</strong> çözümlerimiz de ticari müşterilerimiz tarafından sıkça araştırılıyor.</p>
-                
-                <div class="search-tags">
-                    <span class="search-tag">Mersin klima bayisi</span>
-                    <span class="search-tag">Mitsubishi Electric klima</span>
-                    <span class="search-tag">İnverter klima fiyatları</span>
-                    <span class="search-tag">Klima montajı Mersin</span>
-                    <span class="search-tag">VRF klima sistemleri</span>
-                    <span class="search-tag">Ticari klima çözümleri</span>
-                    <span class="search-tag">Enerji verimli klima</span>
-                    <span class="search-tag">Klima bakım ve onarım</span>
-                    <span class="search-tag">Merkezi iklimlendirme</span>
-                    <span class="search-tag">Endüstriyel soğutma</span>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team1.webp" alt="Teknik Müdür">
+                    </div>
+                    <h4>Ahmet Yılmaz</h4>
+                    <p>Teknik Müdür</p>
+                    <p>15 yıllık klima sistemleri deneyimi</p>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Hızlı Teklif Kartı -->
-    <section class="quick-quote">
-        <div class="container">
-            <div class="quote-card">
-                <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Logo" style="max-width: 200px; margin-bottom: 20px;">
-                <h3 class="blue-title">Hızlı Teklif Alın</h3>
-                <p>Klima ihtiyaçlarınız için profesyonel çözümler sunuyoruz. Ücretsiz keşif ve teknik danışmanlık hizmetimizden yararlanın.</p>
-                <a href="tel:03249991074" class="quote-btn">
-                    <i class="fas fa-phone"></i> Hemen Ara: 0324 999 10 74
-                </a>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team2.webp" alt="Satış Müdürü">
+                    </div>
+                    <h4>Mehmet Demir</h4>
+                    <p>Satış Müdürü</p>
+                    <p>12 yıllık satış ve pazarlama deneyimi</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team3.webp" alt="Servis Sorumlusu">
+                    </div>
+                    <h4>Ali Kaya</h4>
+                    <p>Servis Sorumlusu</p>
+                    <p>10 yıllık teknik servis deneyimi</p>
+                </div>
+                
+                <div class="team-member">
+                    <div class="team-img">
+                        <img src="images/team4.webp" alt>Proje Mühendisi</p>
+                    <p>8 yıllık proje yönetimi deneyimi</p>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer style="width: 100%;">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col footer-logo">
@@ -1129,17 +1076,17 @@
                     <ul class="footer-links">
                         <li><a href="index.html">Ana Sayfa</a></li>
                         <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                        <li><a href="#">Referanslarımız</a></li>
+                        <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4 class="footer-title">Ürünlerimiz</h4>
+                    <h4 class="footer-title">Hizmetlerimiz</h4>
                     <ul class="footer-links">
-                        <li><a href="urunlerimiz.html#bireysel">Bireysel Klimalar</a></li>
-                        <li><a href="urunlerimiz.html#profesyonel">Profesyonel Klimalar</a></li>
-                        <li><a href="urunlerimiz.html#vrf">VRF Klima Sistemleri</a></li>
-                        <li><a href="urunlerimiz.html#isitma">Isıtma Çözümleri</a></li>
+                        <li><a href="klima-montaji.html">Klima Montajı</a></li>
+                        <li><a href="bakim-onarim.html">Bakım & Onarım</a></li>
+                        <li><a href="teknik-servis.html">Teknik Servis</a></li>
+                        <li><a href="hizmetlerimiz.html#kesif">Keşif Hizmeti</a></li>
                     </ul>
                 </div>
                 
@@ -1231,6 +1178,13 @@
                         closeMobileMenu();
                     }
                 }
+            });
+        });
+        
+        // Logo butonlarına tıklanıldığında anasayfaya git
+        document.querySelectorAll('.logo-item').forEach(logo => {
+            logo.addEventListener('click', function() {
+                window.location.href = 'index.html';
             });
         });
     </script>
