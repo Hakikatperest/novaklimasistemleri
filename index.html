@@ -451,7 +451,7 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
-            gap: 25px;
+            gap: 20px;
             width: 100%;
         }
         
@@ -463,10 +463,12 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
-            height: 320px; /* Tüm kartlar aynı boyutta */
+            height: 350px; /* Tüm kartlar eşit boyutta */
             cursor: pointer;
             perspective: 1000px;
             width: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card-inner {
@@ -478,6 +480,7 @@
             transform-style: preserve-3d;
             border-radius: 8px;
             overflow: hidden;
+            flex-grow: 1;
         }
         
         .service-card.flipped .service-card-inner {
@@ -492,9 +495,11 @@
             backface-visibility: hidden;
             border-radius: 8px;
             overflow: hidden;
+            display: flex;
+            flex-direction: column;
         }
         
-        /* KART ÖN YÜZÜ */
+        /* KART ÖN YÜZÜ - ESKİ HALİNE GETİRİLDİ */
         .service-card-front {
             display: flex;
             flex-direction: column;
@@ -558,82 +563,76 @@
         }
         
         .service-content {
-            padding: 25px 20px;
+            padding: 30px 20px;
             position: relative;
             z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-end;
-            height: 100%;
+            flex-grow: 1;
         }
         
         .service-icon {
-            font-size: 36px;
+            font-size: 40px;
             color: white !important;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
         
         .service-content h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
+            font-size: 22px;
+            margin-bottom: 15px;
             text-align: center;
             color: white !important;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            width: 100%;
         }
         
         .service-content p {
             margin-bottom: 0;
             text-align: center;
-            font-size: 14px;
-            line-height: 1.4;
+            font-size: 15px;
+            line-height: 1.5;
             color: white !important;
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            width: 100%;
         }
         
-        /* KART ARKA YÜZÜ - TAMAMEN GÜNCELLENDİ */
+        /* KART ARKA YÜZÜ - GÜNCELLENDİ */
         .service-card-back {
             background-color: #0066b3;
             color: white;
             transform: rotateY(180deg);
-            padding: 25px 20px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
             text-align: center;
-            backface-visibility: visible !important;
-            -webkit-backface-visibility: visible !important;
-            position: relative;
-            z-index: 2;
-            overflow: hidden;
-            border-radius: 8px;
         }
         
         .service-card-back h3 {
             color: white;
             margin-bottom: 15px;
-            font-size: 20px;
+            font-size: 22px;
             font-weight: 700;
             width: 100%;
             text-align: center;
         }
         
         .product-description {
-            margin-bottom: 15px;
-            font-size: 14px;
-            line-height: 1.5;
+            margin-bottom: 20px;
+            font-size: 15px;
+            line-height: 1.6;
             opacity: 0.95;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-grow: 1;
             text-align: center;
             padding: 0 10px;
-            max-height: 100px;
-            overflow-y: auto;
+            flex-grow: 1;
         }
         
         .product-description p {
@@ -643,11 +642,11 @@
         }
         
         .all-products-text {
-            font-size: 15px;
+            font-size: 16px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             color: #fff;
-            padding: 10px 0;
+            padding: 12px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             width: 100%;
@@ -658,9 +657,8 @@
             background-color: white;
             color: #0066b3;
             font-weight: 700;
-            padding: 10px 20px;
-            font-size: 14px;
-            margin-top: auto;
+            padding: 14px 30px;
+            font-size: 16px;
             border: none;
             border-radius: 4px;
             cursor: pointer;
@@ -668,26 +666,14 @@
             width: auto;
             display: inline-block;
             text-decoration: none;
+            margin-top: auto;
+            min-width: 160px;
         }
         
         .service-card-back .btn:hover {
             background-color: #f8f9fa;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-        }
-        
-        /* KART ÖN YÜZÜ için düzenleme */
-        .service-card-front {
-            backface-visibility: hidden;
-            -webkit-backface-visibility: hidden;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        /* Tüm kartlar için yükseklik ayarı */
-        .service-card, .service-card-front, .service-card-back {
-            height: 100%;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
         /* HAKKIMIZDA BÖLÜMÜ */
@@ -946,11 +932,20 @@
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
             }
+            
+            .service-card {
+                height: 340px;
+            }
         }
         
         @media (max-width: 992px) {
             .services-grid {
                 grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .service-card {
+                height: 320px;
             }
             
             .footer-content {
@@ -973,13 +968,26 @@
                 display: none;
             }
             
-            .product-description {
-                font-size: 13px;
-                padding: 0 5px;
+            .service-content h3 {
+                font-size: 20px;
+            }
+            
+            .service-content p {
+                font-size: 14px;
             }
             
             .service-card-back h3 {
-                font-size: 18px;
+                font-size: 20px;
+            }
+            
+            .product-description {
+                font-size: 14px;
+            }
+            
+            .service-card-back .btn {
+                padding: 12px 24px;
+                font-size: 15px;
+                min-width: 140px;
             }
         }
         
@@ -1050,10 +1058,11 @@
             
             .services-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
             }
             
             .service-card {
-                height: 300px; /* Mobilde biraz daha küçük */
+                height: 300px;
             }
             
             .section-title h2 {
@@ -1124,13 +1133,48 @@
                 padding: 16px;
             }
             
+            .service-content {
+                padding: 25px 15px;
+            }
+            
+            .service-icon {
+                font-size: 35px;
+                margin-bottom: 15px;
+            }
+            
+            .service-content h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+            
+            .service-content p {
+                font-size: 13px;
+            }
+            
             .service-card-back {
-                padding: 20px 15px;
+                padding: 25px 15px;
+            }
+            
+            .service-card-back h3 {
+                font-size: 18px;
+                margin-bottom: 10px;
             }
             
             .product-description {
-                font-size: 12px;
-                max-height: 90px;
+                font-size: 13px;
+                margin-bottom: 15px;
+            }
+            
+            .all-products-text {
+                font-size: 14px;
+                margin-bottom: 20px;
+                padding: 10px 0;
+            }
+            
+            .service-card-back .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+                min-width: 120px;
             }
             
             /* MOBİL PERFORMANS */
@@ -1147,7 +1191,15 @@
         @media (max-width: 576px) {
             .services-grid {
                 grid-template-columns: 1fr;
-                gap: 20px;
+                gap: 15px;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+            
+            .service-card {
+                height: 280px;
+                max-width: 100%;
+                margin: 0 auto;
             }
             
             .footer-content {
@@ -1206,25 +1258,38 @@
                 right: 15px;
             }
             
-            .service-card {
-                height: 280px;
-                max-width: 100%;
-                margin: 0 auto;
+            .service-content {
+                padding: 20px 15px;
+            }
+            
+            .service-icon {
+                font-size: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .service-content h3 {
+                font-size: 17px;
+                margin-bottom: 8px;
+            }
+            
+            .service-content p {
+                font-size: 12px;
+                line-height: 1.4;
             }
             
             .service-card-back {
-                padding: 15px 10px;
+                padding: 20px 15px;
             }
             
             .service-card-back h3 {
-                font-size: 16px;
-                margin-bottom: 10px;
+                font-size: 17px;
+                margin-bottom: 8px;
             }
             
             .product-description {
-                font-size: 11px;
-                margin-bottom: 10px;
-                max-height: 80px;
+                font-size: 12px;
+                margin-bottom: 12px;
+                line-height: 1.4;
             }
             
             .all-products-text {
@@ -1235,7 +1300,8 @@
             
             .service-card-back .btn {
                 padding: 8px 16px;
-                font-size: 12px;
+                font-size: 13px;
+                min-width: 110px;
             }
         }
         
