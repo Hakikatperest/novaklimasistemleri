@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>NOVA Klima Sistemleri - Mersin Mitsubishi Electric Yetkili Bayi</title>
     <meta name="description" content="NOVA Klima Sistemleri, Mitsubishi Electric'in Mersin'deki yetkili bayisi olarak klima, ısıtma ve havalandırma çözümleri sunmaktadır.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -13,12 +13,18 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; /* Mobilde tıklama efektini kaldır */
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
         }
         
         html {
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased; /* Yazı kalitesini iyileştir */
+            -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
         
@@ -27,9 +33,9 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch; /* Mobilde smooth scroll */
-            text-rendering: optimizeLegibility; /* Yazı render optimizasyonu */
-            will-change: scroll-position; /* Performans iyileştirme */
+            -webkit-overflow-scrolling: touch;
+            text-rendering: optimizeLegibility;
+            width: 100%;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -53,10 +59,12 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+            overflow: hidden;
         }
         
         section {
             padding: 80px 0;
+            position: relative;
         }
         
         .btn {
@@ -70,21 +78,12 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            will-change: transform; /* Animasyon performansı */
         }
         
         .btn:hover {
             background-color: #004d8c;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .btn-call {
-            background-color: #dc3545;
-        }
-        
-        .btn-call:hover {
-            background-color: #c82333;
         }
         
         .section-title {
@@ -120,12 +119,11 @@
             transform: translateX(-50%);
         }
         
-        /* ANİMASYONLU BAŞLIKLAR - PERFORMANS İYİLEŞTİRMELERİ */
+        /* ANİMASYONLU BAŞLIKLAR */
         .slide-in-title {
             opacity: 0;
             transform: translateX(-50px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
-            will-change: transform, opacity;
+            transition: all 0.8s ease;
         }
         
         .slide-in-title.active {
@@ -136,8 +134,7 @@
         .slide-in-from-right {
             opacity: 0;
             transform: translateX(50px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform, opacity;
+            transition: all 0.8s ease;
         }
         
         .slide-in-from-right.active {
@@ -148,8 +145,7 @@
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            will-change: transform, opacity;
+            transition: all 0.8s ease;
         }
         
         .fade-in-up.active {
@@ -166,10 +162,6 @@
             color: #0066b3 !important;
         }
         
-        .green-title {
-            color: #28a745 !important;
-        }
-        
         /* HEADER */
         header {
             background-color: white;
@@ -178,21 +170,22 @@
             top: 0;
             z-index: 1000;
             padding: 10px 0;
-            transform: translateZ(0); /* GPU hızlandırma */
-            backface-visibility: hidden; /* Render problemi çözümü */
+            width: 100%;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
         }
         
-        /* LOGO ALANI - Yan yana */
+        /* LOGO ALANI */
         .logo-container {
             display: flex;
             align-items: center;
             gap: 10px;
+            flex-shrink: 0;
         }
         
         .logo-item {
@@ -207,7 +200,7 @@
             object-fit: contain;
         }
         
-        /* TELEFON ARAMA BUTONU - Menü barı */
+        /* TELEFON ARAMA BUTONU */
         .header-phone-button {
             display: flex;
             align-items: center;
@@ -313,7 +306,7 @@
             order: 2;
         }
         
-        /* HERO BÖLÜMÜ - SLIDER */
+        /* HERO BÖLÜMÜ */
         .hero {
             position: relative;
             height: 100vh;
@@ -321,6 +314,7 @@
             overflow: hidden;
             color: white;
             text-align: center;
+            width: 100%;
         }
         
         .hero-slider {
@@ -329,7 +323,6 @@
             left: 0;
             width: 100%;
             height: 100%;
-            transform: translateZ(0); /* GPU hızlandırma */
         }
         
         .slide {
@@ -340,11 +333,8 @@
             height: 100%;
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* Paralaks efekti */
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
-            transform: translateZ(0);
-            will-change: opacity;
         }
         
         .slide.active {
@@ -371,16 +361,15 @@
             justify-content: center;
             align-items: center;
             padding: 0 20px;
+            width: 100%;
         }
         
-        /* HERO BAŞLIĞI - beyaz ve gölgeli */
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: 700;
             color: white !important;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7), 
-                         0 0 20px rgba(0, 102, 179, 0.5);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
             letter-spacing: 1px;
         }
         
@@ -421,7 +410,7 @@
             margin-right: 10px;
         }
         
-        /* SLIDER KONTROLLERİ - Sadece noktalar */
+        /* SLIDER KONTROLLERİ */
         .slider-controls {
             position: absolute;
             bottom: 40px;
@@ -451,9 +440,11 @@
             transform: scale(1.2);
         }
         
-        /* HİZMETLER BÖLÜMÜ */
+        /* HİZMETLER BÖLÜMÜ - KARTLAR */
         .services {
             background-color: #f8f9fa;
+            width: 100%;
+            overflow: hidden;
         }
         
         /* HİZMETLER GRID - 5x2 düzeni */
@@ -461,6 +452,7 @@
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 25px;
+            width: 100%;
         }
         
         /* KART STİLLERİ - GÜNCELLENDİ */
@@ -471,11 +463,11 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
-            height: 280px;
+            height: 320px; /* Tüm kartlar aynı boyutta */
             cursor: pointer;
             transform-style: preserve-3d;
             perspective: 1000px;
-            will-change: transform; /* Animasyon performansı */
+            width: 100%;
         }
         
         .service-card-inner {
@@ -483,9 +475,8 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.8s;
             transform-style: preserve-3d;
-            backface-visibility: hidden;
         }
         
         .service-card.flipped .service-card-inner {
@@ -502,7 +493,7 @@
             overflow: hidden;
         }
         
-        /* KART ÖN YÜZÜ - GÜNCELLENDİ */
+        /* KART ÖN YÜZÜ */
         .service-card-front {
             display: flex;
             flex-direction: column;
@@ -566,13 +557,13 @@
         }
         
         .service-content {
-            padding: 20px;
+            padding: 25px 20px;
             position: relative;
-            z-index: 2; /* Gölgenin üstünde görünmesi için */
+            z-index: 2;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-end;
             height: 100%;
         }
         
@@ -600,7 +591,7 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
-        /* KART ARKA YÜZÜ STİLİ */
+        /* KART ARKA YÜZÜ - GÜNCELLENDİ */
         .service-card-back {
             background-color: #0066b3;
             color: white;
@@ -615,23 +606,32 @@
         
         .service-card-back h3 {
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 22px;
         }
         
-        .service-card-back .product-description {
+        .product-description {
             margin-bottom: 20px;
-            font-size: 14px;
-            line-height: 1.5;
-            opacity: 0.9;
+            font-size: 15px;
+            line-height: 1.6;
+            opacity: 0.95;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
         }
         
-        .service-card-back .all-products-text {
+        .product-description p {
+            margin-bottom: 0;
+        }
+        
+        .all-products-text {
             font-size: 16px;
             font-weight: 600;
             margin-bottom: 25px;
             color: #fff;
-            padding: 10px 0;
+            padding: 12px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             width: 100%;
@@ -643,6 +643,7 @@
             font-weight: 700;
             padding: 12px 25px;
             font-size: 15px;
+            margin-top: auto;
         }
         
         .service-card-back .btn:hover {
@@ -657,16 +658,19 @@
             grid-template-columns: repeat(2, 1fr);
             gap: 50px;
             align-items: center;
+            width: 100%;
         }
         
         .about-img {
             position: relative;
+            width: 100%;
         }
         
         .about-img img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            height: auto;
         }
         
         .about-badge {
@@ -724,11 +728,13 @@
         .faq-section {
             background-color: #fff;
             padding: 80px 0;
+            width: 100%;
         }
         
         .faq-container {
             max-width: 800px;
             margin: 0 auto;
+            width: 100%;
         }
         
         .faq-item {
@@ -736,6 +742,7 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            width: 100%;
         }
         
         .faq-question {
@@ -748,6 +755,7 @@
             font-weight: 600;
             font-size: 18px;
             transition: all 0.3s ease;
+            width: 100%;
         }
         
         .faq-question:hover {
@@ -773,6 +781,7 @@
             overflow: hidden;
             background-color: white;
             transition: all 0.3s ease;
+            width: 100%;
         }
         
         .faq-answer.active {
@@ -784,11 +793,14 @@
             margin-bottom: 0;
         }
         
-        /* FOOTER */
+        /* FOOTER - PERFORMANS İYİLEŞTİRMELERİ */
         footer {
             background-color: #222;
             color: #ddd;
             padding-top: 80px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
         }
         
         .footer-content {
@@ -796,6 +808,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin-bottom: 60px;
+            width: 100%;
         }
         
         .footer-logo h3 {
@@ -858,6 +871,7 @@
             padding: 25px 0;
             text-align: center;
             font-size: 15px;
+            width: 100%;
         }
         
         /* SABİT BUTONLAR */
@@ -889,7 +903,7 @@
             transform: scale(1.1);
         }
         
-        /* MOBİL UYUMLULUK - PERFORMANS İYİLEŞTİRMELERİ */
+        /* MOBİL UYUMLULUK */
         @media (max-width: 1200px) {
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -917,18 +931,13 @@
                 font-size: 24px;
             }
             
-            .slide {
-                background-attachment: scroll; /* Mobilde paralaks kaldır */
-            }
-            
-            /* Menüdeki telefon butonunu gizle */
             .header-phone-button {
                 display: none;
             }
         }
         
         @media (max-width: 768px) {
-            /* MOBİL MENÜ DÜZENİ */
+            /* MOBİL MENÜ */
             .mobile-menu-btn {
                 display: block;
             }
@@ -942,12 +951,10 @@
                 background-color: white;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 padding: 80px 30px 30px;
-                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                transition: right 0.4s ease;
                 z-index: 1001;
                 overflow-y: auto;
-                -webkit-overflow-scrolling: touch;
                 justify-content: flex-start;
-                will-change: right; /* Animasyon performansı */
             }
             
             .main-nav.active {
@@ -987,7 +994,7 @@
                 display: block;
             }
             
-            /* MOBİL PERFORMANS İYİLEŞTİRMELERİ */
+            /* MOBİL GENEL */
             .hero {
                 padding: 100px 0;
                 height: auto;
@@ -999,7 +1006,7 @@
             }
             
             .service-card {
-                height: 260px;
+                height: 300px; /* Mobilde biraz daha küçük */
             }
             
             .section-title h2 {
@@ -1037,35 +1044,22 @@
             
             .hero h1 {
                 font-size: 36px;
-                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7), 
-                             0 0 15px rgba(0, 102, 179, 0.5);
+                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
             }
             
-            /* MOBİLDE GENEL PADDING AYARLARI */
             .container {
                 padding: 0 15px;
-                overflow-x: hidden;
             }
             
             section {
                 padding: 60px 0;
             }
             
-            /* GENEL MOBİL UYUMLULUK */
             body {
-                overflow-x: hidden;
                 width: 100%;
-                -webkit-tap-highlight-color: transparent;
-                touch-action: pan-y; /* Yatay kaydırmayı engelle */
+                overflow-x: hidden;
             }
             
-            img {
-                max-width: 100%;
-                height: auto;
-                -webkit-user-drag: none; /* Mobilde sürükleme engeli */
-            }
-            
-            /* MOBİLDE BAŞLIK BOYUTLARI */
             .hero h2 {
                 font-size: 20px;
             }
@@ -1074,7 +1068,6 @@
                 font-size: 26px;
             }
             
-            /* MOBİLDE FAQ DÜZENİ */
             .faq-question {
                 padding: 16px;
                 font-size: 16px;
@@ -1084,17 +1077,14 @@
                 padding: 16px;
             }
             
-            /* MOBİL KAYDIRMA PERFORMANSI */
-            * {
-                -webkit-overflow-scrolling: touch !important;
+            /* MOBİL PERFORMANS */
+            html, body {
+                max-width: 100vw;
+                overflow-x: hidden;
             }
             
-            .services-grid {
-                transform: translateZ(0); /* GPU hızlandırma */
-            }
-            
-            .service-card {
-                transform: translateZ(0);
+            .container, section, footer, header {
+                max-width: 100vw;
             }
         }
         
@@ -1161,13 +1151,13 @@
             }
             
             .service-card {
-                height: 250px;
+                height: 280px;
                 max-width: 100%;
                 margin: 0 auto;
             }
         }
         
-        /* MOBİL MENÜ AÇIKKEN BODY SCROLL'UNU ENGELLEME */
+        /* MOBİL MENÜ */
         body.menu-open {
             overflow: hidden;
             position: fixed;
@@ -1175,7 +1165,6 @@
             height: 100%;
         }
         
-        /* MOBİL MENÜ OVERLAY */
         .menu-overlay {
             display: none;
             position: fixed;
@@ -1191,7 +1180,7 @@
             display: block;
         }
         
-        /* BEKLENTİLERİNİZE BAŞLIĞI İÇİN ÖZEL STİL */
+        /* BEKLENTİLERİNİZE BAŞLIĞI */
         .services .section-title {
             display: flex;
             flex-direction: column;
@@ -1204,18 +1193,11 @@
             margin-bottom: 15px;
         }
         
-        /* MOBİL KAYDIRMA DÜZELTMELERİ */
-        .service-card, .about-container, .faq-item {
+        /* PERFORMANS İYİLEŞTİRMELERİ */
+        .about, .faq-section, footer {
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
             backface-visibility: hidden;
-        }
-        
-        /* YÜKSEK ÇÖZÜNÜRLÜKLÜ EKRANLAR İÇİN */
-        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-            .service-card-front {
-                background-size: cover;
-            }
         }
     </style>
 </head>
@@ -1224,7 +1206,7 @@
     <header>
         <div class="container">
             <div class="header-container">
-                <!-- Logo Alanı - Yan yana -->
+                <!-- Logo Alanı -->
                 <div class="logo-container">
                     <div class="logo-item">
                         <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri" id="novaLogo">
@@ -1299,7 +1281,7 @@
             </div>
         </div>
         
-        <!-- Slider Kontrolleri - Sadece noktalar -->
+        <!-- Slider Kontrolleri -->
         <div class="slider-controls">
             <div class="slider-dots">
                 <div class="slider-dot active" data-slide="0"></div>
@@ -1331,8 +1313,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Bireysel Klimalar</h3>
-                            <p class="product-description">Enerji tasarruflu inverter teknolojisi ile konforlu yaşam alanları</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Mitsubishi Electric'in en son inverter teknolojisi ile %40'a varan enerji tasarrufu sağlayan, sessiz ve konforlu klimalar.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#bireysel" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1354,8 +1338,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Profesyonel Klimalar</h3>
-                            <p class="product-description">Ticari mekanlar için yüksek kapasiteli klima sistemleri</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Ticari mekanlar için yüksek kapasiteli, dayanıklı ve uzun ömürlü klima sistemleri ile işletmenizin konforunu artırın.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#profesyonel" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1377,8 +1363,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>VRF Klima Sistemleri</h3>
-                            <p class="product-description">Çoklu iç ünite kontrolü ile akıllı iklimlendirme</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Çoklu iç ünite kontrolü ile akıllı iklimlendirme. Büyük binalar için merkezi sistemler ile maksimum verimlilik.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#vrf" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1400,8 +1388,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Hidronik Sistemler</h3>
-                            <p class="product-description">Yüksek verimli su bazlı iklimlendirme çözümleri</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Yüksek verimli su bazlı iklimlendirme çözümleri ile doğalgaz ve elektrik tasarrufu sağlayan modern sistemler.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#hidronik" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1423,8 +1413,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>IT Soğutma Sistemleri</h3>
-                            <p class="product-description">Kesintisiz soğutma ile kritik sistem koruması</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Kesintisiz soğutma ile kritik sistem koruması. 7/24 çalışan sistemler için güvenilir soğutma çözümleri.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#it" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1446,8 +1438,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Isıtma Çözümleri</h3>
-                            <p class="product-description">Enerji tasarruflu modern ısıtma teknolojileri</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Enerji tasarruflu modern ısıtma teknolojileri ile kış aylarında maksimum konfor ve minimum enerji tüketimi.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#isitma" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1469,8 +1463,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Havalandırma Çözümleri</h3>
-                            <p class="product-description">İç hava kalitesini artıran modern sistemler</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>İç hava kalitesini artıran modern sistemler ile sağlıklı ve temiz hava sirkülasyonu sağlayan profesyonel çözümler.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#havalandirma" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1492,8 +1488,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Hava Temizleme Cihazları</h3>
-                            <p class="product-description">Sağlıklı yaşam alanları için hava kalitesi çözümleri</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Sağlıklı yaşam alanları için hava kalitesi çözümleri. Toz, polen, bakteri ve virüsleri %99,9 oranında filtreleyen sistemler.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#hava-temizleme" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1515,8 +1513,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Kontrol Çözümleri</h3>
-                            <p class="product-description">Merkezi kontrol ile enerji yönetimi ve otomasyon</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Merkezi kontrol ile enerji yönetimi ve otomasyon. Akıllı bina sistemleri ile enerji tasarrufu ve konfor artışı.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#kontrol" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1538,8 +1538,10 @@
                         </div>
                         <div class="service-card-back">
                             <h3>El Kurutma Cihazları</h3>
-                            <p class="product-description">Hızlı ve hijyenik el kurutma çözümleri</p>
-                            <div class="all-products-text">Tüm ürünlerimizi incelemek için tıklayın</div>
+                            <div class="product-description">
+                                <p>Hızlı ve hijyenik el kurutma çözümleri. Enerji tasarruflu, sessiz ve yüksek hijyen standartlarına sahip kurutucular.</p>
+                            </div>
+                            <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#el-kurutma" class="btn">
                                 <i class="fas fa-arrow-right"></i> Tüm Ürünler
                             </a>
@@ -1649,7 +1651,7 @@
     </section>
     
     <!-- İletişim Önizleme -->
-    <section class="about" style="background-color: #f8f9fa;">
+    <section class="about" style="background-color: #f8f9fa; width: 100%; overflow: hidden;">
         <div class="container">
             <div class="about-container">
                 <div class="about-content">
@@ -1676,7 +1678,7 @@
     </section>
     
     <!-- Footer -->
-    <footer>
+    <footer style="width: 100%; overflow: hidden;">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col footer-logo fade-in-up">
@@ -1728,7 +1730,7 @@
         </div>
     </footer>
     
-    <!-- Sabit Butonlar (Sadece telefon) -->
+    <!-- Sabit Butonlar -->
     <div class="fixed-buttons">
         <a href="tel:03249991074" class="call-btn">
             <i class="fas fa-phone"></i>
@@ -1736,22 +1738,13 @@
     </div>
     
     <script>
-        // MOBİL PERFORMANS İYİLEŞTİRMELERİ
-        // Pasif dinleyiciler ekleyerek scroll performansını artır
-        document.addEventListener('touchstart', function() {}, {passive: true});
-        document.addEventListener('touchmove', function() {}, {passive: true});
-        document.addEventListener('wheel', function() {}, {passive: true});
-        
-        // Değişkenler
+        // Slider Fonksiyonları
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.slider-dot');
         const totalSlides = slides.length;
         let slideInterval;
-        let isScrolling = false;
-        let scrollTimer;
         
-        // SLİDER FONKSİYONLARI
         function showSlide(n) {
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.remove('active');
@@ -1812,7 +1805,7 @@
         
         startSlider();
         
-        // ANİMASYONLARI BAŞLAT
+        // Animasyonları başlat
         function initAnimations() {
             const animatedElements = document.querySelectorAll('.slide-in-title, .slide-in-from-right, .fade-in-up');
             
@@ -1820,10 +1813,6 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
-                        // Mobilde performans için bir kere gösterildikten sonra gözlemlemeyi durdur
-                        if (window.innerWidth <= 768) {
-                            observer.unobserve(entry.target);
-                        }
                     }
                 });
             }, {
@@ -1836,17 +1825,13 @@
             });
         }
         
-        // KART DÖNDÜRME FONKSİYONELLİĞİ
+        // Kart döndürme fonksiyonelliği
         document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 // Butona tıklanırsa kartı döndürme
                 if (e.target.closest('.btn')) {
                     return;
                 }
-                
-                // Mobilde daha hızlı animasyon
-                const animationSpeed = window.innerWidth <= 768 ? '0.6s' : '0.8s';
-                this.querySelector('.service-card-inner').style.transition = `transform ${animationSpeed} cubic-bezier(0.175, 0.885, 0.32, 1.275)`;
                 
                 // Kartı döndür
                 this.classList.toggle('flipped');
@@ -1860,7 +1845,7 @@
             });
         });
         
-        // MOBİL MENÜ TOGGLE
+        // Mobil Menü Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -1895,7 +1880,7 @@
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
         menuOverlay.addEventListener('click', closeMobileMenu);
         
-        // DROPDOWN MENÜ İÇİN MOBİL UYUMLULUK
+        // Dropdown Menü için Mobil Uyumluluk
         const servicesDropdown = document.getElementById('servicesDropdown');
         
         servicesDropdown.addEventListener('click', function(e) {
@@ -1906,7 +1891,7 @@
             }
         });
         
-        // MENÜ LİNKLERİNE TIKLANDIĞINDA MOBİL MENÜYÜ KAPAT
+        // Menü Linklerine Tıklandığında Mobil Menüyü Kapat
         document.querySelectorAll('.main-nav a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
@@ -1918,7 +1903,7 @@
             });
         });
         
-        // SCROLL İLE HEADER'A SHADOW EKLEME
+        // Scroll ile Header'a Shadow Ekleme
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -1926,21 +1911,9 @@
             } else {
                 header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
             }
-        }, {passive: true});
+        });
         
-        // MOBİL KAYDIRMA PERFORMANS İYİLEŞTİRMELERİ
-        window.addEventListener('scroll', function() {
-            if (!isScrolling) {
-                isScrolling = true;
-            }
-            
-            clearTimeout(scrollTimer);
-            scrollTimer = setTimeout(function() {
-                isScrolling = false;
-            }, 100);
-        }, {passive: true});
-        
-        // YUMUŞAK SCROLL
+        // Yumuşak Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if(this.getAttribute('href') === '#') return;
@@ -1956,9 +1929,6 @@
                             closeMobileMenu();
                         }
                         
-                        // Mobilde daha hızlı scroll
-                        const scrollSpeed = window.innerWidth <= 768 ? 500 : 800;
-                        
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
@@ -1968,14 +1938,14 @@
             });
         });
         
-        // PENCERE BOYUTU DEĞİŞTİĞİNDE MOBİL MENÜYÜ KAPAT
+        // Pencere boyutu değiştiğinde mobil menüyü kapat
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 closeMobileMenu();
             }
         });
         
-        // FAQ (SIKÇA SORULAN SORULAR) FONKSİYONELLİĞİ
+        // FAQ (Sıkça Sorulan Sorular) Fonksiyonelliği
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', function() {
                 const answer = this.nextElementSibling;
@@ -1996,64 +1966,75 @@
             });
         });
         
-        // ANİMASYONLARI BAŞLAT
+        // Animasyonları başlat
         document.addEventListener('DOMContentLoaded', function() {
             initAnimations();
             
-            // Mobilde daha iyi performans için
+            // Mobil uyumluluk için ek düzenlemeler
             if (window.innerWidth <= 768) {
-                // Bazı animasyonları sadeleştir
-                document.querySelectorAll('.service-card').forEach(card => {
-                    card.style.willChange = 'transform';
-                });
+                // Yatay kaydırmayı engelle
+                document.body.style.overflowX = 'hidden';
+                document.body.style.width = '100%';
                 
-                // Görsellerin yüklenmesini optimize et
-                const images = document.querySelectorAll('img');
-                images.forEach(img => {
-                    img.loading = 'lazy';
+                // Tüm container'ların genişliğini kontrol et
+                document.querySelectorAll('.container, section, header, footer').forEach(el => {
+                    el.style.maxWidth = '100vw';
+                    el.style.overflowX = 'hidden';
                 });
             }
         });
         
-        // SAYFA YÜKLENDİĞİNDE ANİMASYONLARI TETİKLE
+        // Sayfa yüklendiğinde animasyonları tetikle
         window.addEventListener('load', function() {
             const heroElements = document.querySelectorAll('.hero .slide-in-title, .hero .slide-in-from-right, .hero .fade-in-up');
             heroElements.forEach(element => {
                 element.classList.add('active');
             });
             
-            // Mobilde yüklenme sonrası optimizasyon
-            if (window.innerWidth <= 768) {
-                // GPU hızlandırma için transform ekle
-                document.querySelectorAll('.service-card').forEach(card => {
-                    card.style.transform = 'translateZ(0)';
+            // Mobilde yatay kaydırmayı engelle
+            window.addEventListener('scroll', function() {
+                if (window.scrollY !== 0) {
+                    window.scrollTo(0, window.scrollY);
+                }
+            });
+        });
+        
+        // Mobil kaydırma performansı için optimizasyon
+        let lastScrollTop = 0;
+        let ticking = false;
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    lastScrollTop = scrollTop;
+                    ticking = false;
                 });
+                ticking = true;
             }
         });
         
-        // MOBİL PERFORMANS İÇİN EK OPTİMİZASYONLAR
-        if (window.innerWidth <= 768) {
-            // Scroll animasyonlarını sınırla
-            let lastScrollY = window.scrollY;
-            let ticking = false;
-            
-            window.addEventListener('scroll', function() {
-                lastScrollY = window.scrollY;
+        // Yatay kaydırmayı engelle
+        window.addEventListener('wheel', function(e) {
+            if (e.deltaX !== 0) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Mobilde yatay kaydırmayı engelle
+        window.addEventListener('touchmove', function(e) {
+            if (e.touches.length === 1) {
+                const touch = e.touches[0];
+                const scrollY = window.scrollY || window.pageYOffset;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
                 
-                if (!ticking) {
-                    window.requestAnimationFrame(function() {
-                        // Burada scroll ile yapılacak işlemler
-                        ticking = false;
-                    });
-                    ticking = true;
+                if (scrollY <= 0 || scrollY >= maxScroll) {
+                    if (Math.abs(e.touches[0].clientX - touch.clientX) > Math.abs(e.touches[0].clientY - touch.clientY)) {
+                        e.preventDefault();
+                    }
                 }
-            }, {passive: true});
-            
-            // Animasyonları optimize et
-            document.querySelectorAll('.fade-in-up, .slide-in-title, .slide-in-from-right').forEach(el => {
-                el.style.willChange = 'transform, opacity';
-            });
-        }
+            }
+        }, { passive: false });
     </script>
 </body>
 </html>
