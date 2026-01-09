@@ -8,11 +8,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* Temel Stiller */
+        /* TEMEL STİLLER - PERFORMANS İYİLEŞTİRMELERİ */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent; /* Mobilde tıklama efektini kaldır */
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased; /* Yazı kalitesini iyileştir */
+            -moz-osx-font-smoothing: grayscale;
         }
         
         body {
@@ -20,7 +27,9 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
+            -webkit-overflow-scrolling: touch; /* Mobilde smooth scroll */
+            text-rendering: optimizeLegibility; /* Yazı render optimizasyonu */
+            will-change: scroll-position; /* Performans iyileştirme */
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -61,6 +70,7 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            will-change: transform; /* Animasyon performansı */
         }
         
         .btn:hover {
@@ -110,11 +120,12 @@
             transform: translateX(-50%);
         }
         
-        /* Animasyonlu Başlıklar */
+        /* ANİMASYONLU BAŞLIKLAR - PERFORMANS İYİLEŞTİRMELERİ */
         .slide-in-title {
             opacity: 0;
             transform: translateX(-50px);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing */
+            will-change: transform, opacity;
         }
         
         .slide-in-title.active {
@@ -125,7 +136,8 @@
         .slide-in-from-right {
             opacity: 0;
             transform: translateX(50px);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, opacity;
         }
         
         .slide-in-from-right.active {
@@ -136,7 +148,8 @@
         .fade-in-up {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s ease-out;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            will-change: transform, opacity;
         }
         
         .fade-in-up.active {
@@ -144,7 +157,7 @@
             transform: translateY(0);
         }
         
-        /* Renkli Başlıklar */
+        /* RENKLİ BAŞLIKLAR */
         .red-title {
             color: #dc3545 !important;
         }
@@ -157,7 +170,7 @@
             color: #28a745 !important;
         }
         
-        /* Header */
+        /* HEADER */
         header {
             background-color: white;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
@@ -165,6 +178,8 @@
             top: 0;
             z-index: 1000;
             padding: 10px 0;
+            transform: translateZ(0); /* GPU hızlandırma */
+            backface-visibility: hidden; /* Render problemi çözümü */
         }
         
         .header-container {
@@ -173,7 +188,7 @@
             align-items: center;
         }
         
-        /* Logo Alanı - Yan yana - %50 büyütüldü */
+        /* LOGO ALANI - Yan yana */
         .logo-container {
             display: flex;
             align-items: center;
@@ -192,7 +207,7 @@
             object-fit: contain;
         }
         
-        /* Telefon Arama Butonu - Menü barı */
+        /* TELEFON ARAMA BUTONU - Menü barı */
         .header-phone-button {
             display: flex;
             align-items: center;
@@ -216,7 +231,7 @@
             margin-right: 8px;
         }
         
-        /* Ana Navigasyon */
+        /* ANA NAVİGASYON */
         .main-nav {
             flex-grow: 1;
             display: flex;
@@ -298,7 +313,7 @@
             order: 2;
         }
         
-        /* Hero Bölümü - Slider */
+        /* HERO BÖLÜMÜ - SLIDER */
         .hero {
             position: relative;
             height: 100vh;
@@ -314,6 +329,7 @@
             left: 0;
             width: 100%;
             height: 100%;
+            transform: translateZ(0); /* GPU hızlandırma */
         }
         
         .slide {
@@ -324,8 +340,11 @@
             height: 100%;
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* Paralaks efekti */
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            transform: translateZ(0);
+            will-change: opacity;
         }
         
         .slide.active {
@@ -354,7 +373,7 @@
             padding: 0 20px;
         }
         
-        /* Hero başlığı - beyaz ve gölgeli */
+        /* HERO BAŞLIĞI - beyaz ve gölgeli */
         .hero h1 {
             font-size: 48px;
             margin-bottom: 20px;
@@ -377,7 +396,7 @@
             opacity: 0.9;
         }
         
-        /* Arama Butonu */
+        /* ARAMA BUTONU */
         .call-button-hero {
             display: inline-flex;
             align-items: center;
@@ -402,7 +421,7 @@
             margin-right: 10px;
         }
         
-        /* Slider Kontrolleri - Sadece noktalar */
+        /* SLIDER KONTROLLERİ - Sadece noktalar */
         .slider-controls {
             position: absolute;
             bottom: 40px;
@@ -432,19 +451,19 @@
             transform: scale(1.2);
         }
         
-        /* Hizmetler Bölümü */
+        /* HİZMETLER BÖLÜMÜ */
         .services {
             background-color: #f8f9fa;
         }
         
-        /* Hizmetler Grid - 5x2 düzeni */
+        /* HİZMETLER GRID - 5x2 düzeni */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
             gap: 25px;
         }
         
-        /* Kart stilleri */
+        /* KART STİLLERİ - GÜNCELLENDİ */
         .service-card {
             background-color: white;
             border-radius: 8px;
@@ -456,6 +475,7 @@
             cursor: pointer;
             transform-style: preserve-3d;
             perspective: 1000px;
+            will-change: transform; /* Animasyon performansı */
         }
         
         .service-card-inner {
@@ -463,8 +483,9 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.8s;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
+            backface-visibility: hidden;
         }
         
         .service-card.flipped .service-card-inner {
@@ -481,7 +502,105 @@
             overflow: hidden;
         }
         
-        /* Kart arka yüzü stili */
+        /* KART ÖN YÜZÜ - GÜNCELLENDİ */
+        .service-card-front {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        
+        .service-card-front::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.7) 100%);
+            z-index: 1;
+        }
+        
+        /* Her kart için arkaplan görseli */
+        .service-card[data-product="bireysel"] .service-card-front {
+            background-image: url('images/bireysel-klima.jpg');
+        }
+        
+        .service-card[data-product="profesyonel"] .service-card-front {
+            background-image: url('images/profesyonal.webp');
+        }
+        
+        .service-card[data-product="vrf"] .service-card-front {
+            background-image: url('images/vrf.webp');
+        }
+        
+        .service-card[data-product="hidronik"] .service-card-front {
+            background-image: url('images/hidronik.webp');
+        }
+        
+        .service-card[data-product="it"] .service-card-front {
+            background-image: url('images/it.webp');
+        }
+        
+        .service-card[data-product="isitma"] .service-card-front {
+            background-image: url('images/isitma.webp');
+        }
+        
+        .service-card[data-product="havalandirma"] .service-card-front {
+            background-image: url('images/havalandirma.webp');
+        }
+        
+        .service-card[data-product="hava-temizleme"] .service-card-front {
+            background-image: url('images/hava-temizleme.webp');
+        }
+        
+        .service-card[data-product="kontrol"] .service-card-front {
+            background-image: url('images/kontrol.webp');
+        }
+        
+        .service-card[data-product="el-kurutma"] .service-card-front {
+            background-image: url('images/el-kurutma.webp');
+        }
+        
+        .service-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2; /* Gölgenin üstünde görünmesi için */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+        
+        .service-icon {
+            font-size: 36px;
+            color: white !important;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .service-content h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            text-align: center;
+            color: white !important;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .service-content p {
+            margin-bottom: 0;
+            text-align: center;
+            font-size: 14px;
+            line-height: 1.4;
+            color: white !important;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        /* KART ARKA YÜZÜ STİLİ */
         .service-card-back {
             background-color: #0066b3;
             color: white;
@@ -532,54 +651,7 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .service-img {
-            height: 150px;
-            overflow: hidden;
-        }
-        
-        .service-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .service-card:hover .service-img img {
-            transform: scale(1.05);
-        }
-        
-        .service-content {
-            padding: 20px;
-            position: relative;
-            background-color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: calc(100% - 150px);
-        }
-        
-        .service-icon {
-            font-size: 36px;
-            color: #0066b3;
-            margin-bottom: 15px;
-        }
-        
-        .service-content h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
-            text-align: center;
-            color: #222;
-        }
-        
-        .service-content p {
-            margin-bottom: 0;
-            text-align: center;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-        
-        /* Hakkımızda Bölümü */
+        /* HAKKIMIZDA BÖLÜMÜ */
         .about-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -648,7 +720,7 @@
             font-size: 18px;
         }
         
-        /* FAQ (Sıkça Sorulan Sorular) Bölümü */
+        /* FAQ BÖLÜMÜ */
         .faq-section {
             background-color: #fff;
             padding: 80px 0;
@@ -712,7 +784,7 @@
             margin-bottom: 0;
         }
         
-        /* Footer */
+        /* FOOTER */
         footer {
             background-color: #222;
             color: #ddd;
@@ -788,7 +860,7 @@
             font-size: 15px;
         }
         
-        /* Sabit Butonlar - Yukarı taşındı */
+        /* SABİT BUTONLAR */
         .fixed-buttons {
             position: fixed;
             bottom: 80px;
@@ -817,7 +889,7 @@
             transform: scale(1.1);
         }
         
-        /* Mobil Uyumluluk */
+        /* MOBİL UYUMLULUK - PERFORMANS İYİLEŞTİRMELERİ */
         @media (max-width: 1200px) {
             .services-grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -845,6 +917,10 @@
                 font-size: 24px;
             }
             
+            .slide {
+                background-attachment: scroll; /* Mobilde paralaks kaldır */
+            }
+            
             /* Menüdeki telefon butonunu gizle */
             .header-phone-button {
                 display: none;
@@ -852,7 +928,7 @@
         }
         
         @media (max-width: 768px) {
-            /* Mobil menü düzeni */
+            /* MOBİL MENÜ DÜZENİ */
             .mobile-menu-btn {
                 display: block;
             }
@@ -866,11 +942,12 @@
                 background-color: white;
                 box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
                 padding: 80px 30px 30px;
-                transition: right 0.4s ease;
+                transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
                 z-index: 1001;
                 overflow-y: auto;
                 -webkit-overflow-scrolling: touch;
                 justify-content: flex-start;
+                will-change: right; /* Animasyon performansı */
             }
             
             .main-nav.active {
@@ -910,6 +987,7 @@
                 display: block;
             }
             
+            /* MOBİL PERFORMANS İYİLEŞTİRMELERİ */
             .hero {
                 padding: 100px 0;
                 height: auto;
@@ -922,10 +1000,6 @@
             
             .service-card {
                 height: 260px;
-            }
-            
-            .service-img {
-                height: 130px;
             }
             
             .section-title h2 {
@@ -967,7 +1041,7 @@
                              0 0 15px rgba(0, 102, 179, 0.5);
             }
             
-            /* Mobilde genel padding ayarları */
+            /* MOBİLDE GENEL PADDING AYARLARI */
             .container {
                 padding: 0 15px;
                 overflow-x: hidden;
@@ -977,19 +1051,21 @@
                 padding: 60px 0;
             }
             
-            /* Genel mobil uyumluluk */
+            /* GENEL MOBİL UYUMLULUK */
             body {
                 overflow-x: hidden;
                 width: 100%;
                 -webkit-tap-highlight-color: transparent;
+                touch-action: pan-y; /* Yatay kaydırmayı engelle */
             }
             
             img {
                 max-width: 100%;
                 height: auto;
+                -webkit-user-drag: none; /* Mobilde sürükleme engeli */
             }
             
-            /* Mobilde başlık boyutları */
+            /* MOBİLDE BAŞLIK BOYUTLARI */
             .hero h2 {
                 font-size: 20px;
             }
@@ -998,7 +1074,7 @@
                 font-size: 26px;
             }
             
-            /* Mobilde FAQ düzeni */
+            /* MOBİLDE FAQ DÜZENİ */
             .faq-question {
                 padding: 16px;
                 font-size: 16px;
@@ -1007,11 +1083,25 @@
             .faq-answer.active {
                 padding: 16px;
             }
+            
+            /* MOBİL KAYDIRMA PERFORMANSI */
+            * {
+                -webkit-overflow-scrolling: touch !important;
+            }
+            
+            .services-grid {
+                transform: translateZ(0); /* GPU hızlandırma */
+            }
+            
+            .service-card {
+                transform: translateZ(0);
+            }
         }
         
         @media (max-width: 576px) {
             .services-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
             .footer-content {
@@ -1069,14 +1159,23 @@
                 bottom: 60px;
                 right: 15px;
             }
+            
+            .service-card {
+                height: 250px;
+                max-width: 100%;
+                margin: 0 auto;
+            }
         }
         
-        /* Mobil menü açıkken body scroll'unu engelleme */
+        /* MOBİL MENÜ AÇIKKEN BODY SCROLL'UNU ENGELLEME */
         body.menu-open {
             overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
         }
         
-        /* Mobil menü overlay */
+        /* MOBİL MENÜ OVERLAY */
         .menu-overlay {
             display: none;
             position: fixed;
@@ -1092,7 +1191,7 @@
             display: block;
         }
         
-        /* Beklentilerinize başlığı için özel stil */
+        /* BEKLENTİLERİNİZE BAŞLIĞI İÇİN ÖZEL STİL */
         .services .section-title {
             display: flex;
             flex-direction: column;
@@ -1103,6 +1202,20 @@
         .services .section-title h2.red-title {
             margin-top: 15px;
             margin-bottom: 15px;
+        }
+        
+        /* MOBİL KAYDIRMA DÜZELTMELERİ */
+        .service-card, .about-container, .faq-item {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        /* YÜKSEK ÇÖZÜNÜRLÜKLÜ EKRANLAR İÇİN */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+            .service-card-front {
+                background-size: cover;
+            }
         }
     </style>
 </head>
@@ -1208,14 +1321,11 @@
                 <div class="service-card fade-in-up" data-product="bireysel">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/bireysel-klima.jpg" alt="Bireysel Klimalar">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-home"></i>
                                 </div>
-                                <h3 class="blue-title">Bireysel Klimalar</h3>
+                                <h3>Bireysel Klimalar</h3>
                                 <p>Konut ve ofisler için yüksek verimli inverter klimalar</p>
                             </div>
                         </div>
@@ -1234,14 +1344,11 @@
                 <div class="service-card fade-in-up" data-product="profesyonel">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/profesyonel-klima.jpg" alt="Profesyonel Klimalar">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-building"></i>
                                 </div>
-                                <h3 class="blue-title">Profesyonel Klimalar</h3>
+                                <h3>Profesyonel Klimalar</h3>
                                 <p>Mağaza, ofis ve ticari mekanlar için klima çözümleri</p>
                             </div>
                         </div>
@@ -1260,14 +1367,11 @@
                 <div class="service-card fade-in-up" data-product="vrf">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/vrf-sistem.jpg" alt="VRF Klima Sistemleri">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-sitemap"></i>
                                 </div>
-                                <h3 class="blue-title">VRF Klima Sistemleri</h3>
+                                <h3>VRF Klima Sistemleri</h3>
                                 <p>Büyük binalar için merkezi iklimlendirme çözümleri</p>
                             </div>
                         </div>
@@ -1286,14 +1390,11 @@
                 <div class="service-card fade-in-up" data-product="hidronik">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/hidronik.jpg" alt="Hidronik Sistemler">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-fire"></i>
                                 </div>
-                                <h3 class="blue-title">Hidronik Sistemler</h3>
+                                <h3>Hidronik Sistemler</h3>
                                 <p>Su bazlı ısıtma ve soğutma sistemleri</p>
                             </div>
                         </div>
@@ -1312,14 +1413,11 @@
                 <div class="service-card fade-in-up" data-product="it">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/it-sogutma.jpg" alt="IT Soğutma Sistemleri">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-server"></i>
                                 </div>
-                                <h3 class="blue-title">IT Soğutma Sistemleri</h3>
+                                <h3>IT Soğutma Sistemleri</h3>
                                 <p>Veri merkezi ve sunucu odaları için soğutma</p>
                             </div>
                         </div>
@@ -1338,14 +1436,11 @@
                 <div class="service-card fade-in-up" data-product="isitma">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/isitma.jpg" alt="Isıtma Çözümleri">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-thermometer-half"></i>
                                 </div>
-                                <h3 class="blue-title">Isıtma Çözümleri</h3>
+                                <h3>Isıtma Çözümleri</h3>
                                 <p>Yenilikçi ve verimli ısıtma sistemleri</p>
                             </div>
                         </div>
@@ -1364,14 +1459,11 @@
                 <div class="service-card fade-in-up" data-product="havalandirma">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/havalandirma.jpg" alt="Havalandırma Çözümleri">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-wind"></i>
                                 </div>
-                                <h3 class="blue-title">Havalandırma Çözümleri</h3>
+                                <h3>Havalandırma Çözümleri</h3>
                                 <p>Taze hava ve hava kalitesi yönetim sistemleri</p>
                             </div>
                         </div>
@@ -1390,14 +1482,11 @@
                 <div class="service-card fade-in-up" data-product="hava-temizleme">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/hava-temizleyici.jpg" alt="Hava Temizleme Cihazları">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-air-freshener"></i>
                                 </div>
-                                <h3 class="blue-title">Hava Temizleme Cihazları</h3>
+                                <h3>Hava Temizleme Cihazları</h3>
                                 <p>Toz, alerjen ve bakteri filtreleme sistemleri</p>
                             </div>
                         </div>
@@ -1416,14 +1505,11 @@
                 <div class="service-card fade-in-up" data-product="kontrol">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/kontrol-sistemleri.jpg" alt="Kontrol Çözümleri">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-sliders-h"></i>
                                 </div>
-                                <h3 class="blue-title">Kontrol Çözümleri</h3>
+                                <h3>Kontrol Çözümleri</h3>
                                 <p>Akıllı bina ve otomasyon sistemleri</p>
                             </div>
                         </div>
@@ -1442,14 +1528,11 @@
                 <div class="service-card fade-in-up" data-product="el-kurutma">
                     <div class="service-card-inner">
                         <div class="service-card-front">
-                            <div class="service-img">
-                                <img src="images/el-kurutma.jpg" alt="El Kurutma Cihazları">
-                            </div>
                             <div class="service-content">
                                 <div class="service-icon">
                                     <i class="fas fa-hands-wash"></i>
                                 </div>
-                                <h3 class="blue-title">El Kurutma Cihazları</h3>
+                                <h3>El Kurutma Cihazları</h3>
                                 <p>Hijyenik ve enerji tasarruflu el kurutucular</p>
                             </div>
                         </div>
@@ -1653,13 +1736,22 @@
     </div>
     
     <script>
-        // Slider Fonksiyonları
+        // MOBİL PERFORMANS İYİLEŞTİRMELERİ
+        // Pasif dinleyiciler ekleyerek scroll performansını artır
+        document.addEventListener('touchstart', function() {}, {passive: true});
+        document.addEventListener('touchmove', function() {}, {passive: true});
+        document.addEventListener('wheel', function() {}, {passive: true});
+        
+        // Değişkenler
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
         const dots = document.querySelectorAll('.slider-dot');
         const totalSlides = slides.length;
         let slideInterval;
+        let isScrolling = false;
+        let scrollTimer;
         
+        // SLİDER FONKSİYONLARI
         function showSlide(n) {
             slides[currentSlide].classList.remove('active');
             dots[currentSlide].classList.remove('active');
@@ -1720,7 +1812,7 @@
         
         startSlider();
         
-        // Animasyonları başlat
+        // ANİMASYONLARI BAŞLAT
         function initAnimations() {
             const animatedElements = document.querySelectorAll('.slide-in-title, .slide-in-from-right, .fade-in-up');
             
@@ -1728,6 +1820,10 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('active');
+                        // Mobilde performans için bir kere gösterildikten sonra gözlemlemeyi durdur
+                        if (window.innerWidth <= 768) {
+                            observer.unobserve(entry.target);
+                        }
                     }
                 });
             }, {
@@ -1740,13 +1836,17 @@
             });
         }
         
-        // Kart döndürme fonksiyonelliği
+        // KART DÖNDÜRME FONKSİYONELLİĞİ
         document.querySelectorAll('.service-card').forEach(card => {
             card.addEventListener('click', function(e) {
                 // Butona tıklanırsa kartı döndürme
                 if (e.target.closest('.btn')) {
                     return;
                 }
+                
+                // Mobilde daha hızlı animasyon
+                const animationSpeed = window.innerWidth <= 768 ? '0.6s' : '0.8s';
+                this.querySelector('.service-card-inner').style.transition = `transform ${animationSpeed} cubic-bezier(0.175, 0.885, 0.32, 1.275)`;
                 
                 // Kartı döndür
                 this.classList.toggle('flipped');
@@ -1760,7 +1860,7 @@
             });
         });
         
-        // Mobil Menü Toggle
+        // MOBİL MENÜ TOGGLE
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -1795,7 +1895,7 @@
         mobileMenuBtn.addEventListener('click', toggleMobileMenu);
         menuOverlay.addEventListener('click', closeMobileMenu);
         
-        // Dropdown Menü için Mobil Uyumluluk
+        // DROPDOWN MENÜ İÇİN MOBİL UYUMLULUK
         const servicesDropdown = document.getElementById('servicesDropdown');
         
         servicesDropdown.addEventListener('click', function(e) {
@@ -1806,7 +1906,7 @@
             }
         });
         
-        // Menü Linklerine Tıklandığında Mobil Menüyü Kapat
+        // MENÜ LİNKLERİNE TIKLANDIĞINDA MOBİL MENÜYÜ KAPAT
         document.querySelectorAll('.main-nav a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
@@ -1818,7 +1918,7 @@
             });
         });
         
-        // Scroll ile Header'a Shadow Ekleme
+        // SCROLL İLE HEADER'A SHADOW EKLEME
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
             if (window.scrollY > 50) {
@@ -1826,9 +1926,21 @@
             } else {
                 header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
             }
-        });
+        }, {passive: true});
         
-        // Yumuşak Scroll
+        // MOBİL KAYDIRMA PERFORMANS İYİLEŞTİRMELERİ
+        window.addEventListener('scroll', function() {
+            if (!isScrolling) {
+                isScrolling = true;
+            }
+            
+            clearTimeout(scrollTimer);
+            scrollTimer = setTimeout(function() {
+                isScrolling = false;
+            }, 100);
+        }, {passive: true});
+        
+        // YUMUŞAK SCROLL
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if(this.getAttribute('href') === '#') return;
@@ -1844,6 +1956,9 @@
                             closeMobileMenu();
                         }
                         
+                        // Mobilde daha hızlı scroll
+                        const scrollSpeed = window.innerWidth <= 768 ? 500 : 800;
+                        
                         window.scrollTo({
                             top: targetElement.offsetTop - 80,
                             behavior: 'smooth'
@@ -1853,14 +1968,14 @@
             });
         });
         
-        // Pencere boyutu değiştiğinde mobil menüyü kapat
+        // PENCERE BOYUTU DEĞİŞTİĞİNDE MOBİL MENÜYÜ KAPAT
         window.addEventListener('resize', function() {
             if (window.innerWidth > 768) {
                 closeMobileMenu();
             }
         });
         
-        // FAQ (Sıkça Sorulan Sorular) Fonksiyonelliği
+        // FAQ (SIKÇA SORULAN SORULAR) FONKSİYONELLİĞİ
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', function() {
                 const answer = this.nextElementSibling;
@@ -1881,33 +1996,64 @@
             });
         });
         
-        // Animasyonları başlat
+        // ANİMASYONLARI BAŞLAT
         document.addEventListener('DOMContentLoaded', function() {
             initAnimations();
+            
+            // Mobilde daha iyi performans için
+            if (window.innerWidth <= 768) {
+                // Bazı animasyonları sadeleştir
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.style.willChange = 'transform';
+                });
+                
+                // Görsellerin yüklenmesini optimize et
+                const images = document.querySelectorAll('img');
+                images.forEach(img => {
+                    img.loading = 'lazy';
+                });
+            }
         });
         
-        // Sayfa yüklendiğinde animasyonları tetikle
+        // SAYFA YÜKLENDİĞİNDE ANİMASYONLARI TETİKLE
         window.addEventListener('load', function() {
             const heroElements = document.querySelectorAll('.hero .slide-in-title, .hero .slide-in-from-right, .hero .fade-in-up');
             heroElements.forEach(element => {
                 element.classList.add('active');
             });
-        });
-        
-        // Mobil kaydırma performansı için optimizasyon
-        let lastScrollTop = 0;
-        let ticking = false;
-        
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    lastScrollTop = scrollTop;
-                    ticking = false;
+            
+            // Mobilde yüklenme sonrası optimizasyon
+            if (window.innerWidth <= 768) {
+                // GPU hızlandırma için transform ekle
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.style.transform = 'translateZ(0)';
                 });
-                ticking = true;
             }
         });
+        
+        // MOBİL PERFORMANS İÇİN EK OPTİMİZASYONLAR
+        if (window.innerWidth <= 768) {
+            // Scroll animasyonlarını sınırla
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+            
+            window.addEventListener('scroll', function() {
+                lastScrollY = window.scrollY;
+                
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        // Burada scroll ile yapılacak işlemler
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, {passive: true});
+            
+            // Animasyonları optimize et
+            document.querySelectorAll('.fade-in-up, .slide-in-title, .slide-in-from-right').forEach(el => {
+                el.style.willChange = 'transform, opacity';
+            });
+        }
     </script>
 </body>
 </html>
