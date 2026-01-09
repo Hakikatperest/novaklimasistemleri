@@ -621,24 +621,39 @@
             text-align: center;
         }
         
-        .product-description {
+        /* Ürün özellikleri için stil */
+        .product-features {
             margin-bottom: 20px;
-            font-size: 15px;
-            line-height: 1.6;
-            opacity: 0.95;
             width: 100%;
+            flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            padding: 0 10px;
-            flex-grow: 1;
         }
         
-        .product-description p {
-            margin-bottom: 0;
+        .product-features ul {
+            list-style: none;
             width: 100%;
-            text-align: center;
+            text-align: left;
+            padding: 0 10px;
+        }
+        
+        .product-features li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.4;
+            color: white;
+            opacity: 0.95;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .product-features i {
+            color: #fff;
+            margin-right: 10px;
+            font-size: 14px;
+            margin-top: 2px;
+            flex-shrink: 0;
         }
         
         .all-products-text {
@@ -980,8 +995,8 @@
                 font-size: 20px;
             }
             
-            .product-description {
-                font-size: 14px;
+            .product-features li {
+                font-size: 13px;
             }
             
             .service-card-back .btn {
@@ -1160,9 +1175,13 @@
                 margin-bottom: 10px;
             }
             
-            .product-description {
-                font-size: 13px;
-                margin-bottom: 15px;
+            .product-features li {
+                font-size: 12px;
+                margin-bottom: 8px;
+            }
+            
+            .product-features i {
+                font-size: 12px;
             }
             
             .all-products-text {
@@ -1286,10 +1305,14 @@
                 margin-bottom: 8px;
             }
             
-            .product-description {
-                font-size: 12px;
-                margin-bottom: 12px;
-                line-height: 1.4;
+            .product-features li {
+                font-size: 11px;
+                margin-bottom: 6px;
+                line-height: 1.3;
+            }
+            
+            .product-features i {
+                font-size: 11px;
             }
             
             .all-products-text {
@@ -1461,8 +1484,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Bireysel Klimalar</h3>
-                            <div class="product-description">
-                                <p>Ev ve ofisler için enerji tasarruflu inverter teknolojisi. %40'a varan tasarruf ve sessiz çalışma. Mitsubishi Electric kalitesi ile konforlu yaşam alanları.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> A+++ Enerji Sınıfı</li>
+                                    <li><i class="fas fa-check"></i> %40'a Varan Tasarruf</li>
+                                    <li><i class="fas fa-check"></i> Sessiz Çalışma</li>
+                                    <li><i class="fas fa-check"></i> Wi-Fi Kontrol</li>
+                                    <li><i class="fas fa-check"></i> 3 Yıl Garanti</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#bireysel" class="btn">Tüm Ürünler</a>
@@ -1484,8 +1513,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Profesyonel Klimalar</h3>
-                            <div class="product-description">
-                                <p>Mağaza, restoran, ofis gibi ticari mekanlar için yüksek performanslı klima sistemleri. Uzun ömürlü ve dayanıklı yapıları ile kesintisiz konfor.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Yüksek Kapasite</li>
+                                    <li><i class="fas fa-check"></i> Uzun Ömürlü</li>
+                                    <li><i class="fas fa-check"></i> Kesintisiz Çalışma</li>
+                                    <li><i class="fas fa-check"></i> Kolay Bakım</li>
+                                    <li><i class="fas fa-check"></i> Kompakt Tasarım</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#profesyonel" class="btn">Tüm Ürünler</a>
@@ -1507,8 +1542,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>VRF Klima Sistemleri</h3>
-                            <div class="product-description">
-                                <p>Büyük binalar, AVM'ler ve ofis kompleksleri için merkezi iklimlendirme. Akıllı kontrol ve yüksek enerji verimliliği ile öne çıkan sistemler.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Merkezi Kontrol</li>
+                                    <li><i class="fas fa-check"></i> Yüksek Verimlilik</li>
+                                    <li><i class="fas fa-check"></i> Esnek Sistem</li>
+                                    <li><i class="fas fa-check"></i> Akıllı Yönetim</li>
+                                    <li><i class="fas fa-check"></i> Uzun Mesafe</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#vrf" class="btn">Tüm Ürünler</a>
@@ -1530,8 +1571,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Hidronik Sistemler</h3>
-                            <div class="product-description">
-                                <p>Yüksek verimli su bazlı iklimlendirme sistemleri. Doğalgaz ve elektrik tasarrufu sağlayan modern ve ekonomik ısıtma çözümleri.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Su Bazlı Sistem</li>
+                                    <li><i class="fas fa-check"></i> Yüksek Verim</li>
+                                    <li><i class="fas fa-check"></i> Ekonomik Çözüm</li>
+                                    <li><i class="fas fa-check"></i> Düşük İşletme</li>
+                                    <li><i class="fas fa-check"></i> Doğalgaz Tasarrufu</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#hidronik" class="btn">Tüm Ürünler</a>
@@ -1553,8 +1600,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>IT Soğutma Sistemleri</h3>
-                            <div class="product-description">
-                                <p>Kesintisiz soğutma ile kritik sistem koruması. 7/24 çalışan sistemler için güvenilir soğutma çözümleri. Veri merkezleri için özel tasarım.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> 7/24 Çalışma</li>
+                                    <li><i class="fas fa-check"></i> Kesintisiz Soğutma</li>
+                                    <li><i class="fas fa-check"></i> Yedekli Sistem</li>
+                                    <li><i class="fas fa-check"></i> Hassas Kontrol</li>
+                                    <li><i class="fas fa-check"></i> Alarm Sistemi</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#it" class="btn">Tüm Ürünler</a>
@@ -1576,8 +1629,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Isıtma Çözümleri</h3>
-                            <div class="product-description">
-                                <p>Enerji tasarruflu modern ısıtma teknolojileri ile kış aylarında maksimum konfor ve minimum enerji tüketimi. Her mekana uygun çözümler.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Yüksek Verim</li>
+                                    <li><i class="fas fa-check"></i> Hızlı Isıtma</li>
+                                    <li><i class="fas fa-check"></i> Akıllı Kontrol</li>
+                                    <li><i class="fas fa-check"></i> Enerji Tasarrufu</li>
+                                    <li><i class="fas fa-check"></i> Her Mekana Uygun</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#isitma" class="btn">Tüm Ürünler</a>
@@ -1599,8 +1658,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Havalandırma Çözümleri</h3>
-                            <div class="product-description">
-                                <p>İç hava kalitesini artıran modern sistemler ile sağlıklı ve temiz hava sirkülasyonu sağlayan profesyonel çözümler. Taze hava ve filtreleme.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Taze Hava</li>
+                                    <li><i class="fas fa-check"></i> Filtreleme Sistemi</li>
+                                    <li><i class="fas fa-check"></i> Sesiz Çalışma</li>
+                                    <li><i class="fas fa-check"></i> Nem Kontrolü</li>
+                                    <li><i class="fas fa-check"></i> Enerji Geri Kazanım</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#havalandirma" class="btn">Tüm Ürünler</a>
@@ -1622,8 +1687,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Hava Temizleme Cihazları</h3>
-                            <div class="product-description">
-                                <p>Sağlıklı yaşam alanları için hava kalitesi çözümleri. Toz, polen, bakteri ve virüsleri %99,9 oranında filtreleyen sistemler. Alerjik bünyeler için ideal.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> %99,9 Filtreleme</li>
+                                    <li><i class="fas fa-check"></i> Toz ve Polen</li>
+                                    <li><i class="fas fa-check"></i> Bakteri ve Virüs</li>
+                                    <li><i class="fas fa-check"></i> Alerji Dostu</li>
+                                    <li><i class="fas fa-check"></i> Sessiz Çalışma</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#hava-temizleme" class="btn">Tüm Ürünler</a>
@@ -1645,8 +1716,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>Kontrol Çözümleri</h3>
-                            <div class="product-description">
-                                <p>Merkezi kontrol ile enerji yönetimi ve otomasyon. Akıllı bina sistemleri ile enerji tasarrufu ve konfor artışı. Uzaktan kontrol imkanı.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Merkezi Kontrol</li>
+                                    <li><i class="fas fa-check"></i> Uzaktan Erişim</li>
+                                    <li><i class="fas fa-check"></i> Enerji Yönetimi</li>
+                                    <li><i class="fas fa-check"></i> Otomasyon</li>
+                                    <li><i class="fas fa-check"></i> Akıllı Bina</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#kontrol" class="btn">Tüm Ürünler</a>
@@ -1668,8 +1745,14 @@
                         </div>
                         <div class="service-card-back">
                             <h3>El Kurutma Cihazları</h3>
-                            <div class="product-description">
-                                <p>Hızlı ve hijyenik el kurutma çözümleri. Enerji tasarruflu, sessiz ve yüksek hijyen standartlarına sahip kurutucular. Kamu ve özel sektör için.</p>
+                            <div class="product-features">
+                                <ul>
+                                    <li><i class="fas fa-check"></i> Hızlı Kurutma</li>
+                                    <li><i class="fas fa-check"></i> Hijyenik</li>
+                                    <li><i class="fas fa-check"></i> Enerji Tasarruflu</li>
+                                    <li><i class="fas fa-check"></i> Sensörlü</li>
+                                    <li><i class="fas fa-check"></i> Dayanıklı</li>
+                                </ul>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
                             <a href="urunlerimiz.html#el-kurutma" class="btn">Tüm Ürünler</a>
