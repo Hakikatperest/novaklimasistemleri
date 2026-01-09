@@ -68,14 +68,6 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .btn-search {
-            background-color: #28a745;
-        }
-        
-        .btn-search:hover {
-            background-color: #218838;
-        }
-        
         .btn-call {
             background-color: #dc3545;
         }
@@ -116,6 +108,53 @@
             transform: translateX(-50%);
         }
         
+        /* Animasyonlu Başlıklar */
+        .slide-in-title {
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .slide-in-title.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .slide-in-from-right {
+            opacity: 0;
+            transform: translateX(50px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .slide-in-from-right.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .fade-in-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Renkli Başlıklar */
+        .red-title {
+            color: #dc3545 !important;
+        }
+        
+        .blue-title {
+            color: #0066b3 !important;
+        }
+        
+        .green-title {
+            color: #28a745 !important;
+        }
+        
         /* Header */
         header {
             background-color: white;
@@ -123,7 +162,7 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 10px 0;
         }
         
         .header-container {
@@ -132,18 +171,17 @@
             align-items: center;
         }
         
-        /* Logo Alanı */
+        /* Logo Alanı - Yan yana */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-left: -10px; /* Logoyu sola kaydırma */
+            gap: 5px;
         }
         
         .logo-item {
             display: flex;
             align-items: center;
-            height: 45px;
+            height: 40px;
         }
         
         .logo-item img {
@@ -152,16 +190,33 @@
             object-fit: contain;
         }
         
-        .logo-divider {
-            width: 1px;
-            height: 35px;
-            background-color: #ddd;
+        /* Telefon Arama Butonu */
+        .call-button-header {
+            display: flex;
+            align-items: center;
+            background-color: #0066b3;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 14px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+        }
+        
+        .call-button-header:hover {
+            background-color: #004d8c;
+            transform: translateY(-2px);
+        }
+        
+        .call-button-header i {
+            margin-right: 8px;
         }
         
         /* Ana Navigasyon */
         .main-nav ul {
             display: flex;
-            gap: 30px;
+            gap: 25px;
         }
         
         .main-nav a {
@@ -230,7 +285,7 @@
             font-size: 24px;
             cursor: pointer;
             color: #333;
-            order: 2; /* Mobil menü butonunu sağa taşıma */
+            order: 2;
         }
         
         /* Hero Bölümü - Slider */
@@ -307,6 +362,31 @@
             opacity: 0.9;
         }
         
+        /* Arama Butonu */
+        .call-button-hero {
+            display: inline-flex;
+            align-items: center;
+            background-color: #0066b3;
+            color: white;
+            padding: 14px 28px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 18px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        
+        .call-button-hero:hover {
+            background-color: #004d8c;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .call-button-hero i {
+            margin-right: 10px;
+        }
+        
         /* Slider Kontrolleri - Sadece noktalar */
         .slider-controls {
             position: absolute;
@@ -335,38 +415,6 @@
         .slider-dot.active {
             background-color: white;
             transform: scale(1.2);
-        }
-        
-        /* Arama Formu */
-        .search-form {
-            display: flex;
-            max-width: 500px;
-            margin: 20px auto 0;
-            width: 100%;
-        }
-        
-        .search-input {
-            flex: 1;
-            padding: 14px 20px;
-            border: none;
-            border-radius: 4px 0 0 4px;
-            font-size: 16px;
-            outline: none;
-        }
-        
-        .search-btn {
-            padding: 14px 25px;
-            border: none;
-            background-color: #28a745;
-            color: white;
-            border-radius: 0 4px 4px 0;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .search-btn:hover {
-            background-color: #218838;
         }
         
         /* Hizmetler Bölümü */
@@ -495,32 +543,6 @@
             margin-right: 10px;
             margin-top: 5px;
             font-size: 18px;
-        }
-        
-        /* Harita Konteyneri */
-        .map-container {
-            height: 300px;
-            margin: 25px 0;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .map-placeholder {
-            height: 100%;
-            background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .map-placeholder i {
-            font-size: 60px;
-            margin-bottom: 15px;
         }
         
         /* Keşif Ekibi Bölümü */
@@ -686,6 +708,15 @@
             .hero h2 {
                 font-size: 24px;
             }
+            
+            .call-button-header {
+                padding: 8px 12px;
+                font-size: 13px;
+            }
+            
+            .call-button-header i {
+                margin-right: 5px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -770,35 +801,26 @@
             }
             
             .logo-container {
-                gap: 10px;
-                margin-left: 0;
+                gap: 8px;
             }
             
             .logo-item {
-                height: 40px;
-            }
-            
-            .logo-divider {
-                height: 30px;
+                height: 35px;
             }
             
             .slider-controls {
                 bottom: 20px;
             }
             
-            .search-form {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .search-input, .search-btn {
-                width: 100%;
-                border-radius: 4px;
+            .call-button-hero {
+                padding: 12px 20px;
+                font-size: 16px;
+                margin-top: 15px;
             }
             
             /* Mobilde genel padding ayarları */
             .container {
-                padding: 0 20px;
+                padding: 0 15px;
                 overflow-x: hidden;
             }
             
@@ -815,6 +837,11 @@
             img {
                 max-width: 100%;
                 height: auto;
+            }
+            
+            /* Mobilde telefon butonu */
+            .call-button-header {
+                display: none;
             }
         }
         
@@ -837,13 +864,11 @@
             }
             
             .logo-container {
-                flex-direction: column;
                 gap: 5px;
-                align-items: flex-start;
             }
             
-            .logo-divider {
-                display: none;
+            .logo-item {
+                height: 30px;
             }
             
             .about-badge {
@@ -861,8 +886,8 @@
                 font-size: 14px;
             }
             
-            .map-container {
-                height: 250px;
+            .section-title h2 {
+                font-size: 26px;
             }
         }
         
@@ -893,16 +918,20 @@
     <header>
         <div class="container">
             <div class="header-container">
-                <!-- Logo Alanı -->
+                <!-- Logo Alanı - Yan yana -->
                 <div class="logo-container">
                     <div class="logo-item">
                         <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri" id="novaLogo">
                     </div>
-                    <div class="logo-divider"></div>
                     <div class="logo-item">
                         <img src="images/mitsu-logo.jpeg" alt="Mitsubishi Electric" id="mitsuLogo">
                     </div>
                 </div>
+                
+                <!-- Telefon Arama Butonu (Masaüstü) -->
+                <a href="tel:03249991074" class="call-button-header">
+                    <i class="fas fa-phone"></i> 0324 999 10 74
+                </a>
                 
                 <!-- Mobil Menü Butonu -->
                 <div class="mobile-menu-btn" id="mobileMenuBtn">
@@ -954,17 +983,14 @@
         
         <div class="container">
             <div class="hero-content">
-                <h1>NOVA KLİMA SİSTEMLERİ</h1>
-                <h2>Isıtma, soğutma, havalandırma ve kontrol çözümleri</h2>
-                <p>Konut, ofis ve endüstriyel kullanım için geliştirilmiş ticari ve bireysel tip klima cihazlarımız ile her türlü iklim koşulu için çözümler üretiyoruz</p>
+                <h1 class="slide-in-title">NOVA KLİMA SİSTEMLERİ</h1>
+                <h2 class="slide-in-from-right">Isıtma, soğutma, havalandırma ve kontrol çözümleri</h2>
+                <p class="fade-in-up">Konut, ofis ve endüstriyel kullanım için geliştirilmiş ticari ve bireysel tip klima cihazlarımız ile her türlü iklim koşulu için çözümler üretiyoruz</p>
                 
-                <!-- Arama Formu -->
-                <div class="search-form">
-                    <input type="text" class="search-input" placeholder="Ürün veya hizmet ara...">
-                    <button class="search-btn">
-                        <i class="fas fa-search"></i> Ara
-                    </button>
-                </div>
+                <!-- Telefon Arama Butonu -->
+                <a href="tel:03249991074" class="call-button-hero fade-in-up">
+                    <i class="fas fa-phone"></i> Hemen Ara: 0324 999 10 74
+                </a>
             </div>
         </div>
         
@@ -982,12 +1008,12 @@
     <section class="services">
         <div class="container">
             <div class="section-title">
-                <p>NOVA KLIMA</p>
-                <h2>Beklentilerinize ve mekanınıza uygun çözümler, Son Teknoloji Ürünler!</h2>
+                <p class="slide-in-title">NOVA KLIMA</p>
+                <h2 class="red-title slide-in-from-right">Beklentilerinize ve mekanlarınıza uygun çözümler, son teknoloji ürünler!</h2>
             </div>
             
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card fade-in-up">
                     <div class="service-img">
                         <img src="images/nova4.webp" alt="Konutlar İçin">
                     </div>
@@ -995,13 +1021,13 @@
                         <div class="service-icon">
                             <i class="fas fa-home"></i>
                         </div>
-                        <h3>Konutlar İçin</h3>
+                        <h3 class="blue-title">Konutlar İçin</h3>
                         <p>Sizin ve mekanınızın ihtiyaçlarınıza uygun çözümler sunuyoruz</p>
                         <a href="urunlerimiz.html#konut" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">İncele</a>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in-up">
                     <div class="service-img">
                         <img src="images/novafabrika.webp" alt="İşletmeler İçin">
                     </div>
@@ -1009,13 +1035,13 @@
                         <div class="service-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h3>İşletmeler İçin</h3>
+                        <h3 class="red-title">İşletmeler İçin</h3>
                         <p>Güncel standartlara uygun yüksek enerji verimliliği sağlıyoruz</p>
                         <a href="urunlerimiz.html#isletme" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">İncele</a>
                     </div>
                 </div>
                 
-                <div class="service-card">
+                <div class="service-card fade-in-up">
                     <div class="service-img">
                         <img src="images/nova5.webp" alt="Diğer Çözümler">
                     </div>
@@ -1023,7 +1049,7 @@
                         <div class="service-icon">
                             <i class="fas fa-cogs"></i>
                         </div>
-                        <h3>Diğer Çözümler</h3>
+                        <h3 class="green-title">Diğer Çözümler</h3>
                         <p>Her türlü özel kullanım için her zaman verimli ve konforlu ortamlar sunuyoruz</p>
                         <a href="urunlerimiz.html#diger" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">İncele</a>
                     </div>
@@ -1036,12 +1062,12 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <p>HAKKIMIZDA</p>
-                <h2>25+ Yıllık Deneyim ve Güven</h2>
+                <p class="slide-in-title">HAKKIMIZDA</p>
+                <h2 class="red-title slide-in-from-right">25+ Yıllık Deneyim ve Güven</h2>
             </div>
             
             <div class="about-container">
-                <div class="about-img">
+                <div class="about-img fade-in-up">
                     <img src="images/nova6.webp" alt="NOVA Klima Hakkında">
                     <div class="about-badge">
                         <span>25+</span>
@@ -1050,17 +1076,17 @@
                 </div>
                 
                 <div class="about-content">
-                    <h3>NOVA Klima Sistemleri ile yaşam alanlarınızı en uygun iklim koşullarına kavuşturun!</h3>
-                    <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri <strong>Mitsubishi Electric</strong>'in yetkili bayisi olarak, müşterilerine üstün kalite ve güvenilirlik sunmaktadır. <strong>25 yıllık deneyimiyle</strong> sektörde fark yaratan <strong>NOVA Klima</strong>, bireysel ve ticeri alanlarda ihtiyaca özel klima sistemleri ile yaşam alanlarınıza konfor ve enerji verimliliği getirmeyi amaçlar.</p>
+                    <h3 class="slide-in-title blue-title">NOVA Klima Sistemleri ile yaşam alanlarınızı en uygun iklim koşullarına kavuşturun!</h3>
+                    <p class="fade-in-up">NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri <strong>Mitsubishi Electric</strong>'in yetkili bayisi olarak, müşterilerine üstün kalite ve güvenilirlik sunmaktadır. <strong>25 yıllık deneyimiyle</strong> sektörde fark yaratan <strong>NOVA Klima</strong>, bireysel ve ticeri alanlarda ihtiyaca özel klima sistemleri ile yaşam alanlarınıza konfor ve enerji verimliliği getirmeyi amaçlar.</p>
                     
-                    <ul class="features-list">
+                    <ul class="features-list fade-in-up">
                         <li><i class="fas fa-check"></i> Yetkili Bayi Güvencesi</li>
                         <li><i class="fas fa-check"></i> Profesyonel Teknik Destek</li>
                         <li><i class="fas fa-check"></i> Enerji Verimliliği ve Çevre Dostu Teknolojiler</li>
                         <li><i class="fas fa-check"></i> Geniş Ürün Yelpazesi</li>
                     </ul>
                     
-                    <a href="hakkimizda.html" class="btn" style="margin-top: 20px;">Daha Fazla Bilgi</a>
+                    <a href="hakkimizda.html" class="btn slide-in-from-right" style="margin-top: 20px;">Daha Fazla Bilgi</a>
                 </div>
             </div>
         </div>
@@ -1070,15 +1096,15 @@
     <section class="team" style="background-color: #fff;">
         <div class="container">
             <div class="section-title">
-                <p>SSS</p>
-                <h2>Sıkça Sorulan Sorular</h2>
+                <p class="slide-in-title">SSS</p>
+                <h2 class="blue-title slide-in-from-right">Sıkça Sorulan Sorular</h2>
             </div>
             
-            <div class="team-content">
+            <div class="team-content fade-in-up">
                 <p>Müşterilerimizin en çok sorduğu sorulara hızlıca yanıt bulabilirsiniz. Eğer aradığınız cevabı bulamazsanız, bizimle iletişime geçmekten çekinmeyin.</p>
             </div>
             <div class="text-center">
-                <a href="sikca-sorulan-sorular.html" class="btn">Tüm Sorular</a>
+                <a href="sikca-sorulan-sorular.html" class="btn fade-in-up">Tüm Sorular</a>
             </div>
         </div>
     </section>
@@ -1088,31 +1114,22 @@
         <div class="container">
             <div class="about-container">
                 <div class="about-content">
-                    <h3>Bize Ulaşın</h3>
-                    <p>NOVA Klima Sistemleri olarak, müşterilerimizin her türlü soru, görüş ve önerilerini değerlendirmekten memnuniyet duyarız. Size en iyi hizmeti sunabilmemiz için lütfen bizimle iletişime geçin.</p>
+                    <h3 class="red-title slide-in-title">Bize Ulaşın</h3>
+                    <p class="fade-in-up">NOVA Klima Sistemleri olarak, müşterilerimizin her türlü soru, görüş ve önerilerini değerlendirmekten memnuniyet duyarız. Size en iyi hizmeti sunabilmemiz için lütfen bizimle iletişime geçin.</p>
                     
-                    <!-- Google Harita -->
-                    <div class="map-container">
-                        <div class="map-placeholder">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <h4>Google Harita Konumu</h4>
-                            <p>İşletmemiz bu konumda bulunmaktadır</p>
-                        </div>
-                    </div>
-                    
-                    <ul class="features-list">
+                    <ul class="features-list fade-in-up">
                         <li><i class="fas fa-map-marker-alt"></i> Viranşehir, Cengiz Topel Cd. HİLAL YAPI KOOP HİLAL SİTESİ A BLOK 29/A, 33340 Mezitli/Mersin</li>
                         <li><i class="fas fa-phone"></i> 0324 999 10 74</li>
                         <li><i class="fas fa-envelope"></i> mustafa_ozdes33@hotmail.com</li>
                         <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 08:30 - 19:00</li>
                     </ul>
                     
-                    <a href="tel:03249991074" class="btn btn-call" style="margin-top: 20px;">
+                    <a href="tel:03249991074" class="btn slide-in-from-right" style="margin-top: 20px; background-color: #0066b3;">
                         <i class="fas fa-phone"></i> Hemen Ara
                     </a>
                 </div>
                 
-                <div class="about-img">
+                <div class="about-img fade-in-up">
                     <img src="images/nova7.webp" alt="İletişim">
                 </div>
             </div>
@@ -1123,7 +1140,7 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-col footer-logo">
+                <div class="footer-col footer-logo fade-in-up">
                     <h3>NOVA <span>Klima Sistemleri</span></h3>
                     <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri Mitsubishi Electric'in yetkili bayisidir.</p>
                     <div class="footer-social">
@@ -1134,7 +1151,7 @@
                     </div>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col fade-in-up">
                     <h4 class="footer-title">Kurumsal</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Ana Sayfa</a></li>
@@ -1144,7 +1161,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col fade-in-up">
                     <h4 class="footer-title">Ürünlerimiz</h4>
                     <ul class="footer-links">
                         <li><a href="urunlerimiz.html#konut">Bireysel Klimalar</a></li>
@@ -1154,7 +1171,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col">
+                <div class="footer-col fade-in-up">
                     <h4 class="footer-title">İletişim</h4>
                     <ul class="contact-info-footer">
                         <li>
@@ -1173,7 +1190,7 @@
                 </div>
             </div>
             
-            <div class="footer-bottom">
+            <div class="footer-bottom fade-in-up">
                 <p>2024 © Tüm Hakları Saklıdır - NOVA Klima Sistemleri | Mitsubishi Electric Yetkili Bayisi</p>
             </div>
         </div>
@@ -1261,6 +1278,26 @@
         // Slider'ı başlat
         startSlider();
         
+        // Animasyonları başlat
+        function initAnimations() {
+            const animatedElements = document.querySelectorAll('.slide-in-title, .slide-in-from-right, .fade-in-up');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            });
+            
+            animatedElements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
         // Mobil Menü Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mainNav = document.getElementById('mainNav');
@@ -1321,30 +1358,6 @@
             });
         });
         
-        // Arama formu işlemi
-        const searchForm = document.querySelector('.search-form');
-        const searchBtn = document.querySelector('.search-btn');
-        
-        searchBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            const searchInput = document.querySelector('.search-input');
-            if (searchInput.value.trim() !== '') {
-                alert('Arama yapılıyor: ' + searchInput.value);
-                // Gerçek uygulamada burada arama işlemi yapılır
-                // window.location.href = 'arama.html?q=' + encodeURIComponent(searchInput.value);
-            }
-        });
-        
-        searchForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const searchInput = document.querySelector('.search-input');
-            if (searchInput.value.trim() !== '') {
-                alert('Arama yapılıyor: ' + searchInput.value);
-                // Gerçek uygulamada burada arama işlemi yapılır
-                // window.location.href = 'arama.html?q=' + encodeURIComponent(searchInput.value);
-            }
-        });
-        
         // Scroll ile Header'a Shadow Ekleme
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -1387,6 +1400,20 @@
             if (window.innerWidth > 768) {
                 closeMobileMenu();
             }
+        });
+        
+        // Animasyonları başlat
+        document.addEventListener('DOMContentLoaded', function() {
+            initAnimations();
+        });
+        
+        // Sayfa yüklendiğinde animasyonları tetikle
+        window.addEventListener('load', function() {
+            // İlk animasyonları hemen göster
+            const heroElements = document.querySelectorAll('.hero .slide-in-title, .hero .slide-in-from-right, .hero .fade-in-up');
+            heroElements.forEach(element => {
+                element.classList.add('active');
+            });
         });
     </script>
 </body>
