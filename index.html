@@ -465,7 +465,6 @@
             position: relative;
             height: 320px; /* Tüm kartlar aynı boyutta */
             cursor: pointer;
-            transform-style: preserve-3d;
             perspective: 1000px;
             width: 100%;
         }
@@ -475,8 +474,10 @@
             width: 100%;
             height: 100%;
             text-align: center;
-            transition: transform 0.8s;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             transform-style: preserve-3d;
+            border-radius: 8px;
+            overflow: hidden;
         }
         
         .service-card.flipped .service-card-inner {
@@ -591,65 +592,102 @@
             text-shadow: 0 1px 2px rgba(0,0,0,0.5);
         }
         
-        /* KART ARKA YÜZÜ - GÜNCELLENDİ */
+        /* KART ARKA YÜZÜ - TAMAMEN GÜNCELLENDİ */
         .service-card-back {
             background-color: #0066b3;
             color: white;
             transform: rotateY(180deg);
-            padding: 30px 25px;
+            padding: 25px 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
+            backface-visibility: visible !important;
+            -webkit-backface-visibility: visible !important;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            border-radius: 8px;
         }
         
         .service-card-back h3 {
             color: white;
-            margin-bottom: 20px;
-            font-size: 22px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
+            width: 100%;
+            text-align: center;
         }
         
         .product-description {
-            margin-bottom: 20px;
-            font-size: 15px;
-            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 14px;
+            line-height: 1.5;
             opacity: 0.95;
-            flex-grow: 1;
+            width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 100%;
+            flex-grow: 1;
+            text-align: center;
+            padding: 0 10px;
+            max-height: 100px;
+            overflow-y: auto;
         }
         
         .product-description p {
             margin-bottom: 0;
+            width: 100%;
+            text-align: center;
         }
         
         .all-products-text {
-            font-size: 16px;
+            font-size: 15px;
             font-weight: 600;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             color: #fff;
-            padding: 12px 0;
+            padding: 10px 0;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             width: 100%;
+            text-align: center;
         }
         
         .service-card-back .btn {
             background-color: white;
             color: #0066b3;
             font-weight: 700;
-            padding: 12px 25px;
-            font-size: 15px;
+            padding: 10px 20px;
+            font-size: 14px;
             margin-top: auto;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: auto;
+            display: inline-block;
+            text-decoration: none;
         }
         
         .service-card-back .btn:hover {
             background-color: #f8f9fa;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* KART ÖN YÜZÜ için düzenleme */
+        .service-card-front {
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        /* Tüm kartlar için yükseklik ayarı */
+        .service-card, .service-card-front, .service-card-back {
+            height: 100%;
         }
         
         /* HAKKIMIZDA BÖLÜMÜ */
@@ -934,6 +972,15 @@
             .header-phone-button {
                 display: none;
             }
+            
+            .product-description {
+                font-size: 13px;
+                padding: 0 5px;
+            }
+            
+            .service-card-back h3 {
+                font-size: 18px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1077,6 +1124,15 @@
                 padding: 16px;
             }
             
+            .service-card-back {
+                padding: 20px 15px;
+            }
+            
+            .product-description {
+                font-size: 12px;
+                max-height: 90px;
+            }
+            
             /* MOBİL PERFORMANS */
             html, body {
                 max-width: 100vw;
@@ -1154,6 +1210,32 @@
                 height: 280px;
                 max-width: 100%;
                 margin: 0 auto;
+            }
+            
+            .service-card-back {
+                padding: 15px 10px;
+            }
+            
+            .service-card-back h3 {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+            
+            .product-description {
+                font-size: 11px;
+                margin-bottom: 10px;
+                max-height: 80px;
+            }
+            
+            .all-products-text {
+                font-size: 13px;
+                margin-bottom: 15px;
+                padding: 8px 0;
+            }
+            
+            .service-card-back .btn {
+                padding: 8px 16px;
+                font-size: 12px;
             }
         }
         
@@ -1314,12 +1396,10 @@
                         <div class="service-card-back">
                             <h3>Bireysel Klimalar</h3>
                             <div class="product-description">
-                                <p>Mitsubishi Electric'in en son inverter teknolojisi ile %40'a varan enerji tasarrufu sağlayan, sessiz ve konforlu klimalar.</p>
+                                <p>Ev ve ofisler için enerji tasarruflu inverter teknolojisi. %40'a varan tasarruf ve sessiz çalışma. Mitsubishi Electric kalitesi ile konforlu yaşam alanları.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#bireysel" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#bireysel" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1339,12 +1419,10 @@
                         <div class="service-card-back">
                             <h3>Profesyonel Klimalar</h3>
                             <div class="product-description">
-                                <p>Ticari mekanlar için yüksek kapasiteli, dayanıklı ve uzun ömürlü klima sistemleri ile işletmenizin konforunu artırın.</p>
+                                <p>Mağaza, restoran, ofis gibi ticari mekanlar için yüksek performanslı klima sistemleri. Uzun ömürlü ve dayanıklı yapıları ile kesintisiz konfor.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#profesyonel" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#profesyonel" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1364,12 +1442,10 @@
                         <div class="service-card-back">
                             <h3>VRF Klima Sistemleri</h3>
                             <div class="product-description">
-                                <p>Çoklu iç ünite kontrolü ile akıllı iklimlendirme. Büyük binalar için merkezi sistemler ile maksimum verimlilik.</p>
+                                <p>Büyük binalar, AVM'ler ve ofis kompleksleri için merkezi iklimlendirme. Akıllı kontrol ve yüksek enerji verimliliği ile öne çıkan sistemler.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#vrf" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#vrf" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1389,12 +1465,10 @@
                         <div class="service-card-back">
                             <h3>Hidronik Sistemler</h3>
                             <div class="product-description">
-                                <p>Yüksek verimli su bazlı iklimlendirme çözümleri ile doğalgaz ve elektrik tasarrufu sağlayan modern sistemler.</p>
+                                <p>Yüksek verimli su bazlı iklimlendirme sistemleri. Doğalgaz ve elektrik tasarrufu sağlayan modern ve ekonomik ısıtma çözümleri.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#hidronik" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#hidronik" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1414,12 +1488,10 @@
                         <div class="service-card-back">
                             <h3>IT Soğutma Sistemleri</h3>
                             <div class="product-description">
-                                <p>Kesintisiz soğutma ile kritik sistem koruması. 7/24 çalışan sistemler için güvenilir soğutma çözümleri.</p>
+                                <p>Kesintisiz soğutma ile kritik sistem koruması. 7/24 çalışan sistemler için güvenilir soğutma çözümleri. Veri merkezleri için özel tasarım.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#it" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#it" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1439,12 +1511,10 @@
                         <div class="service-card-back">
                             <h3>Isıtma Çözümleri</h3>
                             <div class="product-description">
-                                <p>Enerji tasarruflu modern ısıtma teknolojileri ile kış aylarında maksimum konfor ve minimum enerji tüketimi.</p>
+                                <p>Enerji tasarruflu modern ısıtma teknolojileri ile kış aylarında maksimum konfor ve minimum enerji tüketimi. Her mekana uygun çözümler.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#isitma" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#isitma" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1464,12 +1534,10 @@
                         <div class="service-card-back">
                             <h3>Havalandırma Çözümleri</h3>
                             <div class="product-description">
-                                <p>İç hava kalitesini artıran modern sistemler ile sağlıklı ve temiz hava sirkülasyonu sağlayan profesyonel çözümler.</p>
+                                <p>İç hava kalitesini artıran modern sistemler ile sağlıklı ve temiz hava sirkülasyonu sağlayan profesyonel çözümler. Taze hava ve filtreleme.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#havalandirma" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#havalandirma" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1489,12 +1557,10 @@
                         <div class="service-card-back">
                             <h3>Hava Temizleme Cihazları</h3>
                             <div class="product-description">
-                                <p>Sağlıklı yaşam alanları için hava kalitesi çözümleri. Toz, polen, bakteri ve virüsleri %99,9 oranında filtreleyen sistemler.</p>
+                                <p>Sağlıklı yaşam alanları için hava kalitesi çözümleri. Toz, polen, bakteri ve virüsleri %99,9 oranında filtreleyen sistemler. Alerjik bünyeler için ideal.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#hava-temizleme" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#hava-temizleme" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1514,12 +1580,10 @@
                         <div class="service-card-back">
                             <h3>Kontrol Çözümleri</h3>
                             <div class="product-description">
-                                <p>Merkezi kontrol ile enerji yönetimi ve otomasyon. Akıllı bina sistemleri ile enerji tasarrufu ve konfor artışı.</p>
+                                <p>Merkezi kontrol ile enerji yönetimi ve otomasyon. Akıllı bina sistemleri ile enerji tasarrufu ve konfor artışı. Uzaktan kontrol imkanı.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#kontrol" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#kontrol" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
@@ -1539,12 +1603,10 @@
                         <div class="service-card-back">
                             <h3>El Kurutma Cihazları</h3>
                             <div class="product-description">
-                                <p>Hızlı ve hijyenik el kurutma çözümleri. Enerji tasarruflu, sessiz ve yüksek hijyen standartlarına sahip kurutucular.</p>
+                                <p>Hızlı ve hijyenik el kurutma çözümleri. Enerji tasarruflu, sessiz ve yüksek hijyen standartlarına sahip kurutucular. Kamu ve özel sektör için.</p>
                             </div>
                             <div class="all-products-text">Tüm Ürünleri İnceleyin</div>
-                            <a href="urunlerimiz.html#el-kurutma" class="btn">
-                                <i class="fas fa-arrow-right"></i> Tüm Ürünler
-                            </a>
+                            <a href="urunlerimiz.html#el-kurutma" class="btn">Tüm Ürünler</a>
                         </div>
                     </div>
                 </div>
