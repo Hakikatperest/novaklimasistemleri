@@ -20,6 +20,7 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
+            -webkit-overflow-scrolling: touch; /* Mobil kaydırma sorunu için */
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -79,6 +80,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 60px;
+            padding: 0 15px;
         }
         
         .section-title p {
@@ -171,23 +173,29 @@
             align-items: center;
         }
         
-        /* Logo Alanı - Yan yana */
+        /* Logo Alanı - Yan yana - %50 büyütüldü */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 10px;
         }
         
         .logo-item {
             display: flex;
             align-items: center;
-            height: 40px;
+            height: 60px; /* %50 büyütüldü (40px -> 60px) */
         }
         
         .logo-item img {
             height: 100%;
             width: auto;
             object-fit: contain;
+        }
+        
+        /* İlk logoyu aşağıya kaydır */
+        .logo-item:first-child {
+            align-items: flex-end;
+            padding-bottom: 5px;
         }
         
         /* Telefon Arama Butonu */
@@ -348,6 +356,7 @@
             font-size: 48px;
             margin-bottom: 20px;
             font-weight: 700;
+            color: #0066b3; /* Mavi yapıldı */
         }
         
         .hero h2 {
@@ -435,6 +444,8 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-card:hover {
@@ -463,6 +474,9 @@
             position: relative;
             z-index: 2;
             background-color: white;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
         .service-icon {
@@ -474,6 +488,20 @@
         .service-content h3 {
             font-size: 22px;
             margin-bottom: 12px;
+        }
+        
+        .service-content p {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        /* Servis kartlarındaki butonları uzat ve büyüt */
+        .service-card .btn {
+            width: 100%;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 16px;
+            margin-top: auto;
         }
         
         /* Hakkımızda Bölümü */
@@ -545,24 +573,68 @@
             font-size: 18px;
         }
         
-        /* Keşif Ekibi Bölümü */
-        .team {
+        /* FAQ (Sıkça Sorulan Sorular) Bölümü */
+        .faq-section {
+            background-color: #fff;
+            padding: 80px 0;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .faq-question {
             background-color: #f8f9fa;
-            text-align: center;
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
         }
         
-        .team-content {
-            max-width: 700px;
-            margin: 0 auto 40px;
+        .faq-question:hover {
+            background-color: #e9ecef;
         }
         
-        .team h2 {
-            font-size: 32px;
-            margin-bottom: 20px;
+        .faq-question.active {
+            background-color: #0066b3;
+            color: white;
         }
         
-        .text-center {
-            text-align: center;
+        .faq-question i {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-question.active i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer.active {
+            padding: 20px;
+            max-height: 500px;
+        }
+        
+        .faq-answer p {
+            margin-bottom: 0;
         }
         
         /* Footer */
@@ -594,22 +666,7 @@
             font-size: 15px;
         }
         
-        .footer-social a {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 36px;
-            margin-right: 10px;
-            color: #ddd;
-        }
-        
-        .footer-social a:hover {
-            background-color: #0066b3;
-            color: white;
-        }
+        /* Sosyal medya ikonları kaldırıldı */
         
         .footer-title {
             color: white;
@@ -658,10 +715,10 @@
             font-size: 15px;
         }
         
-        /* Sabit Butonlar */
+        /* Sabit Butonlar - Yukarı taşındı */
         .fixed-buttons {
             position: fixed;
-            bottom: 30px;
+            bottom: 80px; /* Yukarı taşındı */
             right: 30px;
             z-index: 999;
             display: flex;
@@ -737,6 +794,7 @@
                 transition: right 0.4s ease;
                 z-index: 1001;
                 overflow-y: auto;
+                -webkit-overflow-scrolling: touch; /* Mobil kaydırma için */
             }
             
             .main-nav.active {
@@ -790,7 +848,7 @@
             }
             
             .fixed-buttons {
-                bottom: 20px;
+                bottom: 70px; /* Mobilde de yukarıda */
                 right: 20px;
             }
             
@@ -805,7 +863,7 @@
             }
             
             .logo-item {
-                height: 35px;
+                height: 45px; /* Mobilde biraz küçült */
             }
             
             .slider-controls {
@@ -832,6 +890,7 @@
             body {
                 overflow-x: hidden;
                 width: 100%;
+                -webkit-tap-highlight-color: transparent; /* Mobil tıklamalarda mavi vurguyu kaldır */
             }
             
             img {
@@ -843,6 +902,29 @@
             .call-button-header {
                 display: none;
             }
+            
+            /* Mobilde başlık boyutları */
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero h2 {
+                font-size: 20px;
+            }
+            
+            .section-title h2 {
+                font-size: 26px;
+            }
+            
+            /* Mobilde FAQ düzeni */
+            .faq-question {
+                padding: 16px;
+                font-size: 16px;
+            }
+            
+            .faq-answer.active {
+                padding: 16px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -852,11 +934,11 @@
             }
             
             .hero h1 {
-                font-size: 32px;
+                font-size: 28px;
             }
             
             .hero h2 {
-                font-size: 20px;
+                font-size: 18px;
             }
             
             section {
@@ -868,7 +950,7 @@
             }
             
             .logo-item {
-                height: 30px;
+                height: 40px;
             }
             
             .about-badge {
@@ -887,7 +969,19 @@
             }
             
             .section-title h2 {
-                font-size: 26px;
+                font-size: 24px;
+            }
+            
+            .services .section-title h2 {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+            
+            .fixed-buttons {
+                bottom: 60px;
+                right: 15px;
             }
         }
         
@@ -910,6 +1004,19 @@
         
         .menu-overlay.active {
             display: block;
+        }
+        
+        /* Beklentilerinize başlığı için özel stil */
+        .services .section-title {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .services .section-title h2.red-title {
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
     </style>
 </head>
@@ -1008,8 +1115,8 @@
     <section class="services">
         <div class="container">
             <div class="section-title">
-                <p class="slide-in-title">NOVA KLIMA</p>
-                <h2 class="red-title slide-in-from-right">Beklentilerinize ve mekanlarınıza uygun çözümler, son teknoloji ürünler!</h2>
+                <!-- NOVA KLIMA kelimesi kaldırıldı, sadece başlık var -->
+                <h2 class="red-title slide-in-from-right" style="margin-top: 30px; margin-bottom: 30px;">Beklentilerinize ve mekanlarınıza uygun çözümler, son teknoloji ürünler!</h2>
             </div>
             
             <div class="services-grid">
@@ -1023,7 +1130,7 @@
                         </div>
                         <h3 class="blue-title">Konutlar İçin</h3>
                         <p>Sizin ve mekanınızın ihtiyaçlarınıza uygun çözümler sunuyoruz</p>
-                        <a href="urunlerimiz.html#konut" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">İncele</a>
+                        <a href="urunlerimiz.html#konut" class="btn">İncele</a>
                     </div>
                 </div>
                 
@@ -1035,9 +1142,9 @@
                         <div class="service-icon">
                             <i class="fas fa-building"></i>
                         </div>
-                        <h3 class="red-title">İşletmeler İçin</h3>
+                        <h3 class="blue-title">İşletmeler İçin</h3>
                         <p>Güncel standartlara uygun yüksek enerji verimliliği sağlıyoruz</p>
-                        <a href="urunlerimiz.html#isletme" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">İncele</a>
+                        <a href="urunlerimiz.html#isletme" class="btn">İncele</a>
                     </div>
                 </div>
                 
@@ -1049,9 +1156,9 @@
                         <div class="service-icon">
                             <i class="fas fa-cogs"></i>
                         </div>
-                        <h3 class="green-title">Diğer Çözümler</h3>
+                        <h3 class="blue-title">Diğer Çözümler</h3>
                         <p>Her türlü özel kullanım için her zaman verimli ve konforlu ortamlar sunuyoruz</p>
-                        <a href="urunlerimiz.html#diger" class="btn" style="margin-top: 15px; padding: 8px 20px; font-size: 14px;">İncele</a>
+                        <a href="urunlerimiz.html#diger" class="btn">İncele</a>
                     </div>
                 </div>
             </div>
@@ -1086,25 +1193,73 @@
                         <li><i class="fas fa-check"></i> Geniş Ürün Yelpazesi</li>
                     </ul>
                     
-                    <a href="hakkimizda.html" class="btn slide-in-from-right" style="margin-top: 20px;">Daha Fazla Bilgi</a>
+                    <!-- Daha Fazla Bilgi butonu Hemen Ara butonu yapıldı -->
+                    <a href="tel:03249991074" class="btn slide-in-from-right" style="margin-top: 20px;">
+                        <i class="fas fa-phone"></i> Hemen Ara
+                    </a>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- Sıkça Sorulan Sorular Önizleme -->
-    <section class="team" style="background-color: #fff;">
+    <!-- Sıkça Sorulan Sorular Bölümü -->
+    <section class="faq-section">
         <div class="container">
             <div class="section-title">
                 <p class="slide-in-title">SSS</p>
                 <h2 class="blue-title slide-in-from-right">Sıkça Sorulan Sorular</h2>
             </div>
             
-            <div class="team-content fade-in-up">
-                <p>Müşterilerimizin en çok sorduğu sorulara hızlıca yanıt bulabilirsiniz. Eğer aradığınız cevabı bulamazsanız, bizimle iletişime geçmekten çekinmeyin.</p>
-            </div>
-            <div class="text-center">
-                <a href="sikca-sorulan-sorular.html" class="btn fade-in-up">Tüm Sorular</a>
+            <div class="faq-container fade-in-up">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Mitsubishi Electric klimaların enerji verimliliği nedir?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Mitsubishi Electric klimalar, A+++ enerji sınıfı ile en yüksek enerji verimliliğini sunar. Inverter teknolojisi sayesinde %40'a varan enerji tasarrufu sağlarlar.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Klima montajı ne kadar sürer?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Standart bir klima montajı 2-3 saat içerisinde tamamlanır. Ancak bu süre, montaj yapılacak yerin özelliklerine ve klima tipine göre değişiklik gösterebilir.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Klimaların periyodik bakımı ne sıklıkla yapılmalıdır?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Klimaların yılda en az bir kez profesyonel bakımı yapılmalıdır. Yoğun kullanım durumunda bu 6 ayda bire çıkabilir. Düzenli bakım, cihaz ömrünü uzatır ve enerji verimliliğini korur.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Garanti kapsamı nedir ve nasıl geçerlidir?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Mitsubishi Electric klimalar 3 yıl garantilidir. Garanti kapsamı, yetkili bayi tarafından yapılan montaj ve kayıtlı satış belgesiyle geçerlidir. Garanti dışı kalma durumlarında yetkili servisimizden bilgi alabilirsiniz.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Klima seçerken nelere dikkat etmeliyim?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Klima seçerken mekanın büyüklüğü, izolasyon durumu, pencere sayısı, güneş alımı ve kullanım amacı önemlidir. Doğru klima seçimi için ücretsiz keşif hizmetimizden yararlanabilirsiniz.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1143,12 +1298,7 @@
                 <div class="footer-col footer-logo fade-in-up">
                     <h3>NOVA <span>Klima Sistemleri</span></h3>
                     <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri Mitsubishi Electric'in yetkili bayisidir.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+                    <!-- Sosyal medya ikonları kaldırıldı -->
                 </div>
                 
                 <div class="footer-col fade-in-up">
@@ -1402,6 +1552,29 @@
             }
         });
         
+        // FAQ (Sıkça Sorulan Sorular) Fonksiyonelliği
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const answer = this.nextElementSibling;
+                const isActive = this.classList.contains('active');
+                
+                // Tüm soruları kapat
+                document.querySelectorAll('.faq-question').forEach(q => {
+                    q.classList.remove('active');
+                });
+                
+                document.querySelectorAll('.faq-answer').forEach(a => {
+                    a.classList.remove('active');
+                });
+                
+                // Eğer bu soru aktif değilse aç
+                if (!isActive) {
+                    this.classList.add('active');
+                    answer.classList.add('active');
+                }
+            });
+        });
+        
         // Animasyonları başlat
         document.addEventListener('DOMContentLoaded', function() {
             initAnimations();
@@ -1414,6 +1587,21 @@
             heroElements.forEach(element => {
                 element.classList.add('active');
             });
+        });
+        
+        // Mobil kaydırma performansı için optimizasyon
+        let lastScrollTop = 0;
+        let ticking = false;
+        
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    lastScrollTop = scrollTop;
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     </script>
 </body>
