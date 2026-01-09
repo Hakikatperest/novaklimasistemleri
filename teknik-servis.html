@@ -134,20 +134,25 @@
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
             flex-shrink: 0;
+            min-width: 0; /* Önemli: İçerik taşmasını engeller */
         }
         
-        .logo-item {
+        .logo-link {
             display: flex;
             align-items: center;
             height: 60px;
+            max-width: 180px; /* Logoların maksimum genişliği */
+            flex-shrink: 0;
         }
         
-        .logo-item img {
+        .logo-link img {
             height: 100%;
             width: auto;
+            max-width: 100%; /* Resmin taşmasını engeller */
             object-fit: contain;
+            display: block;
         }
         
         .header-phone-button {
@@ -161,7 +166,8 @@
             font-size: 15px;
             white-space: nowrap;
             transition: all 0.3s ease;
-            margin-left: 20px;
+            margin-left: 15px;
+            flex-shrink: 0;
         }
         
         .header-phone-button:hover {
@@ -177,20 +183,24 @@
             flex-grow: 1;
             display: flex;
             justify-content: center;
+            margin: 0 15px;
         }
         
         .main-nav ul {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         
         .main-nav a {
             font-weight: 500;
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
             padding: 5px 0;
             position: relative;
+            white-space: nowrap;
         }
         
         .main-nav a:hover, .main-nav a.active {
@@ -219,7 +229,7 @@
         .dropdown-content {
             position: absolute;
             background-color: white;
-            min-width: 220px;
+            min-width: 200px;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             z-index: 1;
             opacity: 0;
@@ -237,13 +247,14 @@
         
         .dropdown-content a {
             display: block;
-            padding: 12px 20px;
+            padding: 12px 15px;
             border-bottom: 1px solid #f1f1f1;
+            white-space: normal;
         }
         
         .dropdown-content a:hover {
             background-color: #f8f9fa;
-            padding-left: 25px;
+            padding-left: 20px;
         }
         
         .mobile-menu-btn {
@@ -252,6 +263,7 @@
             cursor: pointer;
             color: #333;
             order: 2;
+            flex-shrink: 0;
         }
         
         /* TEKNİK SERVİS HERO */
@@ -845,6 +857,21 @@
         }
         
         /* MOBİL UYUMLULUK */
+        @media (max-width: 1100px) {
+            .logo-link {
+                max-width: 150px;
+                height: 55px;
+            }
+            
+            .main-nav ul {
+                gap: 15px;
+            }
+            
+            .main-nav a {
+                font-size: 14px;
+            }
+        }
+        
         @media (max-width: 992px) {
             .hizmetler-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -872,6 +899,25 @@
             }
         }
         
+        @media (max-width: 900px) {
+            .logo-container {
+                gap: 10px;
+            }
+            
+            .logo-link {
+                max-width: 130px;
+                height: 50px;
+            }
+            
+            .main-nav ul {
+                gap: 12px;
+            }
+            
+            .main-nav a {
+                font-size: 13px;
+            }
+        }
+        
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -890,6 +936,7 @@
                 z-index: 1001;
                 overflow-y: auto;
                 justify-content: flex-start;
+                margin: 0;
             }
             
             .main-nav.active {
@@ -911,6 +958,7 @@
                 display: block;
                 padding: 15px 0;
                 width: 100%;
+                font-size: 16px;
             }
             
             .dropdown-content {
@@ -927,6 +975,15 @@
             
             .dropdown.active .dropdown-content {
                 display: block;
+            }
+            
+            .logo-container {
+                gap: 8px;
+            }
+            
+            .logo-link {
+                max-width: 120px;
+                height: 45px;
             }
             
             .section-title h2 {
@@ -983,14 +1040,6 @@
                 font-size: 24px;
             }
             
-            .logo-container {
-                gap: 8px;
-            }
-            
-            .logo-item {
-                height: 45px;
-            }
-            
             .container {
                 padding: 0 15px;
             }
@@ -1006,6 +1055,15 @@
         }
         
         @media (max-width: 576px) {
+            .logo-container {
+                gap: 5px;
+            }
+            
+            .logo-link {
+                max-width: 100px;
+                height: 40px;
+            }
+            
             .footer-content {
                 grid-template-columns: 1fr;
                 gap: 30px;
@@ -1052,6 +1110,33 @@
                 padding: 10px 20px;
                 font-size: 14px;
             }
+            
+            .logo-link:first-child {
+                max-width: 110px;
+            }
+            
+            .logo-link:last-child {
+                max-width: 90px;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .logo-container {
+                gap: 3px;
+            }
+            
+            .logo-link {
+                max-width: 85px;
+                height: 35px;
+            }
+            
+            .logo-link:first-child {
+                max-width: 95px;
+            }
+            
+            .logo-link:last-child {
+                max-width: 75px;
+            }
         }
         
         .menu-overlay {
@@ -1077,16 +1162,12 @@
             <div class="header-container">
                 <!-- Logo Alanı -->
                 <div class="logo-container">
-                    <div class="logo-item">
-                        <a href="index.html">
-                            <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri" id="novaLogo">
-                        </a>
-                    </div>
-                    <div class="logo-item">
-                        <a href="index.html">
-                            <img src="images/mitsu-logo.jpeg" alt="Mitsubishi Electric" id="mitsuLogo">
-                        </a>
-                    </div>
+                    <a href="index.html" class="logo-link">
+                        <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri">
+                    </a>
+                    <a href="index.html" class="logo-link">
+                        <img src="images/mitsu-logo.jpeg" alt="Mitsubishi Electric">
+                    </a>
                 </div>
                 
                 <!-- Menü barında telefon butonu -->
