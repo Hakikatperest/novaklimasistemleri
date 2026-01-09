@@ -584,6 +584,10 @@
             margin-bottom: 20px;
         }
         
+        .text-center {
+            text-align: center;
+        }
+        
         /* Footer */
         footer {
             background-color: #222;
@@ -688,7 +692,7 @@
             gap: 15px;
         }
         
-        .whatsapp-btn, .call-btn {
+        .call-btn {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -699,17 +703,10 @@
             color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-        }
-        
-        .whatsapp-btn {
-            background-color: #25D366;
-        }
-        
-        .call-btn {
             background-color: #0066b3;
         }
         
-        .whatsapp-btn:hover, .call-btn:hover {
+        .call-btn:hover {
             transform: scale(1.1);
         }
         
@@ -818,7 +815,7 @@
                 right: 20px;
             }
             
-            .whatsapp-btn, .call-btn {
+            .call-btn {
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
@@ -910,11 +907,11 @@
                 <!-- Logo Alanı -->
                 <div class="logo-container">
                     <div class="logo-item">
-                        <img src="https://via.placeholder.com/150x50/0066b3/FFFFFF?text=NOVA+KLIMA" alt="NOVA Klima Sistemleri" id="novaLogo">
+                        <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri" id="novaLogo">
                     </div>
                     <div class="logo-divider"></div>
                     <div class="logo-item">
-                        <img src="https://via.placeholder.com/150x50/000000/FFFFFF?text=Mitsubishi" alt="Mitsubishi Electric" id="mitsuLogo">
+                        <img src="images/novaklima-logo.jpeg" alt="Mitsubishi Electric" id="mitsuLogo">
                     </div>
                 </div>
                 
@@ -965,15 +962,15 @@
     <section class="hero" id="home">
         <div class="hero-slider" id="heroSlider">
             <!-- Slide 1 -->
-            <div class="slide active" id="slide1" style="background-image: url('https://images.unsplash.com/photo-1621923806193-598dde8a8b77?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide active" id="slide1" style="background-image: url('images/nova1.webp');">
                 <div class="slide-overlay"></div>
             </div>
             <!-- Slide 2 -->
-            <div class="slide" id="slide2" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide" id="slide2" style="background-image: url('images/nova2.webp');">
                 <div class="slide-overlay"></div>
             </div>
             <!-- Slide 3 -->
-            <div class="slide" id="slide3" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+            <div class="slide" id="slide3" style="background-image: url('images/nova3.webp');">
                 <div class="slide-overlay"></div>
             </div>
         </div>
@@ -1016,7 +1013,7 @@
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Konutlar İçin">
+                        <img src="images/nova4.webp" alt="Konutlar İçin">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
@@ -1030,7 +1027,7 @@
                 
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="İşletmeler İçin">
+                        <img src="images/novafabrika.webp" alt="İşletmeler İçin">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
@@ -1044,7 +1041,7 @@
                 
                 <div class="service-card">
                     <div class="service-img">
-                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Diğer Çözümler">
+                        <img src="images/nova5.webp" alt="Diğer Çözümler">
                     </div>
                     <div class="service-content">
                         <div class="service-icon">
@@ -1069,7 +1066,7 @@
             
             <div class="about-container">
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="NOVA Klima Hakkında">
+                    <img src="images/nova6.webp" alt="NOVA Klima Hakkında">
                     <div class="about-badge">
                         <span>25+</span>
                         <span>Yıllık Deneyim</span>
@@ -1129,7 +1126,7 @@
                 </div>
                 
                 <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="İletişim">
+                    <img src="images/nova7.webp" alt="İletişim">
                 </div>
             </div>
         </div>
@@ -1195,21 +1192,14 @@
         </div>
     </footer>
     
-    <!-- Sabit Butonlar -->
+    <!-- Sabit Butonlar (Sadece telefon) -->
     <div class="fixed-buttons">
-        <a href="https://wa.me/9053249991074" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
         <a href="tel:03249991074" class="call-btn">
             <i class="fas fa-phone"></i>
         </a>
     </div>
     
     <script>
-        // Logo resimlerini ayarla
-        document.getElementById('novaLogo').src = 'novaklima-logo.jpeg';
-        document.getElementById('mitsuLogo').src = 'mitsu-logo.jpeg';
-        
         // Slider Fonksiyonları
         let currentSlide = 0;
         const slides = document.querySelectorAll('.slide');
