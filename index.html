@@ -435,7 +435,7 @@
             overflow: hidden;
         }
         
-        /* KART ÖN YÜZÜ - RESİM TERS DÖNME SORUNU ÇÖZÜLDÜ */
+        /* KART ÖN YÜZÜ - RESİMLER ORJİNAL YÖNÜNDE */
         .service-card-front {
             background-size: cover;
             background-position: center;
@@ -457,7 +457,7 @@
             z-index: 1;
         }
         
-        /* Her kart için arkaplan görseli */
+        /* Her kart için arkaplan görseli - Resimler orijinal yönlerinde */
         .service-card[data-product="bireysel"] .service-card-front {
             background-image: url('images/bireysel-klima.jpg');
         }
@@ -548,6 +548,7 @@
             overflow-y: auto;
             width: 100%;
             height: 100%;
+            backface-visibility: hidden;
         }
         
         .service-card-back h3 {
@@ -632,6 +633,11 @@
             background-color: #f8f9fa;
             transform: translateY(-3px);
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+        
+        /* Eğer resimler yön değiştiriyorsa, bu özel sınıfları kullan */
+        .image-fix-rotate {
+            transform: rotateY(0deg) !important;
         }
         
         /* HAKKIMIZDA BÖLÜMÜ */
@@ -1936,6 +1942,7 @@
             if (btn) {
                 btn.addEventListener('click', function(e) {
                     e.stopPropagation(); // Olayın kart'a kadar yayılmasını engelle
+                    e.preventDefault(); // Varsayılan link davranışını engelle
                     const href = this.getAttribute('href');
                     if (href && href !== '#') {
                         window.location.href = href;
@@ -2030,11 +2037,14 @@
                 button.addEventListener('click', function(e) {
                     const href = this.getAttribute('href');
                     if (href && href !== '#') {
-                        e.preventDefault();
-                        e.stopPropagation();
                         window.location.href = href;
                     }
                 });
+            });
+            
+            // Kartlardaki resimlerin orijinal yönlerini koru
+            document.querySelectorAll('.service-card-front').forEach(cardFront => {
+                cardFront.style.transform = 'rotateY(0deg)';
             });
         });
     </script>
