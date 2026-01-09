@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* TEMEL STİLLER - PERFORMANS İYİLEŞTİRMELERİ */
+        /* TEMEL STİLLER */
         * {
             margin: 0;
             padding: 0;
@@ -24,8 +24,6 @@
         
         html {
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
         
         body {
@@ -33,8 +31,6 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
-            -webkit-overflow-scrolling: touch;
-            text-rendering: optimizeLegibility;
             width: 100%;
         }
         
@@ -59,12 +55,10 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
-            overflow: hidden;
         }
         
         section {
             padding: 80px 0;
-            position: relative;
         }
         
         .btn {
@@ -92,14 +86,6 @@
             padding: 0 15px;
         }
         
-        .section-title p {
-            color: #0066b3;
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-        }
-        
         .section-title h2 {
             font-size: 36px;
             color: #222;
@@ -119,41 +105,6 @@
             transform: translateX(-50%);
         }
         
-        /* ANİMASYONLU BAŞLIKLAR */
-        .slide-in-title {
-            opacity: 0;
-            transform: translateX(-50px);
-            transition: all 0.8s ease;
-        }
-        
-        .slide-in-title.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .slide-in-from-right {
-            opacity: 0;
-            transform: translateX(50px);
-            transition: all 0.8s ease;
-        }
-        
-        .slide-in-from-right.active {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-        
-        .fade-in-up.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* RENKLİ BAŞLIKLAR */
         .red-title {
             color: #dc3545 !important;
         }
@@ -180,7 +131,6 @@
             width: 100%;
         }
         
-        /* LOGO ALANI */
         .logo-container {
             display: flex;
             align-items: center;
@@ -200,7 +150,6 @@
             object-fit: contain;
         }
         
-        /* TELEFON ARAMA BUTONU */
         .header-phone-button {
             display: flex;
             align-items: center;
@@ -224,7 +173,6 @@
             margin-right: 8px;
         }
         
-        /* ANA NAVİGASYON */
         .main-nav {
             flex-grow: 1;
             display: flex;
@@ -385,7 +333,6 @@
             opacity: 0.9;
         }
         
-        /* ARAMA BUTONU */
         .call-button-hero {
             display: inline-flex;
             align-items: center;
@@ -410,7 +357,6 @@
             margin-right: 10px;
         }
         
-        /* SLIDER KONTROLLERİ */
         .slider-controls {
             position: absolute;
             bottom: 40px;
@@ -444,10 +390,8 @@
         .services {
             background-color: #f8f9fa;
             width: 100%;
-            overflow: hidden;
         }
         
-        /* HİZMETLER GRID - 5x2 düzeni */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -455,7 +399,7 @@
             width: 100%;
         }
         
-        /* KART STİLLERİ - GÜNCELLENDİ */
+        /* KART STİLLERİ - DÜZELTİLDİ */
         .service-card {
             background-color: white;
             border-radius: 8px;
@@ -463,24 +407,18 @@
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
             position: relative;
-            height: 350px; /* Tüm kartlar eşit boyutta */
+            height: 350px;
             cursor: pointer;
             perspective: 1000px;
             width: 100%;
-            display: flex;
-            flex-direction: column;
         }
         
         .service-card-inner {
             position: relative;
             width: 100%;
             height: 100%;
-            text-align: center;
-            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: transform 0.8s;
             transform-style: preserve-3d;
-            border-radius: 8px;
-            overflow: hidden;
-            flex-grow: 1;
         }
         
         .service-card.flipped .service-card-inner {
@@ -494,18 +432,16 @@
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             border-radius: 8px;
-            overflow: hidden;
         }
         
-        /* KART ÖN YÜZÜ - GÖRSEL VE İÇERİK */
+        /* KART ÖN YÜZÜ */
         .service-card-front {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
         }
         
         .service-card-front::before {
@@ -568,7 +504,6 @@
             flex-direction: column;
             align-items: center;
             justify-content: flex-end;
-            flex-grow: 1;
         }
         
         .service-icon {
@@ -597,33 +532,31 @@
             width: 100%;
         }
         
-        /* KART ARKA YÜZÜ - TAMAMEN FARKLI (MAVİ ARKA PLAN, ÖZELLİK LİSTESİ, BUTON) */
+        /* KART ARKA YÜZÜ - TAMAMEN FARKLI */
         .service-card-back {
             background-color: #0066b3;
             color: white;
             transform: rotateY(180deg);
-            padding: 30px 20px;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            padding: 30px 20px;
             text-align: center;
         }
         
         .service-card-back h3 {
             color: white;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             font-size: 22px;
             font-weight: 700;
             width: 100%;
             text-align: center;
         }
         
-        /* Ürün özellikleri için stil */
         .product-features {
             margin-bottom: 20px;
             width: 100%;
-            flex-grow: 1;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -679,7 +612,6 @@
             width: auto;
             display: inline-block;
             text-decoration: none;
-            margin-top: auto;
             min-width: 160px;
         }
         
@@ -830,14 +762,12 @@
             margin-bottom: 0;
         }
         
-        /* FOOTER - PERFORMANS İYİLEŞTİRMELERİ */
+        /* FOOTER */
         footer {
             background-color: #222;
             color: #ddd;
             padding-top: 80px;
             width: 100%;
-            position: relative;
-            overflow: hidden;
         }
         
         .footer-content {
@@ -1005,7 +935,6 @@
         }
         
         @media (max-width: 768px) {
-            /* MOBİL MENÜ */
             .mobile-menu-btn {
                 display: block;
             }
@@ -1062,7 +991,6 @@
                 display: block;
             }
             
-            /* MOBİL GENEL */
             .hero {
                 padding: 100px 0;
                 height: auto;
@@ -1113,7 +1041,6 @@
             
             .hero h1 {
                 font-size: 36px;
-                text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
             }
             
             .container {
@@ -1122,11 +1049,6 @@
             
             section {
                 padding: 60px 0;
-            }
-            
-            body {
-                width: 100%;
-                overflow-x: hidden;
             }
             
             .hero h2 {
@@ -1193,16 +1115,6 @@
                 font-size: 14px;
                 min-width: 120px;
             }
-            
-            /* MOBİL PERFORMANS */
-            html, body {
-                max-width: 100vw;
-                overflow-x: hidden;
-            }
-            
-            .container, section, footer, header {
-                max-width: 100vw;
-            }
         }
         
         @media (max-width: 576px) {
@@ -1263,13 +1175,6 @@
                 font-size: 24px;
             }
             
-            .services .section-title h2 {
-                margin-top: 10px;
-                margin-bottom: 10px;
-                padding-top: 10px;
-                padding-bottom: 10px;
-            }
-            
             .fixed-buttons {
                 bottom: 60px;
                 right: 15px;
@@ -1326,14 +1231,6 @@
             }
         }
         
-        /* MOBİL MENÜ */
-        body.menu-open {
-            overflow: hidden;
-            position: fixed;
-            width: 100%;
-            height: 100%;
-        }
-        
         .menu-overlay {
             display: none;
             position: fixed;
@@ -1347,26 +1244,6 @@
         
         .menu-overlay.active {
             display: block;
-        }
-        
-        /* BEKLENTİLERİNİZE BAŞLIĞI */
-        .services .section-title {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .services .section-title h2.red-title {
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-        
-        /* PERFORMANS İYİLEŞTİRMELERİ */
-        .about, .faq-section, footer {
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-            backface-visibility: hidden;
         }
     </style>
 </head>
@@ -1439,12 +1316,12 @@
         
         <div class="container">
             <div class="hero-content">
-                <h1 class="slide-in-title">NOVA KLİMA SİSTEMLERİ</h1>
-                <h2 class="slide-in-from-right">Isıtma, soğutma, havalandırma ve kontrol çözümleri</h2>
-                <p class="fade-in-up">Konut, ofis ve endüstriyel kullanım için geliştirilmiş ticari ve bireysel tip klima cihazlarımız ile her türlü iklim koşulu için çözümler üretiyoruz</p>
+                <h1>NOVA KLİMA SİSTEMLERİ</h1>
+                <h2>Isıtma, soğutma, havalandırma ve kontrol çözümleri</h2>
+                <p>Konut, ofis ve endüstriyel kullanım için geliştirilmiş ticari ve bireysel tip klima cihazlarımız ile her türlü iklim koşulu için çözümler üretiyoruz</p>
                 
                 <!-- Telefon Arama Butonu -->
-                <a href="tel:03249991074" class="call-button-hero fade-in-up">
+                <a href="tel:03249991074" class="call-button-hero">
                     <i class="fas fa-phone"></i> Hemen Ara: 0324 999 10 74
                 </a>
             </div>
@@ -1464,12 +1341,12 @@
     <section class="services">
         <div class="container">
             <div class="section-title">
-                <h2 class="red-title slide-in-from-right" style="margin-top: 30px; margin-bottom: 30px;">Beklentilerinize ve mekanlarınıza uygun çözümler, son teknoloji ürünler!</h2>
+                <h2 class="red-title" style="margin-top: 30px; margin-bottom: 30px;">Beklentilerinize ve mekanlarınıza uygun çözümler, son teknoloji ürünler!</h2>
             </div>
             
             <div class="services-grid">
                 <!-- Bireysel Klimalar -->
-                <div class="service-card fade-in-up" data-product="bireysel">
+                <div class="service-card" data-product="bireysel">
                     <div class="service-card-inner">
                         <!-- ÖN YÜZ: Görsel ve içerik -->
                         <div class="service-card-front">
@@ -1501,7 +1378,7 @@
                 </div>
                 
                 <!-- Profesyonel Klimalar -->
-                <div class="service-card fade-in-up" data-product="profesyonel">
+                <div class="service-card" data-product="profesyonel">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1530,7 +1407,7 @@
                 </div>
                 
                 <!-- VRF Klima Sistemleri -->
-                <div class="service-card fade-in-up" data-product="vrf">
+                <div class="service-card" data-product="vrf">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1559,7 +1436,7 @@
                 </div>
                 
                 <!-- Hidronik Sistemler -->
-                <div class="service-card fade-in-up" data-product="hidronik">
+                <div class="service-card" data-product="hidronik">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1588,7 +1465,7 @@
                 </div>
                 
                 <!-- IT Soğutma Sistemleri -->
-                <div class="service-card fade-in-up" data-product="it">
+                <div class="service-card" data-product="it">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1617,7 +1494,7 @@
                 </div>
                 
                 <!-- Isıtma Çözümleri -->
-                <div class="service-card fade-in-up" data-product="isitma">
+                <div class="service-card" data-product="isitma">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1646,7 +1523,7 @@
                 </div>
                 
                 <!-- Havalandırma Çözümleri -->
-                <div class="service-card fade-in-up" data-product="havalandirma">
+                <div class="service-card" data-product="havalandirma">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1675,7 +1552,7 @@
                 </div>
                 
                 <!-- Hava Temizleme Cihazları -->
-                <div class="service-card fade-in-up" data-product="hava-temizleme">
+                <div class="service-card" data-product="hava-temizleme">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1704,7 +1581,7 @@
                 </div>
                 
                 <!-- Kontrol Çözümleri -->
-                <div class="service-card fade-in-up" data-product="kontrol">
+                <div class="service-card" data-product="kontrol">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1733,7 +1610,7 @@
                 </div>
                 
                 <!-- El Kurutma Cihazları -->
-                <div class="service-card fade-in-up" data-product="el-kurutma">
+                <div class="service-card" data-product="el-kurutma">
                     <div class="service-card-inner">
                         <div class="service-card-front">
                             <div class="service-content">
@@ -1768,12 +1645,12 @@
     <section class="about" id="about">
         <div class="container">
             <div class="section-title">
-                <p class="slide-in-title">HAKKIMIZDA</p>
-                <h2 class="red-title slide-in-from-right">25+ Yıllık Deneyim ve Güven</h2>
+                <p>HAKKIMIZDA</p>
+                <h2 class="red-title">25+ Yıllık Deneyim ve Güven</h2>
             </div>
             
             <div class="about-container">
-                <div class="about-img fade-in-up">
+                <div class="about-img">
                     <img src="images/nova6.webp" alt="NOVA Klima Hakkında">
                     <div class="about-badge">
                         <span>25+</span>
@@ -1782,17 +1659,17 @@
                 </div>
                 
                 <div class="about-content">
-                    <h3 class="slide-in-title blue-title">NOVA Klima Sistemleri ile yaşam alanlarınızı en uygun iklim koşullarına kavuşturun!</h3>
-                    <p class="fade-in-up">NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri <strong>Mitsubishi Electric</strong>'in yetkili bayisi olarak, müşterilerine üstün kalite ve güvenilirlik sunmaktadır. <strong>25 yıllık deneyimiyle</strong> sektörde fark yaratan <strong>NOVA Klima</strong>, bireysel ve ticari alanlarda ihtiyaca özel klima sistemleri ile yaşam alanlarınıza konfor ve enerji verimliliği getirmeyi amaçlar.</p>
+                    <h3 class="blue-title">NOVA Klima Sistemleri ile yaşam alanlarınızı en uygun iklim koşullarına kavuşturun!</h3>
+                    <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri <strong>Mitsubishi Electric</strong>'in yetkili bayisi olarak, müşterilerine üstün kalite ve güvenilirlik sunmaktadır. <strong>25 yıllık deneyimiyle</strong> sektörde fark yaratan <strong>NOVA Klima</strong>, bireysel ve ticari alanlarda ihtiyaca özel klima sistemleri ile yaşam alanlarınıza konfor ve enerji verimliliği getirmeyi amaçlar.</p>
                     
-                    <ul class="features-list fade-in-up">
+                    <ul class="features-list">
                         <li><i class="fas fa-check"></i> Yetkili Bayi Güvencesi</li>
                         <li><i class="fas fa-check"></i> Profesyonel Teknik Destek</li>
                         <li><i class="fas fa-check"></i> Enerji Verimliliği ve Çevre Dostu Teknolojiler</li>
                         <li><i class="fas fa-check"></i> Geniş Ürün Yelpazesi</li>
                     </ul>
                     
-                    <a href="tel:03249991074" class="btn slide-in-from-right" style="margin-top: 20px;">
+                    <a href="tel:03249991074" class="btn" style="margin-top: 20px;">
                         <i class="fas fa-phone"></i> Hemen Ara
                     </a>
                 </div>
@@ -1804,11 +1681,11 @@
     <section class="faq-section">
         <div class="container">
             <div class="section-title">
-                <p class="slide-in-title">SSS</p>
-                <h2 class="blue-title slide-in-from-right">Sıkça Sorulan Sorular</h2>
+                <p>SSS</p>
+                <h2 class="blue-title">Sıkça Sorulan Sorular</h2>
             </div>
             
-            <div class="faq-container fade-in-up">
+            <div class="faq-container">
                 <div class="faq-item">
                     <div class="faq-question">
                         <span>Mitsubishi Electric klimaların enerji verimliliği nedir?</span>
@@ -1863,26 +1740,26 @@
     </section>
     
     <!-- İletişim Önizleme -->
-    <section class="about" style="background-color: #f8f9fa; width: 100%; overflow: hidden;">
+    <section class="about" style="background-color: #f8f9fa; width: 100%;">
         <div class="container">
             <div class="about-container">
                 <div class="about-content">
-                    <h3 class="red-title slide-in-title">Bize Ulaşın</h3>
-                    <p class="fade-in-up">NOVA Klima Sistemleri olarak, müşterilerimizin her türlü soru, görüş ve önerilerini değerlendirmekten memnuniyet duyarız. Size en iyi hizmeti sunabilmemiz için lütfen bizimle iletişime geçin.</p>
+                    <h3 class="red-title">Bize Ulaşın</h3>
+                    <p>NOVA Klima Sistemleri olarak, müşterilerimizin her türlü soru, görüş ve önerilerini değerlendirmekten memnuniyet duyarız. Size en iyi hizmeti sunabilmemiz için lütfen bizimle iletişime geçin.</p>
                     
-                    <ul class="features-list fade-in-up">
+                    <ul class="features-list">
                         <li><i class="fas fa-map-marker-alt"></i> Viranşehir, Cengiz Topel Cd. HİLAL YAPI KOOP HİLAL SİTESİ A BLOK 29/A, 33340 Mezitli/Mersin</li>
                         <li><i class="fas fa-phone"></i> 0324 999 10 74</li>
                         <li><i class="fas fa-envelope"></i> mustafa_ozdes33@hotmail.com</li>
                         <li><i class="fas fa-clock"></i> Pazartesi - Cumartesi: 08:30 - 19:00</li>
                     </ul>
                     
-                    <a href="tel:03249991074" class="btn slide-in-from-right" style="margin-top: 20px; background-color: #0066b3;">
+                    <a href="tel:03249991074" class="btn" style="margin-top: 20px; background-color: #0066b3;">
                         <i class="fas fa-phone"></i> Hemen Ara
                     </a>
                 </div>
                 
-                <div class="about-img fade-in-up">
+                <div class="about-img">
                     <img src="images/nova7.webp" alt="İletişim">
                 </div>
             </div>
@@ -1890,15 +1767,15 @@
     </section>
     
     <!-- Footer -->
-    <footer style="width: 100%; overflow: hidden;">
+    <footer style="width: 100%;">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-col footer-logo fade-in-up">
+                <div class="footer-col footer-logo">
                     <h3>NOVA <span>Klima Sistemleri</span></h3>
                     <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri Mitsubishi Electric'in yetkili bayisidir.</p>
                 </div>
                 
-                <div class="footer-col fade-in-up">
+                <div class="footer-col">
                     <h4 class="footer-title">Kurumsal</h4>
                     <ul class="footer-links">
                         <li><a href="index.html">Ana Sayfa</a></li>
@@ -1907,7 +1784,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col fade-in-up">
+                <div class="footer-col">
                     <h4 class="footer-title">Ürünlerimiz</h4>
                     <ul class="footer-links">
                         <li><a href="urunlerimiz.html#bireysel">Bireysel Klimalar</a></li>
@@ -1917,7 +1794,7 @@
                     </ul>
                 </div>
                 
-                <div class="footer-col fade-in-up">
+                <div class="footer-col">
                     <h4 class="footer-title">İletişim</h4>
                     <ul class="contact-info-footer">
                         <li>
@@ -1936,7 +1813,7 @@
                 </div>
             </div>
             
-            <div class="footer-bottom fade-in-up">
+            <div class="footer-bottom">
                 <p>2024 © Tüm Hakları Saklıdır - NOVA Klima Sistemleri | Mitsubishi Electric Yetkili Bayisi</p>
             </div>
         </div>
@@ -1986,56 +1863,7 @@
             });
         });
         
-        // Slider'a dokunma/sürükleme desteği
-        let touchStartX = 0;
-        let touchEndX = 0;
-        
-        const slider = document.getElementById('heroSlider');
-        
-        slider.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-            stopSlider();
-        }, false);
-        
-        slider.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-            startSlider();
-        }, false);
-        
-        function handleSwipe() {
-            const swipeThreshold = 50;
-            
-            if (touchEndX < touchStartX - swipeThreshold) {
-                nextSlide();
-            }
-            
-            if (touchEndX > touchStartX + swipeThreshold) {
-                showSlide(currentSlide - 1);
-            }
-        }
-        
         startSlider();
-        
-        // Animasyonları başlat
-        function initAnimations() {
-            const animatedElements = document.querySelectorAll('.slide-in-title, .slide-in-from-right, .fade-in-up');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('active');
-                    }
-                });
-            }, {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            });
-            
-            animatedElements.forEach(element => {
-                observer.observe(element);
-            });
-        }
         
         // Kart döndürme fonksiyonelliği
         document.querySelectorAll('.service-card').forEach(card => {
@@ -2115,48 +1943,6 @@
             });
         });
         
-        // Scroll ile Header'a Shadow Ekleme
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
-            }
-        });
-        
-        // Yumuşak Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if(this.getAttribute('href') === '#') return;
-                
-                const targetId = this.getAttribute('href');
-                
-                if(targetId.startsWith('#')) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if(targetElement) {
-                        if (window.innerWidth <= 768) {
-                            closeMobileMenu();
-                        }
-                        
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-        
-        // Pencere boyutu değiştiğinde mobil menüyü kapat
-        window.addEventListener('resize', function() {
-            if (window.innerWidth > 768) {
-                closeMobileMenu();
-            }
-        });
-        
         // FAQ (Sıkça Sorulan Sorular) Fonksiyonelliği
         document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', function() {
@@ -2178,75 +1964,12 @@
             });
         });
         
-        // Animasyonları başlat
-        document.addEventListener('DOMContentLoaded', function() {
-            initAnimations();
-            
-            // Mobil uyumluluk için ek düzenlemeler
-            if (window.innerWidth <= 768) {
-                // Yatay kaydırmayı engelle
-                document.body.style.overflowX = 'hidden';
-                document.body.style.width = '100%';
-                
-                // Tüm container'ların genişliğini kontrol et
-                document.querySelectorAll('.container, section, header, footer').forEach(el => {
-                    el.style.maxWidth = '100vw';
-                    el.style.overflowX = 'hidden';
-                });
-            }
-        });
-        
-        // Sayfa yüklendiğinde animasyonları tetikle
-        window.addEventListener('load', function() {
-            const heroElements = document.querySelectorAll('.hero .slide-in-title, .hero .slide-in-from-right, .hero .fade-in-up');
-            heroElements.forEach(element => {
-                element.classList.add('active');
+        // Test için: Tüm kartları döndürme butonu
+        function flipAllCards() {
+            document.querySelectorAll('.service-card').forEach(card => {
+                card.classList.add('flipped');
             });
-            
-            // Mobilde yatay kaydırmayı engelle
-            window.addEventListener('scroll', function() {
-                if (window.scrollY !== 0) {
-                    window.scrollTo(0, window.scrollY);
-                }
-            });
-        });
-        
-        // Mobil kaydırma performansı için optimizasyon
-        let lastScrollTop = 0;
-        let ticking = false;
-        
-        window.addEventListener('scroll', function() {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                    lastScrollTop = scrollTop;
-                    ticking = false;
-                });
-                ticking = true;
-            }
-        });
-        
-        // Yatay kaydırmayı engelle
-        window.addEventListener('wheel', function(e) {
-            if (e.deltaX !== 0) {
-                e.preventDefault();
-            }
-        }, { passive: false });
-        
-        // Mobilde yatay kaydırmayı engelle
-        window.addEventListener('touchmove', function(e) {
-            if (e.touches.length === 1) {
-                const touch = e.touches[0];
-                const scrollY = window.scrollY || window.pageYOffset;
-                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-                
-                if (scrollY <= 0 || scrollY >= maxScroll) {
-                    if (Math.abs(e.touches[0].clientX - touch.clientX) > Math.abs(e.touches[0].clientY - touch.clientY)) {
-                        e.preventDefault();
-                    }
-                }
-            }
-        }, { passive: false });
+        }
     </script>
 </body>
 </html>
