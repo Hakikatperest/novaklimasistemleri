@@ -2,17 +2,28 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bakım & Onarım - NOVA Klima Sistemleri</title>
-    <meta name="description" content="NOVA Klima Sistemleri profesyonel klima bakım ve onarım hizmetleri. Mitsubishi Electric yetkili servisi ile güvenilir çözümler.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Klima Bakım & Onarım - NOVA Klima Sistemleri - Profesyonel Klima Bakım Hizmeti</title>
+    <meta name="description" content="NOVA Klima Sistemleri ile profesyonel klima bakım ve onarım hizmeti. Mitsubishi Electric yetkili teknik servis, periyodik bakım ve acil onarım hizmetleri.">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* Temel Stiller */
+        /* TEMEL STİLLER */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
@@ -20,6 +31,7 @@
             color: #333;
             line-height: 1.6;
             overflow-x: hidden;
+            width: 100%;
         }
         
         h1, h2, h3, h4, h5, h6 {
@@ -71,14 +83,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 60px;
-        }
-        
-        .section-title p {
-            color: #0066b3;
-            font-weight: 600;
-            font-size: 18px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            padding: 0 15px;
         }
         
         .section-title h2 {
@@ -100,66 +105,43 @@
             transform: translateX(-50%);
         }
         
-        /* Üst Bilgi Çubuğu */
-        .top-bar {
-            background-color: #f8f9fa;
-            padding: 12px 0;
-            font-size: 14px;
+        .red-title {
+            color: #dc3545 !important;
         }
         
-        .top-bar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .blue-title {
+            color: #0066b3 !important;
         }
         
-        .contact-info {
-            display: flex;
-            gap: 25px;
-        }
-        
-        .contact-info i {
-            color: #0066b3;
-            margin-right: 8px;
-        }
-        
-        .social-links a {
-            margin-left: 15px;
-            color: #555;
-            font-size: 18px;
-        }
-        
-        .social-links a:hover {
-            color: #0066b3;
-        }
-        
-        /* Header */
+        /* HEADER */
         header {
             background-color: white;
             box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
             position: sticky;
             top: 0;
             z-index: 1000;
+            padding: 10px 0;
+            width: 100%;
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            width: 100%;
         }
         
-        /* Logo Alanı */
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 10px;
+            flex-shrink: 0;
         }
         
         .logo-item {
             display: flex;
             align-items: center;
-            height: 50px;
+            height: 60px;
         }
         
         .logo-item img {
@@ -168,78 +150,39 @@
             object-fit: contain;
         }
         
-        .logo-divider {
-            width: 1px;
-            height: 40px;
-            background-color: #ddd;
-        }
-        
-        /* Sağ Üst Açılır Menü */
-        .user-menu-container {
-            position: relative;
-        }
-        
-        .user-menu-btn {
+        .header-phone-button {
             display: flex;
             align-items: center;
-            background: none;
-            border: none;
-            font-size: 16px;
-            cursor: pointer;
-            color: #333;
-            padding: 8px 12px;
+            background-color: #dc3545;
+            color: white;
+            padding: 10px 20px;
             border-radius: 4px;
+            font-weight: 600;
+            font-size: 15px;
+            white-space: nowrap;
             transition: all 0.3s ease;
+            margin-left: 20px;
         }
         
-        .user-menu-btn:hover {
-            background-color: #f5f5f5;
+        .header-phone-button:hover {
+            background-color: #c82333;
+            transform: translateY(-2px);
         }
         
-        .user-menu-btn i {
-            margin-left: 8px;
-            font-size: 14px;
+        .header-phone-button i {
+            margin-right: 8px;
         }
         
-        .user-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background-color: white;
-            min-width: 200px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            border-radius: 4px;
-            padding: 10px 0;
-            z-index: 1001;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: all 0.3s ease;
+        .main-nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
         }
         
-        .user-menu-container.active .user-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .user-dropdown a {
-            display: block;
-            padding: 12px 20px;
-            color: #333;
-            transition: all 0.2s ease;
-        }
-        
-        .user-dropdown a:hover {
-            background-color: #f8f9fa;
-            color: #0066b3;
-            padding-left: 25px;
-        }
-        
-        /* Ana Navigasyon */
         .main-nav ul {
             display: flex;
-            gap: 30px;
+            gap: 25px;
+            margin: 0 auto;
         }
         
         .main-nav a {
@@ -308,195 +251,270 @@
             font-size: 24px;
             cursor: pointer;
             color: #333;
+            order: 2;
         }
         
-        /* Hero Bölümü - Bakım & Onarım */
-        .maintenance-hero {
-            background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
+        /* BAKIM & ONARIM HERO */
+        .bakim-hero {
+            background-color: #dc3545;
             color: white;
+            padding: 100px 0 80px;
             text-align: center;
-            padding: 100px 0;
+            width: 100%;
         }
         
-        .maintenance-hero h1 {
-            font-size: 48px;
+        .bakim-hero h1 {
+            font-size: 42px;
             margin-bottom: 20px;
-            font-weight: 700;
+            color: white !important;
         }
         
-        .maintenance-hero p {
-            font-size: 20px;
+        .bakim-hero p {
+            font-size: 18px;
             max-width: 800px;
             margin: 0 auto 30px;
             opacity: 0.9;
         }
         
-        /* Bakım Hizmetleri Grid */
-        .maintenance-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .maintenance-card {
+        .bakim-hero .btn {
             background-color: white;
-            border-radius: 8px;
-            padding: 40px 30px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-top: 4px solid #0066b3;
+            color: #dc3545;
+            font-size: 18px;
+            padding: 15px 35px;
         }
         
-        .maintenance-card:hover {
+        .bakim-hero .btn:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* BAKIM SÜRECİ */
+        .bakim-process {
+            background-color: white;
+            width: 100%;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .process-step {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-top: 4px solid #dc3545;
+        }
+        
+        .process-step:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
         
-        .maintenance-icon {
+        .step-icon {
             width: 80px;
             height: 80px;
-            background-color: rgba(0, 102, 179, 0.1);
+            background-color: #dc3545;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 32px;
         }
         
-        .maintenance-icon i {
-            font-size: 36px;
-            color: #0066b3;
-        }
-        
-        .maintenance-card h3 {
+        .process-step h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: #222;
         }
         
-        .maintenance-card p {
+        .process-step p {
             color: #555;
-            margin-bottom: 20px;
-            line-height: 1.6;
+            font-size: 15px;
         }
         
-        /* Neden Biz Bölümü */
-        .why-us {
+        /* BAKIM AVANTAJLARI */
+        .bakim-advantages {
             background-color: #f8f9fa;
+            width: 100%;
         }
         
-        .why-us-grid {
+        .advantages-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
         }
         
-        .why-us-card {
+        .advantage-card {
             background-color: white;
             border-radius: 8px;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
             transition: all 0.3s ease;
         }
         
-        .why-us-card:hover {
+        .advantage-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
         }
         
-        .why-us-icon {
-            font-size: 40px;
-            color: #0066b3;
-            margin-bottom: 20px;
-        }
-        
-        .why-us-card h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #222;
-        }
-        
-        /* Bakım Süreci */
-        .process-steps {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
-            margin-top: 50px;
-        }
-        
-        .process-steps:before {
-            content: '';
-            position: absolute;
-            top: 40px;
-            left: 10%;
-            right: 10%;
-            height: 2px;
-            background-color: #e0e0e0;
-            z-index: 1;
-        }
-        
-        .process-step {
-            text-align: center;
-            position: relative;
-            z-index: 2;
-            flex: 1;
-        }
-        
-        .step-number {
-            width: 80px;
-            height: 80px;
-            background-color: #0066b3;
-            color: white;
+        .advantage-icon {
+            width: 70px;
+            height: 70px;
+            background-color: #fef0f0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 30px;
-            font-weight: 700;
-            margin: 0 auto 20px;
+            margin: 0 auto 25px;
+            color: #dc3545;
+            font-size: 28px;
         }
         
-        .process-step h4 {
-            font-size: 18px;
-            margin-bottom: 10px;
+        .advantage-card h3 {
+            font-size: 20px;
+            margin-bottom: 15px;
             color: #222;
         }
         
-        /* Acil Servis */
-        .emergency-service {
-            background: linear-gradient(135deg, #0066b3 0%, #004d8c 100%);
-            color: white;
-            text-align: center;
-            padding: 60px 0;
-            border-radius: 8px;
-            margin-top: 60px;
+        .advantage-card p {
+            color: #555;
+            font-size: 15px;
         }
         
-        .emergency-service h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
+        /* TEKNİK DETAYLAR */
+        .technical-details {
+            background-color: white;
+            width: 100%;
         }
         
-        .emergency-service p {
-            font-size: 18px;
-            margin-bottom: 30px;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
+        .details-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+            align-items: start;
         }
         
-        /* İletişim Formu */
-        .contact-form {
+        .details-list {
             background-color: #f8f9fa;
-            padding: 50px;
             border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 40px;
+        }
+        
+        .details-list h3 {
+            font-size: 26px;
+            margin-bottom: 25px;
+            color: #222;
+        }
+        
+        .details-list ul li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .details-list i {
+            color: #dc3545;
+            margin-right: 15px;
+            font-size: 18px;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        
+        /* FİYAT TABLOSU */
+        .pricing-section {
+            background-color: #f8f9fa;
+            width: 100%;
+        }
+        
+        .pricing-table {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .table-header {
+            background-color: #dc3545;
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .table-header h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .table-body {
+            padding: 40px;
+        }
+        
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .price-item:last-child {
+            border-bottom: none;
+        }
+        
+        .price-name {
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .price-value {
+            font-weight: 600;
+            color: #dc3545;
+        }
+        
+        .price-note {
+            margin-top: 25px;
+            padding: 15px;
+            background-color: #fef0f0;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #555;
+        }
+        
+        /* TEKLİF FORMU */
+        .teklif-form {
+            background-color: white;
+            width: 100%;
+        }
+        
+        .form-container {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .form-container h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #222;
+            text-align: center;
+        }
+        
+        .form-container > p {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 16px;
         }
         
         .form-group {
@@ -510,37 +528,113 @@
             color: #333;
         }
         
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
+        .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 15px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 16px;
             font-family: 'Roboto', sans-serif;
+            font-size: 16px;
             transition: all 0.3s ease;
         }
         
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
+        .form-control:focus {
             outline: none;
-            border-color: #0066b3;
-            box-shadow: 0 0 0 2px rgba(0, 102, 179, 0.1);
+            border-color: #dc3545;
+            box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
         }
         
-        .form-row {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
+        .submit-btn {
+            width: 100%;
+            background-color: #0066b3;
+            color: white;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 600;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
         }
         
-        /* Footer */
+        .submit-btn:hover {
+            background-color: #004d8c;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 102, 179, 0.3);
+        }
+        
+        /* POPÜLER ARAMALAR */
+        .popular-searches {
+            background-color: white;
+            width: 100%;
+        }
+        
+        .searches-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .search-tag {
+            background-color: #f8f9fa;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 500;
+            color: #333;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+        
+        .search-tag:hover {
+            background-color: #dc3545;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(220, 53, 69, 0.2);
+        }
+        
+        /* ACİL SERVİS BANNER */
+        .acil-servis-banner {
+            background-color: #ffc107;
+            color: #333;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 8px;
+        }
+        
+        .acil-servis-banner h3 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .acil-servis-banner p {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .acil-servis-banner .btn {
+            background-color: #333;
+            color: white;
+            font-size: 18px;
+            padding: 12px 30px;
+        }
+        
+        /* FOOTER */
         footer {
             background-color: #222;
             color: #ddd;
             padding-top: 80px;
+            width: 100%;
         }
         
         .footer-content {
@@ -548,6 +642,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
             margin-bottom: 60px;
+            width: 100%;
         }
         
         .footer-logo h3 {
@@ -563,23 +658,6 @@
         .footer-logo p {
             margin-bottom: 20px;
             font-size: 15px;
-        }
-        
-        .footer-social a {
-            display: inline-block;
-            width: 36px;
-            height: 36px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            text-align: center;
-            line-height: 36px;
-            margin-right: 10px;
-            color: #ddd;
-        }
-        
-        .footer-social a:hover {
-            background-color: #0066b3;
-            color: white;
         }
         
         .footer-title {
@@ -627,12 +705,13 @@
             padding: 25px 0;
             text-align: center;
             font-size: 15px;
+            width: 100%;
         }
         
-        /* Sabit Butonlar */
+        /* SABİT BUTONLAR */
         .fixed-buttons {
             position: fixed;
-            bottom: 30px;
+            bottom: 80px;
             right: 30px;
             z-index: 999;
             display: flex;
@@ -640,7 +719,7 @@
             gap: 15px;
         }
         
-        .whatsapp-btn, .call-btn {
+        .call-btn {
             width: 60px;
             height: 60px;
             border-radius: 50%;
@@ -651,56 +730,71 @@
             color: white;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
+            background-color: #dc3545;
         }
         
-        .whatsapp-btn {
-            background-color: #25D366;
-        }
-        
-        .call-btn {
-            background-color: #0066b3;
-        }
-        
-        .whatsapp-btn:hover, .call-btn:hover {
+        .call-btn:hover {
             transform: scale(1.1);
         }
         
-        /* Mobil Uyumluluk */
+        /* İÇ SAYFA LİNKLERİ */
+        .content-links {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .content-links h4 {
+            margin-bottom: 15px;
+            color: #222;
+            font-size: 20px;
+        }
+        
+        .content-links ul {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .content-links li {
+            margin-bottom: 0;
+        }
+        
+        .content-links a {
+            color: #dc3545;
+            font-weight: 500;
+        }
+        
+        .content-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* MOBİL UYUMLULUK */
         @media (max-width: 992px) {
-            .maintenance-grid {
+            .process-steps {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .why-us-grid {
+            .advantages-grid {
                 grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .details-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
             }
             
             .footer-content {
                 grid-template-columns: repeat(2, 1fr);
             }
             
-            .process-steps {
-                flex-direction: column;
-                gap: 40px;
-            }
-            
-            .process-steps:before {
+            .header-phone-button {
                 display: none;
             }
         }
         
         @media (max-width: 768px) {
-            .top-bar .container {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 10px;
-                text-align: center;
-            }
-            
             .mobile-menu-btn {
                 display: block;
             }
@@ -717,6 +811,7 @@
                 transition: right 0.4s ease;
                 z-index: 1001;
                 overflow-y: auto;
+                justify-content: flex-start;
             }
             
             .main-nav.active {
@@ -726,15 +821,18 @@
             .main-nav ul {
                 flex-direction: column;
                 gap: 0;
+                width: 100%;
             }
             
             .main-nav li {
                 border-bottom: 1px solid #f1f1f1;
+                width: 100%;
             }
             
             .main-nav a {
                 display: block;
                 padding: 15px 0;
+                width: 100%;
             }
             
             .dropdown-content {
@@ -746,119 +844,148 @@
                 border-top: none;
                 padding-left: 20px;
                 display: none;
+                width: 100%;
             }
             
             .dropdown.active .dropdown-content {
                 display: block;
             }
             
-            .maintenance-hero h1 {
-                font-size: 36px;
+            .section-title h2 {
+                font-size: 30px;
             }
             
-            .maintenance-hero p {
-                font-size: 18px;
+            .bakim-hero h1 {
+                font-size: 32px;
             }
             
-            .maintenance-grid {
+            .process-steps {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .why-us-grid {
+            .advantages-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
             }
             
-            .form-row {
-                grid-template-columns: 1fr;
+            .form-container {
+                padding: 30px;
+            }
+            
+            .form-container h3 {
+                font-size: 24px;
+            }
+            
+            .acil-servis-banner h3 {
+                font-size: 26px;
             }
             
             .fixed-buttons {
-                bottom: 20px;
+                bottom: 70px;
                 right: 20px;
             }
             
-            .whatsapp-btn, .call-btn {
+            .call-btn {
                 width: 50px;
                 height: 50px;
                 font-size: 24px;
             }
             
             .logo-container {
-                gap: 10px;
+                gap: 8px;
             }
             
             .logo-item {
-                height: 40px;
+                height: 45px;
             }
             
-            .logo-divider {
-                height: 30px;
-            }
-            
-            .user-menu-container {
-                position: static;
-            }
-            
-            .user-dropdown {
-                left: 0;
-                right: auto;
-                width: 100%;
-            }
-            
-            .contact-form {
-                padding: 30px 20px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .footer-content {
-                grid-template-columns: 1fr;
+            .container {
+                padding: 0 15px;
             }
             
             section {
                 padding: 60px 0;
             }
             
-            .logo-container {
+            .content-links ul {
                 flex-direction: column;
-                gap: 5px;
-                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
             
-            .logo-divider {
-                display: none;
-            }
-            
-            .maintenance-hero {
-                padding: 80px 0;
-            }
-            
-            .maintenance-hero h1 {
-                font-size: 32px;
+            .bakim-hero h1 {
+                font-size: 28px;
             }
             
             .section-title h2 {
-                font-size: 30px;
+                font-size: 24px;
             }
+            
+            .process-step {
+                padding: 30px 20px;
+            }
+            
+            .step-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 28px;
+            }
+            
+            .advantage-card {
+                padding: 30px 20px;
+            }
+            
+            .details-list {
+                padding: 30px;
+            }
+            
+            .table-body {
+                padding: 30px 20px;
+            }
+            
+            .fixed-buttons {
+                bottom: 60px;
+                right: 15px;
+            }
+            
+            .search-tag {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .acil-servis-banner {
+                padding: 30px 15px;
+            }
+            
+            .acil-servis-banner h3 {
+                font-size: 22px;
+            }
+        }
+        
+        .menu-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        
+        .menu-overlay.active {
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Üst Bilgi Çubuğu -->
-    <div class="top-bar">
-        <div class="container">
-            <div class="contact-info">
-                <div><i class="fas fa-envelope"></i> mustafa_ozdes33@hotmail.com</div>
-                <div><i class="fas fa-phone"></i> 0324 999 10 74</div>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-            </div>
-        </div>
-    </div>
-    
     <!-- Header -->
     <header>
         <div class="container">
@@ -866,13 +993,21 @@
                 <!-- Logo Alanı -->
                 <div class="logo-container">
                     <div class="logo-item">
-                        <img src="https://via.placeholder.com/150x50/0066b3/FFFFFF?text=NOVA+KLIMA" alt="NOVA Klima Sistemleri" id="novaLogo">
+                        <a href="index.html">
+                            <img src="images/novaklima-logo.jpeg" alt="NOVA Klima Sistemleri" id="novaLogo">
+                        </a>
                     </div>
-                    <div class="logo-divider"></div>
                     <div class="logo-item">
-                        <img src="https://via.placeholder.com/150x50/000000/FFFFFF?text=Mitsubishi" alt="Mitsubishi Electric" id="mitsuLogo">
+                        <a href="index.html">
+                            <img src="images/mitsu-logo.jpeg" alt="Mitsubishi Electric" id="mitsuLogo">
+                        </a>
                     </div>
                 </div>
+                
+                <!-- Menü barında telefon butonu -->
+                <a href="tel:03249991074" class="header-phone-button">
+                    <i class="fas fa-phone"></i> Hemen Ara
+                </a>
                 
                 <!-- Mobil Menü Butonu -->
                 <div class="mobile-menu-btn" id="mobileMenuBtn">
@@ -886,280 +1021,345 @@
                         <li><a href="urunlerimiz.html">Ürünlerimiz</a></li>
                         <li><a href="hakkimizda.html">Hakkımızda</a></li>
                         <li class="dropdown" id="servicesDropdown">
-                            <a href="hizmetlerimiz.html" class="active">Hizmetlerimiz <i class="fas fa-chevron-down"></i></a>
+                            <a href="hizmetlerimiz.html">Hizmetlerimiz <i class="fas fa-chevron-down"></i></a>
                             <div class="dropdown-content">
-                                <a href="hizmetlerimiz.html#montaj">Klima Montajı</a>
-                                <a href="bakim-onarim.html">Bakım & Onarım</a>
-                                <a href="hizmetlerimiz.html#servis">Teknik Servis</a>
+                                <a href="klima-montaji.html">Klima Montajı</a>
+                                <a href="bakim-onarim.html" class="active">Bakım & Onarım</a>
+                                <a href="teknik-servis.html">Teknik Servis</a>
                                 <a href="hizmetlerimiz.html#kesif">Keşif Hizmeti</a>
                             </div>
                         </li>
-                        <li><a href="sikca-sorulan-sorular.html">SSS</a></li>
                         <li><a href="iletisim.html">İletişim</a></li>
                     </ul>
                 </nav>
-                
-                <!-- Sağ Üst Açılır Menü -->
-                <div class="user-menu-container" id="userMenuContainer">
-                    <button class="user-menu-btn" id="userMenuBtn">
-                        <i class="fas fa-user-circle"></i> Hesabım <i class="fas fa-chevron-down"></i>
-                    </button>
-                    <div class="user-dropdown">
-                        <a href="#"><i class="fas fa-user"></i> Profilim</a>
-                        <a href="#"><i class="fas fa-shopping-cart"></i> Sepetim</a>
-                        <a href="#"><i class="fas fa-heart"></i> Favorilerim</a>
-                        <a href="#"><i class="fas fa-history"></i> Sipariş Geçmişi</a>
-                        <a href="#"><i class="fas fa-cog"></i> Ayarlar</a>
-                        <a href="#"><i class="fas fa-sign-out-alt"></i> Çıkış Yap</a>
-                    </div>
-                </div>
             </div>
         </div>
+        
+        <!-- Mobil Menü Overlay -->
+        <div class="menu-overlay" id="menuOverlay"></div>
     </header>
     
-    <!-- Hero Bölümü -->
-    <section class="maintenance-hero">
+    <!-- Bakım & Onarım Hero -->
+    <section class="bakim-hero">
         <div class="container">
-            <h1>Profesyonel Klima Bakım & Onarım Hizmetleri</h1>
-            <p>Mitsubishi Electric yetkili servisi olarak, klimanızın ömrünü uzatmak ve en yüksek verimle çalışmasını sağlamak için kapsamlı bakım ve onarım hizmetleri sunuyoruz.</p>
-            <a href="#contact" class="btn" style="background-color: white; color: #0066b3;">Hemen Randevu Al</a>
-        </div>
-    </section>
-    
-    <!-- Bakım Hizmetleri Bölümü -->
-    <section>
-        <div class="container">
-            <div class="section-title">
-                <p>BAKIM HİZMETLERİMİZ</p>
-                <h2>Kapsamlı Bakım Çözümleri</h2>
-            </div>
-            
-            <div class="maintenance-grid">
-                <div class="maintenance-card">
-                    <div class="maintenance-icon">
-                        <i class="fas fa-wrench"></i>
-                    </div>
-                    <h3>Periyodik Bakım</h3>
-                    <p>Klimanızın düzenli periyodik bakımı ile enerji verimliliğini artırın, ömrünü uzatın ve sorunsuz çalışmasını sağlayın.</p>
-                    <a href="#contact" class="btn">Randevu Al</a>
-                </div>
-                
-                <div class="maintenance-card">
-                    <div class="maintenance-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3>Arıza Tespit ve Onarım</h3>
-                    <p>Uzman teknisyenlerimiz ile klimanızdaki arızaları hızlıca tespit ediyor ve kalıcı çözümler sunuyoruz.</p>
-                    <a href="#contact" class="btn">Randevu Al</a>
-                </div>
-                
-                <div class="maintenance-card">
-                    <div class="maintenance-icon">
-                        <i class="fas fa-spray-can"></i>
-                    </div>
-                    <h3>Temizlik ve Dezenfeksiyon</h3>
-                    <p>Klima iç ve dış ünitesinin profesyonel temizliği ile sağlıklı hava kalitesi ve maksimum verim elde edin.</p>
-                    <a href="#contact" class="btn">Randevu Al</a>
-                </div>
-                
-                <div class="maintenance-card">
-                    <div class="maintenance-icon">
-                        <i class="fas fa-gas-pump"></i>
-                    </div>
-                    <h3>Gaz Dolumu ve Kontrol</h3>
-                    <p>Soğutucu gaz seviyesi kontrolü ve dolumu ile klimanızın ideal performansta çalışmasını sağlıyoruz.</p>
-                    <a href="#contact" class="btn">Randevu Al</a>
-                </div>
-                
-                <div class="maintenance-card">
-                    <div class="maintenance-icon">
-                        <i class="fas fa-filter"></i>
-                    </div>
-                    <h3>Filtre Değişimi</h3>
-                    <p>Klima filtrelerinin düzenli değişimi ile hava kalitesini artırın ve sistem verimliliğini koruyun.</p>
-                    <a href="#contact" class="btn">Randevu Al</a>
-                </div>
-                
-                <div class="maintenance-card">
-                    <div class="maintenance-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3>7/24 Acil Servis</h3>
-                    <p>Acil durumlarda 7 gün 24 saat teknik destek ve acil onarım hizmeti ile yanınızdayız.</p>
-                    <a href="#contact" class="btn">Randevu Al</a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Neden Biz Bölümü -->
-    <section class="why-us">
-        <div class="container">
-            <div class="section-title">
-                <p>NEDEN BİZ?</p>
-                <h2>NOVA Klima Farkı</h2>
-            </div>
-            
-            <div class="why-us-grid">
-                <div class="why-us-card">
-                    <div class="why-us-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h4>Yetkili Servis</h4>
-                    <p>Mitsubishi Electric yetkili servisi olarak orijinal yedek parça ve ekipman kullanıyoruz.</p>
-                </div>
-                
-                <div class="why-us-card">
-                    <div class="why-us-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h4>Uzman Ekip</h4>
-                    <p>Alanında uzman, sertifikalı teknisyenlerimiz ile profesyonel hizmet sunuyoruz.</p>
-                </div>
-                
-                <div class="why-us-card">
-                    <div class="why-us-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h4>Garantili Hizmet</h4>
-                    <p>Tüm bakım ve onarım hizmetlerimiz için hizmet garantisi veriyoruz.</p>
-                </div>
-                
-                <div class="why-us-card">
-                    <div class="why-us-icon">
-                        <i class="fas fa-bolt"></i>
-                    </div>
-                    <h4>Hızlı Müdahale</h4>
-                    <p>Mersin ve çevresine hızlı servis ağımız ile en kısa sürede müdahale ediyoruz.</p>
-                </div>
-            </div>
+            <h1>Profesyonel Klima Bakım & Onarım Hizmeti</h1>
+            <p>Mitsubishi Electric yetkili teknik servis ekibimiz ile garantili klima bakım ve onarım hizmeti. Periyodik bakım, acil servis ve uzun ömür garantisi.</p>
+            <a href="tel:03249991074" class="btn">
+                <i class="fas fa-phone"></i> Acil Servis İçin Ara: 0324 999 10 74
+            </a>
         </div>
     </section>
     
     <!-- Bakım Süreci -->
-    <section>
+    <section class="bakim-process">
         <div class="container">
             <div class="section-title">
-                <p>BAKIM SÜRECİ</p>
-                <h2>4 Adımda Profesyonel Bakım</h2>
+                <h2 class="red-title">Klima Bakım Sürecimiz</h2>
+                <p>4 adımda profesyonel bakım hizmeti</p>
             </div>
             
             <div class="process-steps">
                 <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h4>Randevu Alın</h4>
-                    <p>Telefon veya web sitemizden kolayca randevunuzu oluşturun.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>1. Detaylı Kontrol</h3>
+                    <p>Uzman teknisyenlerimiz klimanızı tüm yönleriyle kontrol eder, sorunları tespit eder ve performans analizi yapar.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h4>Keşif ve Analiz</h4>
-                    <p>Uzmanımız gelerek klimanızı detaylı şekilde kontrol eder.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>2. Filtre Temizliği</h3>
+                    <p>Klima filtreleri özenle temizlenir, tıkanıklıklar giderilir ve hava akışı optimize edilir.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h4>Bakım ve Onarım</h4>
-                    <p>Gerekli bakım ve onarım işlemleri profesyonelce yapılır.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>3. Sistem Bakımı</h3>
+                    <p>Soğutucu gaz seviyesi kontrol edilir, boru bağlantıları kontrol edilir ve elektriksel bağlantılar gözden geçirilir.</p>
                 </div>
                 
                 <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h4>Test ve Onay</h4>
-                    <p>Klima test edilir, performansı kontrol edilir ve onayınız alınır.</p>
+                    <div class="step-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>4. Test ve Onay</h3>
+                    <p>Bakım sonrası klima tüm fonksiyonlarıyla test edilir, performans raporu hazırlanır ve garanti belgesi verilir.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Acil Servis -->
-    <section>
-        <div class="container">
-            <div class="emergency-service">
-                <h3>Acil Servis İhtiyacınız mı Var?</h3>
-                <p>Klimanızda acil bir arıza mı oluştu? Hemen bizi arayın, en kısa sürede size ulaşalım.</p>
-                <a href="tel:03249991074" class="btn" style="background-color: white; color: #0066b3; font-size: 18px; padding: 15px 35px;">
-                    <i class="fas fa-phone"></i> 0324 999 10 74
-                </a>
-            </div>
-        </div>
-    </section>
-    
-    <!-- İletişim Formu -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <p>RANDEVU AL</p>
-                <h2>Bakım Randevusu Oluşturun</h2>
             </div>
             
-            <div class="contact-form">
-                <form id="maintenanceForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="name">Adınız Soyadınız *</label>
-                            <input type="text" id="name" name="name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefon Numaranız *</label>
-                            <input type="tel" id="phone" name="phone" required>
-                        </div>
+            <!-- İç Sayfa Linkleri -->
+            <div class="content-links">
+                <h4>İlgili Hizmetlerimiz:</h4>
+                <ul>
+                    <li><a href="klima-montaji.html">Profesyonel Klima Montaj Hizmeti</a></li>
+                    <li><a href="teknik-servis.html">Teknik Servis Hizmeti</a></li>
+                    <li><a href="hizmetlerimiz.html">Tüm Hizmetlerimiz</a></li>
+                    <li><a href="urunlerimiz.html">Klima Ürünlerimiz</a></li>
+                    <li><a href="iletisim.html">İletişim ve Destek</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bakım Avantajları -->
+    <section class="bakim-advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="blue-title">NOVA Klima Bakım Avantajları</h2>
+                <p>Profesyonel bakımın farkını yaşayın</p>
+            </div>
+            
+            <div class="advantages-grid">
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3>Yetkili Teknik Servis</h3>
+                    <p>Mitsubishi Electric sertifikalı uzman teknisyenlerimiz ile garantili ve güvenilir bakım hizmeti.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Uzun Ömür Garantisi</h3>
+                    <p>Düzenli bakım ile klimanızın ömrünü %40'a kadar uzatıyoruz ve performans garantisi veriyoruz.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3>Enerji Tasarrufu</h3>
+                    <p>Bakımlı klima %25 daha az enerji tüketir, aylık elektrik faturanızda gözle görülür tasarruf sağlar.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Hızlı Servis</h3>
+                    <p>Acil servis taleplerinize aynı gün, bakım taleplerinize ise 24 saat içinde yanıt veriyoruz.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Orijinal Yedek Parça</h3>
+                    <p>Tüm yedek parça değişimlerinde sadece orijinal Mitsubishi Electric yedek parçaları kullanıyoruz.</p>
+                </div>
+                
+                <div class="advantage-card">
+                    <div class="advantage-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>7/24 Acil Servis</h3>
+                    <p>Hafta sonu ve resmi tatiller dahil 7 gün 24 saat acil servis hizmeti ile yanınızdayız.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Teknik Detaylar -->
+    <section class="technical-details">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="red-title">Teknik Bakım Detayları</h2>
+                <p>Profesyonel bakımın teknik özellikleri</p>
+            </div>
+            
+            <div class="details-container">
+                <div class="details-list">
+                    <h3>Periyodik Bakım Kapsamı</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> <strong>Filtre Temizliği:</strong> İç ve dış ünite filtrelerinin detaylı temizliği ve dezenfektesi</li>
+                        <li><i class="fas fa-check"></i> <strong>Kondenser Temizliği:</strong> Dış ünite kondenserinin temizliği ve bakımı</li>
+                        <li><i class="fas fa-check"></i> <strong>Gaz Kontrolü:</strong> Soğutucu gaz seviyesi kontrolü ve gerekiyorsa ilavesi</li>
+                        <li><i class="fas fa-check"></i> <strong>Elektriksel Kontroller:</strong> Tüm elektrik bağlantılarının kontrolü ve güvenlik testi</li>
+                        <li><i class="fas fa-check"></i> <strong>Fan Motoru Bakımı:</strong> İç ve dış ünite fan motorlarının kontrolü ve yağlaması</li>
+                        <li><i class="fas fa-check"></i> <strong>Drenaj Sistemi:</strong> Su tahliye sisteminin kontrolü ve temizliği</li>
+                    </ul>
+                </div>
+                
+                <div class="details-list">
+                    <h3>Bakımın Faydaları</h3>
+                    <ul>
+                        <li><i class="fas fa-toolbox"></i> <strong>Enerji Tasarrufu:</strong> Bakımlı klima %25 daha az enerji tüketir</li>
+                        <li><i class="fas fa-toolbox"></i> <strong>Ömür Uzatma:</strong> Düzenli bakım klima ömrünü %40 uzatır</li>
+                        <li><i class="fas fa-toolbox"></i> <strong>Sağlıklı Ortam:</strong> Temiz klima daha sağlıklı ve temiz hava sağlar</li>
+                        <li><i class="fas fa-toolbox"></i> <strong>Arıza Önleme:</strong> Olası arızalar bakım sırasında tespit ve önlenir</li>
+                        <li><i class="fas fa-toolbox"></i> <strong>Performans Artışı:</strong> Klima performansı maksimum seviyede tutulur</li>
+                        <li><i class="fas fa-toolbox"></i> <strong>Sessiz Çalışma:</strong> Bakımlı klima daha sessiz çalışır</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Acil Servis Banner -->
+    <section class="acil-servis-banner">
+        <div class="container">
+            <h3>🔥 ACİL KLİMA SERVİSİ 🔥</h3>
+            <p>Klimanız arızalandı mı? Hemen arayın, aynı gün servis!</p>
+            <p><strong>Hafta sonu ve resmi tatiller dahil 7/24 acil servis hizmeti</strong></p>
+            <a href="tel:03249991074" class="btn">
+                <i class="fas fa-phone-alt"></i> ACİL SERVİS: 0324 999 10 74
+            </a>
+        </div>
+    </section>
+    
+    <!-- Popüler Aramalar -->
+    <section class="popular-searches">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="blue-title">Popüler Aramalar</h2>
+                <p>Klima bakım ve onarım hakkında en çok aranan konular</p>
+            </div>
+            
+            <div class="searches-container">
+                <p>Mersin'de <strong>klima bakımı fiyatları</strong>, <strong>acil klima servisi</strong>, <strong>Mitsubishi Electric bakım hizmeti</strong> ve <strong>garantili klima onarımı</strong> arayanlar için doğru adrestesiniz. Müşterilerimiz genellikle <strong>ev klima bakımı</strong>, <strong>işyeri klima bakımı</strong>, <strong>klima gaz dolumu</strong> ve <strong>klima arıza tamiri</strong> hakkında bilgi almak için bize ulaşıyor.</p>
+                <p>Özellikle <strong>Mersin klima servisi</strong>, <strong>klima periyodik bakım</strong> ve <strong>bakım sonrası garanti</strong> hizmetlerimiz yoğun ilgi görüyor. <strong>Klima temizliği</strong>, <strong>klima filtre değişimi</strong> ve <strong>klima arıza tespiti</strong> çözümlerimiz de müşterilerimiz tarafından sıkça araştırılıyor.</p>
+                
+                <div class="search-tags">
+                    <span class="search-tag">klima bakım fiyatı Mersin</span>
+                    <span class="search-tag">acil klima servisi</span>
+                    <span class="search-tag">Mitsubishi klima bakımı</span>
+                    <span class="search-tag">ev klima bakımı</span>
+                    <span class="search-tag">işyeri klima bakımı</span>
+                    <span class="search-tag">klima gaz dolumu</span>
+                    <span class="search-tag">klima servis ustası</span>
+                    <span class="search-tag">klima bakım garantisi</span>
+                    <span class="search-tag">klima filtre temizliği</span>
+                    <span class="search-tag">klima arıza tamiri</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Fiyat Tablosu -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-title">
+                <h2 class="red-title">Klima Bakım Fiyatları</h2>
+                <p>Şeffaf fiyat politikamız</p>
+            </div>
+            
+            <div class="pricing-table">
+                <div class="table-header">
+                    <h3>Klima Bakım & Onarım Fiyat Listesi</h3>
+                    <p>Fiyatlara KDV dahildir</p>
+                </div>
+                
+                <div class="table-body">
+                    <div class="price-item">
+                        <div class="price-name">Standart Bakım (9.000 - 18.000 BTU)</div>
+                        <div class="price-value">350 TL</div>
                     </div>
                     
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">E-posta Adresiniz</label>
-                            <input type="email" id="email" name="email">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="service">İhtiyacınız Olan Hizmet *</label>
-                            <select id="service" name="service" required>
-                                <option value="">Seçiniz</option>
-                                <option value="periyodik">Periyodik Bakım</option>
-                                <option value="ariza">Arıza Tespit ve Onarım</option>
-                                <option value="temizlik">Temizlik ve Dezenfeksiyon</option>
-                                <option value="gaz">Gaz Dolumu</option>
-                                <option value="filtre">Filtre Değişimi</option>
-                                <option value="acil">Acil Servis</option>
-                            </select>
-                        </div>
+                    <div class="price-item">
+                        <div class="price-name">Standart Bakım (24.000 - 36.000 BTU)</div>
+                        <div class="price-value">450 TL</div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Kaset Tipi Klima Bakımı</div>
+                        <div class="price-value">500 TL</div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Kanal Tipi Klima Bakımı</div>
+                        <div class="price-value">600 TL</div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Soğutucu Gaz Dolumu (her kg)</div>
+                        <div class="price-value">150 TL/kg</div>
+                    </div>
+                    
+                    <div class="price-item">
+                        <div class="price-name">Filtre Değişimi (set)</div>
+                        <div class="price-value">200 TL</div>
+                    </div>
+                    
+                    <div class="price-note">
+                        <p><strong>Not:</strong> Yukarıdaki fiyatlar standart bakım içindir. Arıza tespiti ve onarım işlemleri için öncelikle ücretsiz kontrol yapılmaktadır. Bakım paketlerimizde %20 indirim uygulanmaktadır.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Hızlı Teklif Formu -->
+    <section class="teklif-form">
+        <div class="container">
+            <div class="form-container">
+                <h3 class="blue-title">Bakım Talep Formu</h3>
+                <p>Klima bakımı için randevu alın. Uzman ekibimiz sizi arayacak.</p>
+                
+                <form id="bakimForm">
+                    <div class="form-group">
+                        <label for="name">Adınız Soyadınız *</label>
+                        <input type="text" id="name" class="form-control" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="address">Adres (Servis için)</label>
-                        <textarea id="address" name="address" rows="3"></textarea>
+                        <label for="phone">Telefon Numaranız *</label>
+                        <input type="tel" id="phone" class="form-control" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Ek Bilgiler (Klima marka/modeli, arıza belirtisi vb.)</label>
-                        <textarea id="message" name="message" rows="4"></textarea>
+                        <label for="klimaTipi">Klima Tipi</label>
+                        <select id="klimaTipi" class="form-control">
+                            <option value="">Seçiniz</option>
+                            <option value="duvar">Duvar Tipi Klima</option>
+                            <option value="kaset">Kaset Tipi Klima</option>
+                            <option value="kanal">Kanal Tipi Klima</option>
+                            <option value="vrf">VRF Sistem</option>
+                            <option value="diger">Diğer</option>
+                        </select>
                     </div>
                     
                     <div class="form-group">
-                        <button type="submit" class="btn" style="width: 100%; padding: 15px; font-size: 18px;">
-                            <i class="fas fa-calendar-check"></i> Randevu Talebi Gönder
-                        </button>
+                        <label for="servisTipi">Hizmet Türü</label>
+                        <select id="servisTipi" class="form-control">
+                            <option value="">Seçiniz</option>
+                            <option value="bakim">Periyodik Bakım</option>
+                            <option value="onarim">Arıza Onarım</option>
+                            <option value="acil">Acil Servis</option>
+                            <option value="temizlik">Klima Temizliği</option>
+                        </select>
                     </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Arıza Açıklaması veya Özel Not</label>
+                        <textarea id="message" class="form-control" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-calendar-check"></i> Randevu Al
+                    </button>
                 </form>
+                
+                <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #666;">
+                    Veya doğrudan arayın: <a href="tel:03249991074" style="color: #dc3545; font-weight: 600;">0324 999 10 74</a>
+                </p>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer>
+    <footer style="width: 100%;">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-col footer-logo">
                     <h3>NOVA <span>Klima Sistemleri</span></h3>
                     <p>NOVA Klima Sistemleri, iklimlendirme çözümlerinde dünya lideri Mitsubishi Electric'in yetkili bayisidir.</p>
-                    <div class="footer-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
                 </div>
                 
                 <div class="footer-col">
@@ -1168,17 +1368,16 @@
                         <li><a href="index.html">Ana Sayfa</a></li>
                         <li><a href="hakkimizda.html">Hakkımızda</a></li>
                         <li><a href="#">Referanslarımız</a></li>
-                        <li><a href="sikca-sorulan-sorular.html">Sıkça Sorulan Sorular</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-col">
-                    <h4 class="footer-title">Hizmetlerimiz</h4>
+                    <h4 class="footer-title">Ürünlerimiz</h4>
                     <ul class="footer-links">
-                        <li><a href="hizmetlerimiz.html#montaj">Klima Montajı</a></li>
-                        <li><a href="bakim-onarim.html">Bakım & Onarım</a></li>
-                        <li><a href="hizmetlerimiz.html#servis">Teknik Servis</a></li>
-                        <li><a href="hizmetlerimiz.html#kesif">Keşif Hizmeti</a></li>
+                        <li><a href="urunlerimiz.html#bireysel">Bireysel Klimalar</a></li>
+                        <li><a href="urunlerimiz.html#profesyonel">Profesyonel Klimalar</a></li>
+                        <li><a href="urunlerimiz.html#vrf">VRF Klima Sistemleri</a></li>
+                        <li><a href="urunlerimiz.html#isitma">Isıtma Çözümleri</a></li>
                     </ul>
                 </div>
                 
@@ -1209,36 +1408,46 @@
     
     <!-- Sabit Butonlar -->
     <div class="fixed-buttons">
-        <a href="https://wa.me/9053249991074" class="whatsapp-btn" target="_blank">
-            <i class="fab fa-whatsapp"></i>
-        </a>
         <a href="tel:03249991074" class="call-btn">
             <i class="fas fa-phone"></i>
         </a>
     </div>
     
     <script>
-        // Logo resimlerini ayarla
-        document.getElementById('novaLogo').src = 'novaklima-logo.jpeg';
-        document.getElementById('mitsuLogo').src = 'mitsu-logo.jpeg';
-        
         // Mobil Menü Toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('mainNav').classList.toggle('active');
-            this.querySelector('i').classList.toggle('fa-bars');
-            this.querySelector('i').classList.toggle('fa-times');
-        });
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const menuOverlay = document.getElementById('menuOverlay');
         
-        // Sağ üst açılır menü
-        document.getElementById('userMenuBtn').addEventListener('click', function(e) {
-            e.stopPropagation();
-            document.getElementById('userMenuContainer').classList.toggle('active');
-        });
+        function toggleMobileMenu() {
+            const isActive = mainNav.classList.contains('active');
+            mainNav.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+            
+            if (isActive) {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            } else {
+                mobileMenuBtn.querySelector('i').classList.remove('fa-bars');
+                mobileMenuBtn.querySelector('i').classList.add('fa-times');
+            }
+        }
         
-        // Sayfa tıklanınca açılır menüyü kapat
-        document.addEventListener('click', function() {
-            document.getElementById('userMenuContainer').classList.remove('active');
-        });
+        function closeMobileMenu() {
+            mainNav.classList.remove('active');
+            menuOverlay.classList.remove('active');
+            document.body.classList.remove('menu-open');
+            mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+            mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            
+            document.querySelectorAll('.dropdown').forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        }
+        
+        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+        menuOverlay.addEventListener('click', closeMobileMenu);
         
         // Dropdown Menü için Mobil Uyumluluk
         const servicesDropdown = document.getElementById('servicesDropdown');
@@ -1246,6 +1455,7 @@
         servicesDropdown.addEventListener('click', function(e) {
             if (window.innerWidth <= 768) {
                 e.preventDefault();
+                e.stopPropagation();
                 this.classList.toggle('active');
             }
         });
@@ -1254,72 +1464,38 @@
         document.querySelectorAll('.main-nav a').forEach(link => {
             link.addEventListener('click', function() {
                 if (window.innerWidth <= 768) {
-                    document.getElementById('mainNav').classList.remove('active');
-                    document.getElementById('mobileMenuBtn').querySelector('i').classList.remove('fa-times');
-                    document.getElementById('mobileMenuBtn').querySelector('i').classList.add('fa-bars');
-                    
-                    // Dropdown'ları kapat
-                    document.querySelectorAll('.dropdown').forEach(dropdown => {
-                        dropdown.classList.remove('active');
-                    });
-                }
-            });
-        });
-        
-        // Form Gönderimi
-        document.getElementById('maintenanceForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Form verilerini al
-            const formData = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                service: document.getElementById('service').value,
-                address: document.getElementById('address').value,
-                message: document.getElementById('message').value
-            };
-            
-            // Burada form verilerini sunucuya gönderebilirsiniz
-            // Örnek: fetch API kullanımı
-            
-            // Başarılı gönderim mesajı
-            alert('Randevu talebiniz başarıyla alındı! En kısa sürede sizinle iletişime geçeceğiz.');
-            
-            // Formu temizle
-            this.reset();
-        });
-        
-        // Scroll ile Header'a Shadow Ekleme
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 15px rgba(0, 0, 0, 0.08)';
-            }
-        });
-        
-        // Yumuşak Scroll
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if(this.getAttribute('href') === '#') return;
-                
-                const targetId = this.getAttribute('href');
-                
-                // Sayfa içi link ise
-                if(targetId.startsWith('#')) {
-                    e.preventDefault();
-                    const targetElement = document.querySelector(targetId);
-                    
-                    if(targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
+                    if (!this.parentElement.classList.contains('dropdown') || 
+                        this.nextElementSibling === null) {
+                        closeMobileMenu();
                     }
                 }
             });
+        });
+        
+        // Bakım Formu İşleme
+        document.getElementById('bakimForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const klimaTipi = document.getElementById('klimaTipi').value;
+            const servisTipi = document.getElementById('servisTipi').value;
+            
+            if (!name || !phone) {
+                alert('Lütfen adınızı ve telefon numaranızı giriniz.');
+                return;
+            }
+            
+            // Burada form verileri sunucuya gönderilebilir
+            // Şimdilik basit bir teşekkür mesajı gösterelim
+            
+            alert('Teşekkürler ' + name + '! Bakım/onarım talebiniz alınmıştır. En kısa sürede ' + phone + ' numaralı telefondan sizi arayacağız.');
+            
+            // Formu temizle
+            this.reset();
+            
+            // Telefon numarasını otomatik aramak için (isteğe bağlı)
+            // window.location.href = 'tel:03249991074';
         });
     </script>
 </body>
