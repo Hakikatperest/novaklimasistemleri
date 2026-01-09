@@ -495,11 +495,9 @@
             backface-visibility: hidden;
             border-radius: 8px;
             overflow: hidden;
-            display: flex;
-            flex-direction: column;
         }
         
-        /* KART ÖN YÜZÜ - ESKİ HALİNE GETİRİLDİ */
+        /* KART ÖN YÜZÜ - GÖRSEL VE İÇERİK */
         .service-card-front {
             display: flex;
             flex-direction: column;
@@ -599,7 +597,7 @@
             width: 100%;
         }
         
-        /* KART ARKA YÜZÜ - GÜNCELLENDİ */
+        /* KART ARKA YÜZÜ - TAMAMEN FARKLI (MAVİ ARKA PLAN, ÖZELLİK LİSTESİ, BUTON) */
         .service-card-back {
             background-color: #0066b3;
             color: white;
@@ -1473,6 +1471,7 @@
                 <!-- Bireysel Klimalar -->
                 <div class="service-card fade-in-up" data-product="bireysel">
                     <div class="service-card-inner">
+                        <!-- ÖN YÜZ: Görsel ve içerik -->
                         <div class="service-card-front">
                             <div class="service-content">
                                 <div class="service-icon">
@@ -1482,6 +1481,8 @@
                                 <p>Konut ve ofisler için yüksek verimli inverter klimalar</p>
                             </div>
                         </div>
+                        
+                        <!-- ARKA YÜZ: Sadece mavi arka plan, özellik listesi ve buton -->
                         <div class="service-card-back">
                             <h3>Bireysel Klimalar</h3>
                             <div class="product-features">
