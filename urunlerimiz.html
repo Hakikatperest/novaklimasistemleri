@@ -73,6 +73,9 @@
             border: none;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
         }
         
         .btn:hover {
@@ -308,6 +311,7 @@
             font-size: 16px;
             cursor: pointer;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .category-btn:hover, .category-btn.active {
@@ -397,21 +401,44 @@
             font-size: 14px;
         }
         
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: nowrap;
+            margin-top: auto;
+        }
+        
         .product-btn {
-            display: inline-block;
+            flex: 1;
             text-align: center;
             background-color: #0066b3;
             color: white;
-            padding: 12px 20px;
+            padding: 12px 10px;
             border-radius: 6px;
             font-weight: 600;
-            font-size: 15px;
+            font-size: 14px;
             transition: all 0.3s ease;
-            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
         .product-btn:hover {
             background-color: #004d8c;
+        }
+        
+        .phone-btn {
+            background-color: #dc3545;
+            flex-shrink: 0;
+            min-width: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+        }
+        
+        .phone-btn:hover {
+            background-color: #c82333;
         }
         
         /* ÜRÜN DETAY SECTION */
@@ -542,6 +569,7 @@
             font-weight: 700;
             font-size: 18px;
             transition: all 0.3s ease;
+            white-space: nowrap;
         }
         
         .cta-btn:hover {
@@ -701,6 +729,14 @@
             .products-hero p {
                 font-size: 16px;
             }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .product-btn, .phone-btn {
+                width: 100%;
+            }
         }
         
         @media (max-width: 768px) {
@@ -816,6 +852,10 @@
             section {
                 padding: 60px 0;
             }
+            
+            .product-actions {
+                flex-direction: row;
+            }
         }
         
         @media (max-width: 576px) {
@@ -855,6 +895,24 @@
             .fixed-buttons {
                 bottom: 60px;
                 right: 15px;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+            
+            .product-btn, .phone-btn {
+                width: 100%;
+                font-size: 14px;
+                padding: 10px;
+            }
+            
+            .product-btn span {
+                display: none;
+            }
+            
+            .product-btn:before {
+                content: "Detay";
             }
         }
         
@@ -1040,6 +1098,12 @@
                             <li><i class="fas fa-check"></i> Wi-Fi Kontrol Özelliği</li>
                             <li><i class="fas fa-check"></i> %40'a varan enerji tasarrufu</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#bireysel-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1055,6 +1119,12 @@
                             <li><i class="fas fa-check"></i> Uzaktan Kumanda</li>
                             <li><i class="fas fa-check"></i> 3 Yıl Garanti</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#bireysel-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1070,6 +1140,12 @@
                             <li><i class="fas fa-check"></i> Çoklu Filtre Sistemi</li>
                             <li><i class="fas fa-check"></i> Sessiz Çalışma</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#bireysel-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1086,6 +1162,12 @@
                             <li><i class="fas fa-check"></i> Yüksek Kapasite</li>
                             <li><i class="fas fa-check"></i> Estetik Tasarım</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#profesyonel-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1101,6 +1183,12 @@
                             <li><i class="fas fa-check"></i> Yüksek Statik Basınç</li>
                             <li><i class="fas fa-check"></i> Esnek Kanallandırma</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#profesyonel-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1116,6 +1204,12 @@
                             <li><i class="fas fa-check"></i> 7/24 Çalışabilme</li>
                             <li><i class="fas fa-check"></i> Uzun Ömür</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#profesyonel-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1132,6 +1226,12 @@
                             <li><i class="fas fa-check"></i> Çoklu Bağlantı</li>
                             <li><i class="fas fa-check"></i> Düşük Ses Seviyesi</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#vrf-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1147,6 +1247,12 @@
                             <li><i class="fas fa-check"></i> Bireysel Kontrol</li>
                             <li><i class="fas fa-check"></i> Enerji Verimliliği</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#vrf-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -1162,6 +1268,12 @@
                             <li><i class="fas fa-check"></i> Enerji Takibi</li>
                             <li><i class="fas fa-check"></i> Uzaktan Erişim</li>
                         </ul>
+                        <div class="product-actions">
+                            <a href="#vrf-detail" class="product-btn"><span>Detayları Gör</span></a>
+                            <a href="tel:03249991074" class="product-btn phone-btn" title="Hemen Ara">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
